@@ -12,7 +12,7 @@ require_once 'UNL/Templates.php';
  * @package UNL_Templates
  *
  */
-class UNL_Templates_Unlframework extends UNL_Templates 
+class UNL_Templates_Version2_Unlframework extends UNL_Templates 
 {
     ###START_AUTOCODE
     /* the code below is auto generated do not remove the above tag */
@@ -30,7 +30,7 @@ class UNL_Templates_Unlframework extends UNL_Templates
     public $bigfooter = "<div id=\"footer\"> <div id=\"footer_floater\"> <div id=\"copyright\"> <!--#include virtual=\"../sharedcode/footer.html\" --> <span><a href=\"http://jigsaw.w3.org/css-validator/check/referer\">CSS</a> <a href=\"http://validator.unl.edu/check/referer\">W3C</a> <a href=\"http://www1.unl.edu/feeds/\">RSS</a> </span><a href=\"http://www.unl.edu/\" title=\"UNL Home\"><img src=\"/ucomm/templatedependents/templatecss/images/wordmark.png\" alt=\"UNL\'s wordmark\" id=\"wordmark\" /></a></div> </div> </div>";                      // string()  
 
     /* Static get */
-    function staticGet($k,$v=NULL) { return UNL_DWT::staticGet('UNL_Templates_Unlframework',$k,$v); }
+    function staticGet($k,$v=NULL) { return UNL_DWT::staticGet('UNL_Templates_Version2_Unlframework',$k,$v); }
 
     /* the code above is auto generated do not remove the tag below */
     ###END_AUTOCODE

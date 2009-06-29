@@ -4,7 +4,7 @@
  */
 require_once 'UNL/Templates.php';
 
-class UNL_Templates_Unlaffiliate extends UNL_Templates 
+class UNL_Templates_Version2_Unlaffiliate extends UNL_Templates 
 {
     ###START_AUTOCODE
     /* the code below is auto generated do not remove the above tag */
@@ -24,7 +24,7 @@ class UNL_Templates_Unlaffiliate extends UNL_Templates
     public $footercontent = "<!--#include virtual=\"../sharedcode/footer.html\" -->";                  // string()  
 
     /* Static get */
-    function staticGet($k,$v=NULL) { return UNL_DWT::staticGet('UNL_Templates_Unlaffiliate',$k,$v); }
+    function staticGet($k,$v=NULL) { return UNL_DWT::staticGet('UNL_Templates_Version2_Unlaffiliate',$k,$v); }
 
     /* the code above is auto generated do not remove the tag below */
     ###END_AUTOCODE

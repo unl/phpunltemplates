@@ -12,7 +12,7 @@ require_once 'UNL/Templates.php';
  * @package UNL_Templates
  *
  */
-class UNL_Templates_Unlstandardtemplate extends UNL_Templates 
+class UNL_Templates_Version2_Unlstandardtemplate extends UNL_Templates 
 {
     ###START_AUTOCODE
     /* the code below is auto generated do not remove the above tag */
@@ -33,7 +33,7 @@ class UNL_Templates_Unlstandardtemplate extends UNL_Templates
     public $footercontent = "<!--#include virtual=\"../sharedcode/footer.html\" -->";                  // string()  
 
     /* Static get */
-    function staticGet($k,$v=NULL) { return UNL_DWT::staticGet('UNL_Templates_Unlstandardtemplate',$k,$v); }
+    function staticGet($k,$v=NULL) { return UNL_DWT::staticGet('UNL_Templates_Version2_Unlstandardtemplate',$k,$v); }
 
     /* the code above is auto generated do not remove the tag below */
     ###END_AUTOCODE

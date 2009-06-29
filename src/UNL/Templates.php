@@ -52,6 +52,9 @@ require_once 'Cache/Lite.php';
  */
 class UNL_Templates extends UNL_DWT
 {
+    const VERSION2 = 2;
+    const VERSION3 = 3;
+    
     static public $options = array(
         'debug'                  => 0,
         'sharedcodepath'         => 'sharedcode',
@@ -60,6 +63,7 @@ class UNL_Templates extends UNL_DWT
         'tpl_location'           => '/tmp/',
         'templateserver'         => 'pear.unl.edu',
         'cache'                  => array(),
+        'version'                => UNL_Templates::VERSION2
     );
     
     /**
@@ -82,7 +86,10 @@ class UNL_Templates extends UNL_DWT
      */
     public static function loadDefaultConfig()
     {
-        $config = parse_ini_file('@DATA_DIR@/UNL_Templates/DWT.ini', true);
+        $config = array('UNL_DWT'=>array(
+                        'class_location' => 'UNL/Templates/Version2/',
+                        'tpl_location'   => '/tmp/',
+                        'class_prefix'   => 'UNL_Templates_Version2_'));
         foreach ($config as $class=>$values) {
             if ($class == 'UNL_DWT') {
                 UNL_DWT::$options = array_merge(UNL_DWT::$options, $values);
