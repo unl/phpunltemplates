@@ -59,7 +59,6 @@ class UNL_Templates extends UNL_DWT
         'debug'                  => 0,
         'sharedcodepath'         => 'sharedcode',
         'templatedependentspath' => '',
-        'dwtini'                 => '@DATA_DIR@/UNL_Templates/DWT.ini',
         'tpl_location'           => '/tmp/',
         'templateserver'         => 'pear.unl.edu',
         'cache'                  => array(),
@@ -161,11 +160,11 @@ class UNL_Templates extends UNL_DWT
     function loadSharedcodeFiles()
     {    
         $includes = array(
-                            'footercontent'=>'footer.html',
-                            'navlinks'=>'navigation.html',
-                            'leftcollinks'=>'relatedLinks.html',
-                            'optionalfooter'=>'optionalFooter.html',
-                            'collegenavigationlist'=>'unitNavigation.html',
+                            'footercontent'         => 'footer.html',
+                            'navlinks'              => 'navigation.html',
+                            'leftcollinks'          => 'relatedLinks.html',
+                            'optionalfooter'        => 'optionalFooter.html',
+                            'collegenavigationlist' => 'unitNavigation.html',
                             );
         foreach ($includes as $element=>$filename) {
             if (file_exists(self::$options['sharedcodepath'].'/'.$filename)) {
