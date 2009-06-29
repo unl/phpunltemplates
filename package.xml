@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.8.0alpha1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+ <name>UNL_Templates</name>
+ <channel>pear.unl.edu</channel>
+ <summary>The UNL HTML Templates as a PEAR Package.</summary>
+ <description>This package allows you to render UNL Template styled pages using PHP Objects.</description>
+ <lead>
+  <name>Brett Bieber</name>
+  <user>saltybeagle</user>
+  <email>brett.bieber@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <lead>
+  <name>Ned Hummel</name>
+  <user>nhummel2</user>
+  <email>nhummel2@math.unl.edu</email>
+  <active>yes</active>
+ </lead>
+ <date>2008-11-06</date>
+ <time>13:13:40</time>
+ <version>
+  <release>1.0.0RC4</release>
+  <api>1.0.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
+ <notes>
+Feature Release!
+New methods:
+* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
+* addScript($url, $type = &apos;text/javascript&apos;)
+* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
+* addStyleDeclaration($content, $type = &apos;text/css&apos;)
+* addStyleSheet($url, $media = &apos;all&apos;)
+* __toString()  Now you can just use echo $page;
+
+Auto loading of files - now supporting:
+* optionalfooter=&gt;optionalFooter.html
+* collegenavigationlist=&gt;unitNavigation.html
+
+New Remote Template Scanner UNL_Templates_Scanner
+* Scans a rendered UNL Template page for the editable content areas.
+
+Other fixes:
+* Use static vars instead of PEAR::getStaticProperty() - fixes E_STRICT warnings
+* Remove debug code causing cache to never be used.
+* Fix debugging.
+* Merge UNL_DWT::$options with options from ini file instead of overwriting.
+* Set default timezone to use before we use date functions.
+* Add newlines after header additions.
+
+Add example of a custom class with auto-breadcrumb generation and body content loading.
+
+Thanks to Ned Hummel for picking up this baby.
+ </notes>
+ <contents>
+  <dir baseinstalldir="UNL" name="/">
+   <dir name="docs">
+    <dir name="examples">
+     <dir name="customization">
+      <file name="CustomClass.php" role="doc">
+       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+      </file>
+      <file name="customization_example.html" role="doc">
+       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+      </file>
+      <file name="customization_example.php" role="doc">
+       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+      </file>
+     </dir> <!-- /docs/examples/customization -->
+     <file name="example1.php" role="doc">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+     <file name="scanner.php" role="doc">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+    </dir> <!-- /docs/examples -->
+   </dir> <!-- /docs -->
+   <dir name="Templates">
+    <dir name="tpl_cache">
+     <file name="Document.tpl" role="data">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+     <file name="Fixed.tpl" role="data">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+     <file name="Liquid.tpl" role="data">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+     <file name="Popup.tpl" role="data">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+     <file name="Secure.tpl" role="data">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+     <file name="Unlaffiliate.tpl" role="data">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+     <file name="Unlframework.tpl" role="data">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+     <file name="Unlstandardtemplate.tpl" role="data">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
+    </dir> <!-- /Templates/tpl_cache -->
+    <file name="Document.php" role="php">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+    <file name="Fixed.php" role="php">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+    <file name="Liquid.php" role="php">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+    <file name="Popup.php" role="php">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+    <file name="Scanner.php" role="php">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+    <file name="Secure.php" role="php">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+    <file name="Unlaffiliate.php" role="php">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+    <file name="Unlframework.php" role="php">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+    <file name="Unlstandardtemplate.php" role="php">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+   </dir> <!-- /Templates -->
+   <dir name="tests">
+    <file name="UNL_TemplatesTest.php" role="test">
+     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    </file>
+   </dir> <!-- /tests -->
+   <file name="DWT.ini" role="data">
+    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+    <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    <tasks:replace from="@PHP_BIN@" to="php_bin" type="pear-config" />
+    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+    <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+   </file>
+   <file name="Templates.php" role="php">
+    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+    <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+    <tasks:replace from="@PHP_BIN@" to="php_bin" type="pear-config" />
+    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+    <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+   </file>
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.3</min>
+   </pearinstaller>
+   <package>
+    <name>Cache_Lite</name>
+    <channel>pear.php.net</channel>
+    <min>1.0</min>
+   </package>
+   <package>
+    <name>UNL_DWT</name>
+    <channel>pear.unl.edu</channel>
+    <min>0.7.0</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2006-03-02</date>
+   <license>PHP License</license>
+   <notes>First release, only basic functionality, we assume you have /unlpub/templatedependents/ set up on your server already.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5.0</release>
+    <api>0.5.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2006-08-14</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Updates the package to use the new 2006-08 UNL Templates. Template dependents /ucomm/templatedependents/ are still required outside of this package. Added new replacement functions to handle the template dependent replacements.
+		Removed evalPHPFile function... not needed anymore.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5.1</release>
+    <api>0.5.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-01-05</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD License</license>
+   <notes>Change license to BSD, update tpl_cache to UNL Templates created on 2007-01-05. No other changes.
+	All users with previous versions do not need to upgrade because the server will automatically serve out new tpl files.</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5.2</release>
+    <api>0.5.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-11-29</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD License</license>
+   <notes>Add check that file can actually be opened.
+No other changes.</notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0RC1</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-03-26</date>
+   <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
+   <notes>Feature Release!
+New methods:
+* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
+* addScript($url, $type = &apos;text/javascript&apos;)
+* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
+* addStyleDeclaration($content, $type = &apos;text/css&apos;)
+* addStyleSheet($url, $type = &apos;text/css&apos;, $media = null)
+* __toString()  Now you can just use echo $page;
+
+Auto loading of files - now supporting:
+* optionalfooter=&gt;optionalFooter.html
+* collegenavigationlist=&gt;unitNavigation.html
+
+Other fixes:
+* Use static vars instead of PEAR::getStaticProperty() - fixes E_STRICT warnings
+
+Add example of a custom class with auto-breadcrumb generation and body content loading.
+
+Thanks to Ned Hummel for picking up this baby.</notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0RC2</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-06-30</date>
+   <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
+   <notes>Feature Release!
+New methods:
+* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
+* addScript($url, $type = &apos;text/javascript&apos;)
+* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
+* addStyleDeclaration($content, $type = &apos;text/css&apos;)
+* addStyleSheet($url, $media = &apos;all&apos;)
+* __toString()  Now you can just use echo $page;
+
+Auto loading of files - now supporting:
+* optionalfooter=&gt;optionalFooter.html
+* collegenavigationlist=&gt;unitNavigation.html
+
+Other fixes:
+* Use static vars instead of PEAR::getStaticProperty() - fixes E_STRICT warnings
+* Remove debug code causing cache to never be used.
+* Fix debugging.
+* Merge UNL_DWT::$options with options from ini file instead of overwriting.
+* Set default timezone to use before we use date functions.
+
+Add example of a custom class with auto-breadcrumb generation and body content loading.
+
+Thanks to Ned Hummel for picking up this baby.</notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0RC3</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-06-30</date>
+   <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
+   <notes>Feature Release!
+New methods:
+* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
+* addScript($url, $type = &apos;text/javascript&apos;)
+* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
+* addStyleDeclaration($content, $type = &apos;text/css&apos;)
+* addStyleSheet($url, $media = &apos;all&apos;)
+* __toString()  Now you can just use echo $page;
+
+Auto loading of files - now supporting:
+* optionalfooter=&gt;optionalFooter.html
+* collegenavigationlist=&gt;unitNavigation.html
+
+New Remote Template Scanner UNL_Templates_Scanner
+* Scans a rendered UNL Template page for the editable content areas.
+
+Other fixes:
+* Use static vars instead of PEAR::getStaticProperty() - fixes E_STRICT warnings
+* Remove debug code causing cache to never be used.
+* Fix debugging.
+* Merge UNL_DWT::$options with options from ini file instead of overwriting.
+* Set default timezone to use before we use date functions.
+
+Add example of a custom class with auto-breadcrumb generation and body content loading.
+
+Thanks to Ned Hummel for picking up this baby.</notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0RC4</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2008-11-06</date>
+   <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
+   <notes>
+Feature Release!
+New methods:
+* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
+* addScript($url, $type = &apos;text/javascript&apos;)
+* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
+* addStyleDeclaration($content, $type = &apos;text/css&apos;)
+* addStyleSheet($url, $media = &apos;all&apos;)
+* __toString()  Now you can just use echo $page;
+
+Auto loading of files - now supporting:
+* optionalfooter=&gt;optionalFooter.html
+* collegenavigationlist=&gt;unitNavigation.html
+
+New Remote Template Scanner UNL_Templates_Scanner
+* Scans a rendered UNL Template page for the editable content areas.
+
+Other fixes:
+* Use static vars instead of PEAR::getStaticProperty() - fixes E_STRICT warnings
+* Remove debug code causing cache to never be used.
+* Fix debugging.
+* Merge UNL_DWT::$options with options from ini file instead of overwriting.
+* Set default timezone to use before we use date functions.
+* Add newlines after header additions.
+
+Add example of a custom class with auto-breadcrumb generation and body content loading.
+
+Thanks to Ned Hummel for picking up this baby.
+   </notes>
+  </release>
+ </changelog>
+</package>
