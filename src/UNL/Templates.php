@@ -129,16 +129,16 @@ class UNL_Templates extends UNL_DWT
         // Test if there is a valid cache for this template
         if ($data = $cache->get($this->__template)) {
             // Content is in $data
-            $this->debug('Using cached version from '.
+            self::debug('Using cached version from '.
                          date('Y-m-d H:i:s', $cache->lastModified()), 'getCache', 3);
         } else { // No valid cache found
             if ($data = self::$template_version->getTemplate($this->__template)) {
-                $this->debug('Updating cache.', 'getCache', 3);
+                self::debug('Updating cache.', 'getCache', 3);
                 $data = $this->makeIncludeReplacements($data);
                 $cache->save($data, $this->__template);
             } else {
                 // Error getting updated version of the templates.
-                $this->debug('Could not connect to template server. ' . PHP_EOL .
+                self::debug('Could not connect to template server. ' . PHP_EOL .
                              'Extending life of template cache.', 'getCache', 3);
                 $cache->extendLife();
                 $data = $cache->get($this->__template);
@@ -295,7 +295,7 @@ class UNL_Templates extends UNL_DWT
      * 
      * @return void
      */
-    function debug($message, $logtype = 0, $level = 1)
+    static function debug($message, $logtype = 0, $level = 1)
     {
         UNL_DWT::$options['debug'] = self::$options['debug'];
         parent::debug($message, $logtype, $level);

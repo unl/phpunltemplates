@@ -30,7 +30,7 @@ class UNL_Templates_Version2 implements UNL_Templates_Version
                 $html = str_replace('<!--#include virtual="'.$include.'" -->',
                                  file_get_contents($file), $html);
             } else {
-                $this->debug('File does not exist:'.$file,
+                UNL_Templates::debug('File does not exist:'.$file,
                              'makeIncludeReplacements', 3);
             }
         }
