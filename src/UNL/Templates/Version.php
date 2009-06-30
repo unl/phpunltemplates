@@ -1,7 +1,9 @@
 <?php
 
-abstract class UNL_Templates_Version
+interface UNL_Templates_Version
 { 
-    
+    function getConfig();
+    function getTemplate($template);
+    function makeIncludeReplacements($html);
 }
 ?>

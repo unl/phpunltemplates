@@ -19,12 +19,6 @@
 require_once 'UNL/DWT.php';
 
 /**
- * Cache lite is used to cache the raw template files, and can also be used to 
- * cached the rendered HTML output.
- */
-require_once 'Cache/Lite.php';
-
-/**
  * Allows you to create UNL Template based HTML pages through an object 
  * oriented interface.
  * 
@@ -55,15 +49,27 @@ class UNL_Templates extends UNL_DWT
     const VERSION2 = 2;
     const VERSION3 = 3;
     
+    /**
+     * Cache object for output caching
+     * 
+     * @var UNL_Templates_CachingService
+     */
+    static protected $cache;
+    
     static public $options = array(
         'debug'                  => 0,
         'sharedcodepath'         => 'sharedcode',
         'templatedependentspath' => '',
-        'tpl_location'           => '/tmp/',
-        'templateserver'         => 'pear.unl.edu',
         'cache'                  => array(),
-        'version'                => UNL_Templates::VERSION2
+        'version'                => self::VERSION2
     );
+    
+    /**
+     * The version of the templates we're using.
+     * 
+     * @var UNL_Templates_Version
+     */
+    static public $template_version;
     
     /**
      * Construct a UNL_Templates object
@@ -71,10 +77,6 @@ class UNL_Templates extends UNL_DWT
     public function __construct()
     {
         date_default_timezone_set(date_default_timezone_get());
-        UNL_DWT::$options['tpl_location'] = self::$options['tpl_location'];
-        
-        self::$options['cache'] = array('cacheDir'=>&self::$options['tpl_location'],
-                                        'lifeTime'=>3600);
         self::$options['templatedependentspath'] = $_SERVER['DOCUMENT_ROOT'];
     }
     
@@ -85,15 +87,10 @@ class UNL_Templates extends UNL_DWT
      */
     public static function loadDefaultConfig()
     {
-        $config = array('UNL_DWT'=>array(
-                        'class_location' => 'UNL/Templates/Version2/',
-                        'tpl_location'   => '/tmp/',
-                        'class_prefix'   => 'UNL_Templates_Version2_'));
-        foreach ($config as $class=>$values) {
-            if ($class == 'UNL_DWT') {
-                UNL_DWT::$options = array_merge(UNL_DWT::$options, $values);
-            }
-        }
+        include_once 'UNL/Templates/Version'.self::$options['version'].'.php';
+        $class = 'UNL_Templates_Version'.self::$options['version'];
+        self::$template_version = new $class();
+        UNL_DWT::$options = array_merge(UNL_DWT::$options, self::$template_version->getConfig());
     }
     
     /**
@@ -128,25 +125,23 @@ class UNL_Templates extends UNL_DWT
      */
     function getCache()
     {
-        $Cache_Lite = new Cache_Lite(self::$options['cache']);
+        $cache = self::getCachingService();
         // Test if there is a valid cache for this template
-        if ($data = $Cache_Lite->get($this->__template)) {
+        if ($data = $cache->get($this->__template)) {
             // Content is in $data
             $this->debug('Using cached version from '.
-                         date('Y-m-d H:i:s', $Cache_Lite->lastModified()), 'getCache', 3);
+                         date('Y-m-d H:i:s', $cache->lastModified()), 'getCache', 3);
         } else { // No valid cache found
-            $file = 'http://'.self::$options['templateserver'].
-                    '/UNL/Templates/server.php?template='.$this->__template;
-            if ($data = file_get_contents($file)) {
+            if ($data = self::$template_version->getTemplate($this->__template)) {
                 $this->debug('Updating cache.', 'getCache', 3);
                 $data = $this->makeIncludeReplacements($data);
-                $Cache_Lite->save($data);
+                $cache->save($data, $this->__template);
             } else {
                 // Error getting updated version of the templates.
                 $this->debug('Could not connect to template server. ' . PHP_EOL .
                              'Extending life of template cache.', 'getCache', 3);
-                $Cache_Lite->extendLife();
-                $data = $Cache_Lite->get($this->__template);
+                $cache->extendLife();
+                $data = $cache->get($this->__template);
             }
         }
         return $data;
@@ -288,24 +283,7 @@ class UNL_Templates extends UNL_DWT
      */
     function makeIncludeReplacements($p)
     {
-        $this->debug('Now making template include replacements.',
-                     'makeIncludeReplacements', 3);
-        $includes = array();
-        preg_match_all('<!--#include virtual="(/ucomm/templatedependents/[A-Za-z0-9\.\/]+)" -->',
-                        $p, $includes);
-        $this->debug(print_r($includes, true), 'makeIncludeReplacements', 3);
-        foreach ($includes[1] as $include) {
-            $this->debug('Replacing '.$include, 'makeIncludeReplacements', 3);
-            $file = self::$options['templatedependentspath'].$include;
-            if (file_exists($file)) {
-                $p = str_replace('<!--#include virtual="'.$include.'" -->',
-                                 file_get_contents($file), $p);
-            } else {
-                $this->debug('File does not exist:'.$file,
-                             'makeIncludeReplacements', 3);
-            }
-        }
-        return $p;
+        return self::$template_version->makeIncludeReplacements($p);
     }
     
     /**
@@ -321,5 +299,31 @@ class UNL_Templates extends UNL_DWT
     {
         UNL_DWT::$options['debug'] = self::$options['debug'];
         parent::debug($message, $logtype, $level);
+    }
+    
+    /**
+     * Cleans the cache.
+     *
+     * @param mixed $o Pass a cached object to clean it's cache, or a string id.
+     *
+     * @return bool true if cache was successfully cleared.
+     */
+    public function cleanCache($object = null)
+    {
+        return self::getCachingService()->clean($object);
+    }
+    
+    static public function setCachingService(UNL_Templates_CachingService $cache)
+    {
+        self::$cache = $cache;
+    }
+    
+    static public function getCachingService()
+    {
+        if (!isset(self::$cache)) {
+            include_once 'UNL/Templates/CachingService/CacheLite.php';
+            self::$cache = new UNL_Templates_CachingService_CacheLite(self::$options['cache']);
+        }
+        return self::$cache;
     }
 }
