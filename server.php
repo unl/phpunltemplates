@@ -3,7 +3,7 @@
 if (file_exists(dirname(__FILE__).'/data/tpl_cache')) {
     $tpl_dir = dirname(__FILE__).'/data/tpl_cache';
 } else {
-    $tpl_dir = '/usr/share/pear/data/UNL_Templates/Templates/tpl_cache';
+    $tpl_dir = '/usr/share/pear/data/UNL_Templates/data/tpl_cache';
 }
 
 

@@ -17,7 +17,7 @@
   <active>yes</active>
  </lead>
  <date>2009-07-01</date>
- <time>11:19:28</time>
+ <time>11:51:29</time>
  <version>
   <release>1.0.0RC5</release>
   <api>1.0.0</api>
@@ -279,7 +279,7 @@ Add example of a custom class with auto-breadcrumb generation and body content l
    <package>
     <name>UNL_DWT</name>
     <channel>pear.unl.edu</channel>
-    <min>0.7.0</min>
+    <min>0.7.1</min>
    </package>
   </required>
  </dependencies>

@@ -84,7 +84,7 @@ $pfm->clearDeps();
 $pfm->setPhpDep('5.0.0');
 $pfm->setPearinstallerDep('1.4.3');
 $pfm->addPackageDepWithChannel('required', 'Cache_Lite', 'pear.php.net', '1.0');
-$pfm->addPackageDepWithChannel('required', 'UNL_DWT', 'pear.unl.edu', '0.7.0');
+$pfm->addPackageDepWithChannel('required', 'UNL_DWT', 'pear.unl.edu', '0.7.1');
 
 //$pfm->addMaintainer('lead','nhummel2','Ned Hummel','nhummel2@math.unl.edu');
 $pfm->setLicense('BSD License', 'http://www1.unl.edu/wdn/wiki/Software_License');
