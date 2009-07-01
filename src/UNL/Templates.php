@@ -126,8 +126,9 @@ class UNL_Templates extends UNL_DWT
     function getCache()
     {
         $cache = self::getCachingService();
+        $cache_key = self::$options['version'].$this->__template;
         // Test if there is a valid cache for this template
-        if ($data = $cache->get($this->__template)) {
+        if ($data = $cache->get($cache_key)) {
             // Content is in $data
             self::debug('Using cached version from '.
                          date('Y-m-d H:i:s', $cache->lastModified()), 'getCache', 3);
@@ -135,7 +136,7 @@ class UNL_Templates extends UNL_DWT
             if ($data = self::$template_version->getTemplate($this->__template)) {
                 self::debug('Updating cache.', 'getCache', 3);
                 $data = $this->makeIncludeReplacements($data);
-                $cache->save($data, $this->__template);
+                $cache->save($data, $cache_key);
             } else {
                 // Error getting updated version of the templates.
                 self::debug('Could not connect to template server. ' . PHP_EOL .
