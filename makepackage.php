@@ -14,8 +14,8 @@ chdir(dirname(__FILE__));
 $pfm = PEAR_PackageFileManager2::importOptions('package.xml', array(
 //$pfm = new PEAR_PackageFileManager2();
 //$pfm->setOptions(array(
-	'packagedirectory' => dirname(__FILE__).'/src',
-	'baseinstalldir' => '',
+	'packagedirectory' => dirname(__FILE__),
+	'baseinstalldir' => '/',
 	'filelistgenerator' => 'file',
 	'ignore' => array(	'package.xml',
 						'package2.xml',
@@ -26,7 +26,8 @@ $pfm = PEAR_PackageFileManager2::importOptions('package.xml', array(
 						'*CVS/*',
 						'.cache',
 						'cssUNLTemplates.ini',
-						'*/_notes/*'),
+						'*/_notes/*',
+                        '*docs/examples/includes*'),
 	'simpleoutput' => true,
 	'roles'=>array('php'=>'php'	),
 	'exceptions'=>array()
@@ -74,7 +75,6 @@ Other fixes:
 
 Add example of a custom class with auto-breadcrumb generation and body content loading.
 
-Thanks to Ned Hummel for picking up this baby.
 ';
 $pfm->setNotes($notes);
 $pfm->addRelease(); // Set up a release section.
