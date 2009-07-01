@@ -26,13 +26,13 @@ class UNL_Templates_Version2 implements UNL_Templates_Version
         foreach ($includes[1] as $include) {
             UNL_Templates::debug('Replacing '.$include, 'makeIncludeReplacements', 3);
             $file = UNL_Templates::$options['templatedependentspath'].$include;
-            if (file_exists($file)) {
-                $html = str_replace('<!--#include virtual="'.$include.'" -->',
-                                 file_get_contents($file), $html);
-            } else {
+            if (!file_exists($file)) {
                 UNL_Templates::debug('File does not exist:'.$file,
                              'makeIncludeReplacements', 3);
+                $file = 'http://www.unl.edu'.$include;
             }
+            $html = str_replace('<!--#include virtual="'.$include.'" -->',
+                                 file_get_contents($file), $html);
         }
         return $html;
     }

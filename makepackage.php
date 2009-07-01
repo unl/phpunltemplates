@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors',true);
+ini_set('display_errors', true);
 require_once 'PEAR/PackageFileManager2.php';
 require_once 'PEAR/PackageFileManager/File.php';
 require_once 'PEAR/Task/Postinstallscript/rw.php';
@@ -14,8 +14,8 @@ chdir(dirname(__FILE__));
 $pfm = PEAR_PackageFileManager2::importOptions('package.xml', array(
 //$pfm = new PEAR_PackageFileManager2();
 //$pfm->setOptions(array(
-	'packagedirectory' => dirname(__FILE__),
-	'baseinstalldir' => 'UNL',
+	'packagedirectory' => dirname(__FILE__).'/src',
+	'baseinstalldir' => '',
 	'filelistgenerator' => 'file',
 	'ignore' => array(	'package.xml',
 						'package2.xml',
@@ -37,11 +37,18 @@ $pfm->setPackageType('php'); // this is a PEAR-style php script package
 $pfm->setSummary('The UNL HTML Templates as a PEAR Package.');
 $pfm->setDescription('This package allows you to render UNL Template styled pages using PHP Objects.');
 $pfm->setAPIVersion('1.0.0');
-$pfm->setReleaseVersion('1.0.0RC4');
+$pfm->setReleaseVersion('1.0.0RC5');
 $pfm->setReleaseStability('beta');
 $pfm->setAPIStability('beta');
 $notes = '
 Feature Release!
+Added support for specifying the template version, 2 or 3.
+* UNL_Templates::$options[\'version\'] = 3; to use the new templates.
+
+Additional work to prevent broken pages.
+* If local files are not present for the <!--#include statements, it will grab them remotely.
+* If wdn/templates_3.0 does not exist locally it will use a template with absolute references to prevent broken pages.
+
 New methods:
 * addHeadLink($href, $relation, $relType = \'rel\', array $attributes = array())
 * addScript($url, $type = \'text/javascript\')

@@ -19,7 +19,7 @@ if (isset($_GET['template'])
 	if (isset($_GET['full'])) {
 	    require_once 'UNL/Templates.php';
 	    UNL_Templates::$options['version'] = $version;
-		$p = UNL_Templates::factory(str_replace('.tpl','',$_GET['template']));
+		$p = UNL_Templates::factory(str_replace('.tpl', '', $_GET['template']));
 		$p->maincontentarea		= '';
 		$p->leftRandomPromo		= '';
 		$p->footercontent		= '';
