@@ -17,7 +17,7 @@
   <active>yes</active>
  </lead>
  <date>2009-07-01</date>
- <time>11:15:54</time>
+ <time>11:19:28</time>
  <version>
   <release>1.0.0RC5</release>
   <api>1.0.0</api>
@@ -261,10 +261,6 @@ Add example of a custom class with auto-breadcrumb generation and body content l
      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
     </file>
    </dir> <!-- /UNL -->
-   <file name="server.php" role="php">
-    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-    <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-   </file>
   </dir> <!-- / -->
  </contents>
  <dependencies>

@@ -27,7 +27,8 @@ $pfm = PEAR_PackageFileManager2::importOptions('package.xml', array(
 						'.cache',
 						'cssUNLTemplates.ini',
 						'*/_notes/*',
-                        '*docs/examples/includes*'),
+                        '*docs/examples/includes*',
+                        'server.php'),
 	'simpleoutput' => true,
 	'roles'=>array('php'=>'php'	),
 	'exceptions'=>array()
