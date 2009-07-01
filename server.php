@@ -33,8 +33,11 @@ if (isset($_GET['template'])
 		$dwt = $tpl_dir.'/Version'.$version.'/'.$_GET['template'];
 		if (file_exists($dwt)) {
 			echo file_get_contents($dwt);
-		} else {
+		} elseif (file_exists($tpl_dir.'/Version'.$version.'/'.$default_template)) {
 			echo file_get_contents($tpl_dir.'/Version'.$version.'/'.$default_template);
+		} else {
+		    header('HTTP/1.0 404 Not Found');
+		    echo 'Sorry could not load the template files!';
 		}
 	}
 }
