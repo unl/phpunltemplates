@@ -214,7 +214,7 @@ class UNL_Templates extends UNL_DWT
      */
     function addScriptDeclaration($content, $type = 'text/javascript')
     {
-        $this->head .= '<script type="'.$type.'"><![CDATA['.$content.']]></script>'.PHP_EOL;
+        $this->head .= '<script type="'.$type.'">//<![CDATA['.PHP_EOL.$content.PHP_EOL.'//]]></script>'.PHP_EOL;
     }
 
     /**

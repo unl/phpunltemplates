@@ -39,7 +39,7 @@ $pfm->setPackageType('php'); // this is a PEAR-style php script package
 $pfm->setSummary('The UNL HTML Templates as a PEAR Package.');
 $pfm->setDescription('This package allows you to render UNL Template styled pages using PHP Objects.');
 $pfm->setAPIVersion('1.0.0');
-$pfm->setReleaseVersion('1.0.0RC5');
+$pfm->setReleaseVersion('1.0.0RC6');
 $pfm->setReleaseStability('beta');
 $pfm->setAPIStability('beta');
 $notes = '
@@ -73,6 +73,7 @@ Other fixes:
 * Merge UNL_DWT::$options with options from ini file instead of overwriting.
 * Set default timezone to use before we use date functions.
 * Add newlines after header additions.
+* Fix addScriptDeclaration method to comment out CDATA to prevent syntax errors.
 
 Add example of a custom class with auto-breadcrumb generation and body content loading.
 
