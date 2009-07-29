@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/liquid.dwt" codeOutsideHTMLIsLocked="false" -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><!-- InstanceBegin template="/Templates/secure.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
 <!--
     Membership and regular participation in the UNL Web Developer Network
@@ -13,9 +13,9 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: liquid.dwt 536 2009-07-23 15:47:30Z bbieber2 $
+    $Id: secure.dwt 562 2009-07-28 19:58:23Z bbieber2 $
 -->
-<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/debug.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
 <script type="text/javascript" src="/wdn/templates_3.0/scripts/all.js"></script>
 <!--#include virtual="/wdn/templates_3.0/includes/browserspecifics.html" -->
@@ -27,12 +27,16 @@
 <!-- Place optional header elements here -->
 <!-- InstanceEndEditable -->
 </head>
-<body class="liquid">
+<body class="secure fixed">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
-        <!--#include virtual="/wdn/templates_3.0/includes/wdnTools.html" -->
+        <div id="wdn_identity_management"> 
+<!-- InstanceBeginEditable name="identitymanagement" -->
+<a href="https://login.unl.edu/cas/logout">Logout</a>
+<!-- InstanceEndEditable -->
+ </div>
     </div>
     <div id="wdn_navigation_bar">
         <div id="breadcrumbs">
@@ -82,28 +86,6 @@
         </div>
         <div id="footer">
             <div id="footer_floater"></div>
-            <div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
-            </div>
-            <div class="footer_col">
-<!-- InstanceBeginEditable name="leftcollinks" -->
-                <!--#include virtual="../sharedcode/relatedLinks.html" -->
-                
-<!-- InstanceEndEditable -->
-</div>
-            <div class="footer_col">
-<!-- InstanceBeginEditable name="contactinfo" -->
-                <!--#include virtual="../sharedcode/footerContactInfo.html" -->
-                
-<!-- InstanceEndEditable -->
-</div>
-            <div class="footer_col">
-                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
-            </div>
-            
-<!-- InstanceBeginEditable name="optionalfooter" -->
- 
-<!-- InstanceEndEditable -->
             <div id="wdn_copyright">
 <!-- InstanceBeginEditable name="footercontent" -->
                 <!--#include virtual="../sharedcode/footer.html" -->

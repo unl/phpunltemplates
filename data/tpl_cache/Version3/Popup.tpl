@@ -13,7 +13,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: popup.dwt 341 2009-06-18 19:47:26Z bbieber2 $
+    $Id: popup.dwt 536 2009-07-23 15:47:30Z bbieber2 $
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
@@ -33,13 +33,6 @@
     <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
     </div>
-    <div id="wdn_navigation_bar">
-        <div id="breadcrumbs">
-            </div>
-        <div id="wdn_navigation_wrapper">
-            <div id="navigation"></div>
-        </div>
-    </div>
     <div id="wdn_content_wrapper">
         <div id="titlegraphic">
 <!-- InstanceBeginEditable name="titlegraphic" -->
@@ -47,11 +40,16 @@
             
 <!-- InstanceEndEditable -->
 </div>
+        <div id="pagetitle">
+<!-- InstanceBeginEditable name="pagetitle" -->
+ 
+<!-- InstanceEndEditable -->
+</div>
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             
 <!-- InstanceBeginEditable name="maincontentarea" -->
-            <p><strong>Delete this box and place your content here.</strong><br />
+            <p>Place your content here.<br />
                 Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu//">Web Developer Network</a>. <br />
                 <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
             

@@ -13,7 +13,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: shared_column_right.dwt 376 2009-06-24 15:07:40Z bbieber2 $
+    $Id: shared_column_right.dwt 536 2009-07-23 15:47:30Z bbieber2 $
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
@@ -62,15 +62,19 @@
             
 <!-- InstanceEndEditable -->
 </div>
+        <div id="pagetitle">
+<!-- InstanceBeginEditable name="pagetitle" -->
+ 
+<!-- InstanceEndEditable -->
+</div>
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-            <div class="three_col left">
-			
+            <div class="three_col left"> 
 <!-- InstanceBeginEditable name="maincontentarea" -->
-            <p><strong>Delete this box and place your content here.</strong><br />
-                Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu//">Web Developer Network</a>. <br />
-    <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
-            
+                <p>Place your content here.<br />
+                    Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu//">Web Developer Network</a>. <br />
+                    <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
+                
 <!-- InstanceEndEditable -->
 </div>
             
@@ -90,12 +94,6 @@
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
             <div class="footer_col">
-<!-- InstanceBeginEditable name="leftRandomPromo" -->
-                <!--#include virtual="../sharedcode/footerColumn.html" -->
-                
-<!-- InstanceEndEditable -->
-</div>
-            <div class="footer_col">
 <!-- InstanceBeginEditable name="leftcollinks" -->
                 <!--#include virtual="../sharedcode/relatedLinks.html" -->
                 
@@ -104,9 +102,12 @@
             <div class="footer_col">
 <!-- InstanceBeginEditable name="contactinfo" -->
                 <!--#include virtual="../sharedcode/footerContactInfo.html" -->
-            
+                
 <!-- InstanceEndEditable -->
 </div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
             
 <!-- InstanceBeginEditable name="optionalfooter" -->
  

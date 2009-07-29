@@ -1,30 +1,27 @@
 <?php
 /**
- * Template Definition for shared_column_left.dwt
+ * Template Definition for secure.dwt
  */
 require_once 'UNL/Templates.php';
 
-class UNL_Templates_Version3_Shared_column_left extends UNL_Templates 
+class UNL_Templates_Version3_Secure extends UNL_Templates 
 {
     ###START_AUTOCODE
     /* the code below is auto generated do not remove the above tag */
 
-    public $__template = 'Shared_column_left.tpl';          // template name
+    public $__template = 'Secure.tpl';                      // template name
     public $doctitle = "<title>UNL | Department | New Page</title>";                       // string()  
     public $head = "<!-- Place optional header elements here -->";                           // string()  
+    public $identitymanagement = "<a href=\"https://login.unl.edu/cas/logout\">Logout</a>";             // string()  
     public $breadcrumbs = "<ul> <li><a href=\"http://www.unl.edu/\" title=\"University of Nebraska&ndash;Lincoln\">UNL</a></li> <li>Department</li> </ul>";                    // string()  
     public $navlinks = "<!--#include virtual=\"../sharedcode/navigation.html\" -->";                       // string()  
     public $titlegraphic = "<h1>Department</h1>";                   // string()  
     public $pagetitle = "";                      // string()  
-    public $sharedcolumn = "<div class=\"col left\"> <!--#include virtual=\"../sharedcode/sharedColumn.html\" --> </div>";                   // string()  
     public $maincontentarea = "<p>Place your content here.<br /> Remember to validate your pages before publishing! Sample layouts are available through the <a href=\"http://wdn.unl.edu//\">Web Developer Network</a>. <br /> <a href=\"http://validator.unl.edu/check/referer\">Check this page</a> </p>";                // string()  
-    public $leftcollinks = "<!--#include virtual=\"../sharedcode/relatedLinks.html\" -->";                   // string()  
-    public $contactinfo = "<!--#include virtual=\"../sharedcode/footerContactInfo.html\" -->";                    // string()  
-    public $optionalfooter = "";                 // string()  
     public $footercontent = "<!--#include virtual=\"../sharedcode/footer.html\" -->";                  // string()  
 
     /* Static get */
-    function staticGet($k,$v=NULL) { return UNL_DWT::staticGet('UNL_Templates_Version3_Shared_column_left',$k,$v); }
+    function staticGet($k,$v=NULL) { return UNL_DWT::staticGet('UNL_Templates_Version3_Secure',$k,$v); }
 
     /* the code above is auto generated do not remove the tag below */
     ###END_AUTOCODE

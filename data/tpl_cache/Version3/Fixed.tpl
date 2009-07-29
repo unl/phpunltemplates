@@ -13,7 +13,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: fixed.dwt 341 2009-06-18 19:47:26Z bbieber2 $
+    $Id: fixed.dwt 536 2009-07-23 15:47:30Z bbieber2 $
 -->
 <link rel="stylesheet" type="text/css" media="screen" href="/wdn/templates_3.0/css/all.css" />
 <link rel="stylesheet" type="text/css" media="print" href="/wdn/templates_3.0/css/print.css" />
@@ -40,7 +40,7 @@
             
 <!-- InstanceBeginEditable name="breadcrumbs" -->
             <ul>
-                <li><a href="http://www.unl.edu/">UNL</a></li>
+                <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln">UNL</a></li>
                 <li>Department</li>
             </ul>
             
@@ -62,11 +62,16 @@
             
 <!-- InstanceEndEditable -->
 </div>
+        <div id="pagetitle">
+<!-- InstanceBeginEditable name="pagetitle" -->
+ 
+<!-- InstanceEndEditable -->
+</div>
         <div id="maincontent">
             <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
             
 <!-- InstanceBeginEditable name="maincontentarea" -->
-            <p><strong>Delete this box and place your content here.</strong><br />
+            <p>Place your content here.<br />
                 Remember to validate your pages before publishing! Sample layouts are available through the <a href="http://wdn.unl.edu//">Web Developer Network</a>. <br />
                 <a href="http://validator.unl.edu/check/referer">Check this page</a> </p>
             
@@ -81,12 +86,6 @@
                 <!--#include virtual="/wdn/templates_3.0/includes/feedback.html" -->
             </div>
             <div class="footer_col">
-<!-- InstanceBeginEditable name="leftRandomPromo" -->
-                <!--#include virtual="../sharedcode/footerColumn.html" -->
-                
-<!-- InstanceEndEditable -->
-</div>
-            <div class="footer_col">
 <!-- InstanceBeginEditable name="leftcollinks" -->
                 <!--#include virtual="../sharedcode/relatedLinks.html" -->
                 
@@ -95,9 +94,12 @@
             <div class="footer_col">
 <!-- InstanceBeginEditable name="contactinfo" -->
                 <!--#include virtual="../sharedcode/footerContactInfo.html" -->
-            
+                
 <!-- InstanceEndEditable -->
 </div>
+            <div class="footer_col">
+                <!--#include virtual="/wdn/templates_3.0/includes/socialmediashare.html" -->
+            </div>
             
 <!-- InstanceBeginEditable name="optionalfooter" -->
  
@@ -107,12 +109,8 @@
                 <!--#include virtual="../sharedcode/footer.html" -->
                 
 <!-- InstanceEndEditable -->
-                <ul>
-                    <li><a href="http://validator.unl.edu/check/referer">W3C</a></li>
-                    <li><a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a></li>
-                </ul>
                 <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
-                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+                | <a href="http://validator.unl.edu/check/referer">W3C</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a> <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>
     <div id="wdn_wrapper_footer"> </div>
