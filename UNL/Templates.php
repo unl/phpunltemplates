@@ -157,6 +157,7 @@ class UNL_Templates extends UNL_DWT
     {    
         $includes = array(
                             'footercontent'         => 'footer.html',
+                            'contactinfo'           => 'footerContactInfo.html',
                             'navlinks'              => 'navigation.html',
                             'leftcollinks'          => 'relatedLinks.html',
                             'optionalfooter'        => 'optionalFooter.html',

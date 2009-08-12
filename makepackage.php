@@ -39,7 +39,7 @@ $pfm->setPackageType('php'); // this is a PEAR-style php script package
 $pfm->setSummary('The UNL HTML Templates as a PEAR Package.');
 $pfm->setDescription('This package allows you to render UNL Template styled pages using PHP Objects.');
 $pfm->setAPIVersion('1.0.0');
-$pfm->setReleaseVersion('1.0.0RC7');
+$pfm->setReleaseVersion('1.0.0RC8');
 $pfm->setReleaseStability('beta');
 $pfm->setAPIStability('beta');
 $notes = '
@@ -64,6 +64,7 @@ New methods:
 Auto loading of files - now supporting:
 * optionalfooter=>optionalFooter.html
 * collegenavigationlist=>unitNavigation.html
+* contactinfo=>footerContactInfo.html
 
 New Remote Template Scanner UNL_Templates_Scanner
 * Scans a rendered UNL Template page for the editable content areas.
