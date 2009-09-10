@@ -39,7 +39,7 @@ $pfm->setPackageType('php'); // this is a PEAR-style php script package
 $pfm->setSummary('The UNL HTML Templates as a PEAR Package.');
 $pfm->setDescription('This package allows you to render UNL Template styled pages using PHP Objects.');
 $pfm->setAPIVersion('1.0.0');
-$pfm->setReleaseVersion('1.0.0RC8');
+$pfm->setReleaseVersion('1.0.0RC9');
 $pfm->setReleaseStability('beta');
 $pfm->setAPIStability('beta');
 $notes = '
@@ -47,6 +47,7 @@ Feature Release!
 Added support for specifying the template version, 2 or 3.
 * UNL_Templates::$options[\'version\'] = 3; to use the new templates.
 * Added the secure template.
+* Add debug template.
 * Updated Version 3 templates to reflect footer changes.
 
 Additional work to prevent broken pages.
