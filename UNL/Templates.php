@@ -323,9 +323,35 @@ class UNL_Templates extends UNL_DWT
     static public function getCachingService()
     {
         if (!isset(self::$cache)) {
-            include_once 'UNL/Templates/CachingService/CacheLite.php';
-            self::$cache = new UNL_Templates_CachingService_CacheLite(self::$options['cache']);
+            $file  = 'UNL/Templates/CachingService/Null.php';
+            $class = 'UNL_Templates_CachingService_Null';
+
+            $fp = @fopen('UNL/Cache/Lite.php', 'r', true);
+            if ($fp) {
+                fclose($fp);
+                $file  = 'UNL/Templates/CachingService/UNLCacheLite.php';
+                $class = 'UNL_Templates_CachingService_UNLCacheLite';
+            } else {
+                $fp = @fopen('Cache/Lite.php', 'r', true);
+                if ($fp) {
+                    fclose($fp);
+                    $file  = 'UNL/Templates/CachingService/CacheLite.php';
+                    $class = 'UNL_Templates_CachingService_CacheLite';
+                }
+            }
+
+            include_once $file;
+            self::$cache = new $class(self::$options['cache']);
         }
         return self::$cache;
+    }
+
+    static public function getDataDir()
+    {
+        if (file_exists(dirname(__FILE__).'/../data/tpl_cache')) {
+            return realpath(dirname(__FILE__).'/../data');
+        }
+
+        return dirname(__FILE__).'/../data/UNL_Templates/pear.unl.edu/data';
     }
 }

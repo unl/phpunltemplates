@@ -24,7 +24,16 @@ class UNL_Templates_Version2 implements UNL_Templates_Version
     
     function getTemplate($template)
     {
-        return file_get_contents('http://pear.unl.edu/UNL/Templates/server.php?template='.$template);
+        // Always try and retrieve the latest
+        if ($tpl = file_get_contents('http://pear.unl.edu/UNL/Templates/server.php?template='.$template)) {
+            return $tpl;
+        }
+
+        if (file_exists(UNL_Templates::getDataDir().'/tpl_cache/Version2/'.$template)) {
+            return file_get_contents($template);
+        }
+
+        throw new Exception('Could not get the template file!');
     }
     
     function makeIncludeReplacements($html)

@@ -5,12 +5,12 @@
  * 
  * @package UNL_Templates
  */
-
-ini_set('display_errors',true);
-error_reporting(E_STRICT);
-set_include_path(realpath(dirname(__FILE__).'/../../').PATH_SEPARATOR.realpath(dirname(__FILE__).'/../../../UNL_DWT').PATH_SEPARATOR.realpath(dirname(__FILE__).'/includes/pear/php'));
+ini_set('display_errors', true);
+error_reporting(E_ALL);
+set_include_path(realpath(dirname(__FILE__).'/../../').PATH_SEPARATOR.realpath(dirname(__FILE__).'/../../lib/php'));
 require_once 'UNL/Templates.php';
 UNL_Templates::$options['version'] = 3;
+
 $page = UNL_Templates::factory('Fixed', array('sharedcodepath' => 'sharedcode'));
 $page->addScript('test.js');
 $page->addScriptDeclaration('function sayHello(){alert("Hello!");}');

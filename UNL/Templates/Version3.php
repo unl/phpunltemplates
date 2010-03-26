@@ -40,7 +40,17 @@ class UNL_Templates_Version3 implements UNL_Templates_Version
                                  'getTemplate', 1);
             $template = 'Absolute.tpl';
         }
-        return file_get_contents('http://pear.unl.edu/UNL/Templates/server.php?version=3&template='.$template);
+
+        // Always try and retrieve the latest
+        if ($tpl = file_get_contents('http://pear.unl.edu/UNL/Templates/server.php?version=3&template='.$template)) {
+            return $tpl;
+        }
+
+        if (file_exists(UNL_Templates::getDataDir().'/tpl_cache/Version3/'.$template)) {
+            return file_get_contents(UNL_Templates::getDataDir().'/tpl_cache/Version3/'.$template);
+        }
+
+        throw new Exception('Could not get the template file!');
     }
     
     function makeIncludeReplacements($html)
