@@ -22,6 +22,7 @@ $pfm = PEAR_PackageFileManager2::importOptions('package.xml', array(
 						'.project',
                         'tests',
 						'*.tgz',
+                        '*/lib/*',
 						'makepackage.php',
 						'*CVS/*',
 						'.cache',
@@ -39,9 +40,9 @@ $pfm->setPackageType('php'); // this is a PEAR-style php script package
 $pfm->setSummary('The UNL HTML Templates as a PEAR Package.');
 $pfm->setDescription('This package allows you to render UNL Template styled pages using PHP Objects.');
 $pfm->setAPIVersion('1.0.0');
-$pfm->setReleaseVersion('1.0.0RC9');
-$pfm->setReleaseStability('beta');
-$pfm->setAPIStability('beta');
+$pfm->setReleaseVersion('1.0.0');
+$pfm->setReleaseStability('stable');
+$pfm->setAPIStability('stable');
 $notes = '
 Feature Release!
 Added support for specifying the template version, 2 or 3.
@@ -49,6 +50,7 @@ Added support for specifying the template version, 2 or 3.
 * Added the secure template.
 * Add debug template.
 * Updated Version 3 templates to reflect footer changes.
+* Multiple template caching backends are 
 
 Additional work to prevent broken pages.
 * If local files are not present for the <!--#include statements, it will grab them remotely.
@@ -89,7 +91,7 @@ $pfm->clearDeps();
 $pfm->setPhpDep('5.0.0');
 $pfm->setPearinstallerDep('1.4.3');
 $pfm->addPackageDepWithChannel('optional', 'Cache_Lite', 'pear.php.net', '1.0');
-$pfm->addPackageDepWithChannel('required', 'UNL_Cache_Lite', 'pear.unl.edu', '0.1.0');
+$pfm->addPackageDepWithChannel('optional', 'UNL_Cache_Lite', 'pear.unl.edu', '0.1.0');
 $pfm->addPackageDepWithChannel('required', 'UNL_DWT', 'pear.unl.edu', '0.7.1');
 
 //$pfm->addMaintainer('lead','nhummel2','Ned Hummel','nhummel2@math.unl.edu');
