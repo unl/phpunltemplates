@@ -25,7 +25,8 @@ class UNL_Templates_Version2 implements UNL_Templates_Version
     function getTemplate($template)
     {
         // Always try and retrieve the latest
-        if ($tpl = file_get_contents('http://pear.unl.edu/UNL/Templates/server.php?template='.$template)) {
+        if (!(UNL_Templates::getCachingService() instanceof UNL_Templates_CachingService_Null)
+            && $tpl = file_get_contents('http://pear.unl.edu/UNL/Templates/server.php?template='.$template)) {
             return $tpl;
         }
 

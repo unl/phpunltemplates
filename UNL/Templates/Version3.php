@@ -42,7 +42,8 @@ class UNL_Templates_Version3 implements UNL_Templates_Version
         }
 
         // Always try and retrieve the latest
-        if ($tpl = file_get_contents('http://pear.unl.edu/UNL/Templates/server.php?version=3&template='.$template)) {
+        if (!(UNL_Templates::getCachingService() instanceof UNL_Templates_CachingService_Null)
+            && $tpl = file_get_contents('http://pear.unl.edu/UNL/Templates/server.php?version=3&template='.$template)) {
             return $tpl;
         }
 
