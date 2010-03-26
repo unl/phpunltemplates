@@ -20,13 +20,13 @@ if (isset($_GET['template'])
         require_once 'UNL/Templates.php';
         UNL_Templates::$options['version'] = $version;
         $p = UNL_Templates::factory(str_replace('.tpl', '', $_GET['template']));
-        $p->maincontentarea        = '';
-        $p->leftRandomPromo        = '';
-        $p->footercontent        = '';
-        $p->navlinks            = '';
-        $p->breadcrumbs            = '';
-        $p->titlegraphic        = '';
-        $p->doctitle            = '<title></title>';
+        $p->maincontentarea = '';
+        $p->leftRandomPromo = '';
+        $p->footercontent   = '';
+        $p->navlinks        = '';
+        $p->breadcrumbs     = '';
+        $p->titlegraphic    = '';
+        $p->doctitle        = '<title></title>';
         echo $p->toHtml();
     } else {
         
