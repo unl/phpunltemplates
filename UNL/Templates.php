@@ -77,7 +77,9 @@ class UNL_Templates extends UNL_DWT
     public function __construct()
     {
         date_default_timezone_set(date_default_timezone_get());
-        self::$options['templatedependentspath'] = $_SERVER['DOCUMENT_ROOT'];
+        if (empty(self::$options['templatedependentspath'])) {
+            self::$options['templatedependentspath'] = $_SERVER['DOCUMENT_ROOT'];
+        }
     }
     
     /**
