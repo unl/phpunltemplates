@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
  <name>UNL_Templates</name>
  <channel>pear.unl.edu</channel>
  <summary>The UNL HTML Templates as a PEAR Package.</summary>
@@ -16,10 +16,10 @@
   <email>nhummel2@math.unl.edu</email>
   <active>yes</active>
  </lead>
- <date>2010-03-26</date>
- <time>14:25:51</time>
+ <date>2010-09-09</date>
+ <time>14:57:25</time>
  <version>
-  <release>1.0.0</release>
+  <release>1.1.0</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -29,43 +29,9 @@
  <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
  <notes>
 Feature Release!
-Added support for specifying the template version, 2 or 3.
-* UNL_Templates::$options[&apos;version&apos;] = 3; to use the new templates.
-* Added the secure template.
-* Add debug template.
-* Updated Version 3 templates to reflect footer changes.
-* Multiple template caching backends are 
-
-Additional work to prevent broken pages.
-* If local files are not present for the &lt;!--#include statements, it will grab them remotely.
-* If wdn/templates_3.0 does not exist locally it will use a template with absolute references to prevent broken pages.
-
-New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
-* __toString()  Now you can just use echo $page;
-
-Auto loading of files - now supporting:
-* optionalfooter=&gt;optionalFooter.html
-* collegenavigationlist=&gt;unitNavigation.html
-* contactinfo=&gt;footerContactInfo.html
-
-New Remote Template Scanner UNL_Templates_Scanner
-* Scans a rendered UNL Template page for the editable content areas.
-
-Other fixes:
-* Use static vars instead of PEAR::getStaticProperty() - fixes E_STRICT warnings
-* Remove debug code causing cache to never be used.
-* Fix debugging.
-* Merge UNL_DWT::$options with options from ini file instead of overwriting.
-* Set default timezone to use before we use date functions.
-* Add newlines after header additions.
-* Fix addScriptDeclaration method to comment out CDATA to prevent syntax errors.
-
-Add example of a custom class with auto-breadcrumb generation and body content loading.
+* Added the mobile template.
+* Fix support for version 2 templates.
+* Only set templatedependentspath if it has not been set.
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -126,6 +92,10 @@ Add example of a custom class with auto-breadcrumb generation and body content l
        <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
+      <file name="Mobile.tpl" role="data">
+       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+      </file>
       <file name="Popup.tpl" role="data">
        <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
@@ -161,6 +131,10 @@ Add example of a custom class with auto-breadcrumb generation and body content l
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
      </dir> <!-- /docs/examples/customization -->
+     <file name="convert.php" role="doc">
+      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+     </file>
      <file name="example1.php" role="doc">
       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
@@ -245,6 +219,10 @@ Add example of a custom class with auto-breadcrumb generation and body content l
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
       <file name="Liquid.php" role="php">
+       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+      </file>
+      <file name="Mobile.php" role="php">
        <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
@@ -829,6 +807,24 @@ Other fixes:
 * Fix addScriptDeclaration method to comment out CDATA to prevent syntax errors.
 
 Add example of a custom class with auto-breadcrumb generation and body content loading.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.1.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2010-09-09</date>
+   <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
+   <notes>
+Feature Release!
+* Added the mobile template.
+* Fix support for version 2 templates.
+* Only set templatedependentspath if it has not been set.
    </notes>
   </release>
  </changelog>

@@ -40,48 +40,14 @@ $pfm->setPackageType('php'); // this is a PEAR-style php script package
 $pfm->setSummary('The UNL HTML Templates as a PEAR Package.');
 $pfm->setDescription('This package allows you to render UNL Template styled pages using PHP Objects.');
 $pfm->setAPIVersion('1.0.0');
-$pfm->setReleaseVersion('1.0.0');
+$pfm->setReleaseVersion('1.1.0');
 $pfm->setReleaseStability('stable');
 $pfm->setAPIStability('stable');
 $notes = '
 Feature Release!
-Added support for specifying the template version, 2 or 3.
-* UNL_Templates::$options[\'version\'] = 3; to use the new templates.
-* Added the secure template.
-* Add debug template.
-* Updated Version 3 templates to reflect footer changes.
-* Multiple template caching backends are 
-
-Additional work to prevent broken pages.
-* If local files are not present for the <!--#include statements, it will grab them remotely.
-* If wdn/templates_3.0 does not exist locally it will use a template with absolute references to prevent broken pages.
-
-New methods:
-* addHeadLink($href, $relation, $relType = \'rel\', array $attributes = array())
-* addScript($url, $type = \'text/javascript\')
-* addScriptDeclaration($content, $type = \'text/javascript\')
-* addStyleDeclaration($content, $type = \'text/css\')
-* addStyleSheet($url, $media = \'all\')
-* __toString()  Now you can just use echo $page;
-
-Auto loading of files - now supporting:
-* optionalfooter=>optionalFooter.html
-* collegenavigationlist=>unitNavigation.html
-* contactinfo=>footerContactInfo.html
-
-New Remote Template Scanner UNL_Templates_Scanner
-* Scans a rendered UNL Template page for the editable content areas.
-
-Other fixes:
-* Use static vars instead of PEAR::getStaticProperty() - fixes E_STRICT warnings
-* Remove debug code causing cache to never be used.
-* Fix debugging.
-* Merge UNL_DWT::$options with options from ini file instead of overwriting.
-* Set default timezone to use before we use date functions.
-* Add newlines after header additions.
-* Fix addScriptDeclaration method to comment out CDATA to prevent syntax errors.
-
-Add example of a custom class with auto-breadcrumb generation and body content loading.
+* Added the mobile template.
+* Fix support for version 2 templates.
+* Only set templatedependentspath if it has not been set.
 
 ';
 $pfm->setNotes($notes);
