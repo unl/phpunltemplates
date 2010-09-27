@@ -29,7 +29,7 @@
 <body class="mobile">
 <p class="skipnav"> <a class="skipnav" href="#maincontent">Skip Navigation</a> </p>
 <div id="wdn_wrapper">
-    <div id="header"> <a href="http://www.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
+    <div id="header"> <a href="http://m.unl.edu/" title="UNL website"><img src="/wdn/templates_3.0/images/logo.png" alt="UNL graphic identifier" id="logo" /></a>
         <h1>University of Nebraska&ndash;Lincoln</h1>
     </div>
     <div id="wdn_content_wrapper">
@@ -58,7 +58,7 @@
                     <li><a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">CSS</a></li>
                 </ul>
                 <!--#include virtual="/wdn/templates_3.0/includes/wdn.html" -->
-                <a href="http://www.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
+                <a href="http://m.unl.edu/" title="UNL Home" id="wdn_unl_wordmark"><img src="/wdn/templates_3.0/css/footer/images/wordmark.png" alt="UNL's wordmark" /></a> </div>
         </div>
     </div>
     <div id="wdn_wrapper_footer"> </div>
