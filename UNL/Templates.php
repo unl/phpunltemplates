@@ -128,7 +128,7 @@ class UNL_Templates extends UNL_DWT
     function getCache()
     {
         $cache = self::getCachingService();
-        $cache_key = self::$options['version'].$this->__template;
+        $cache_key = self::$options['version'].self::$options['templatedependentspath'].$this->__template;
         // Test if there is a valid cache for this template
         if ($data = $cache->get($cache_key)) {
             // Content is in $data
