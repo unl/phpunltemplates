@@ -40,14 +40,22 @@ $pfm->setPackageType('php'); // this is a PEAR-style php script package
 $pfm->setSummary('The UNL HTML Templates as a PEAR Package.');
 $pfm->setDescription('This package allows you to render UNL Template styled pages using PHP Objects.');
 $pfm->setAPIVersion('1.0.0');
-$pfm->setReleaseVersion('1.1.0');
+$pfm->setReleaseVersion('1.2.0');
 $pfm->setReleaseStability('stable');
 $pfm->setAPIStability('stable');
 $notes = '
-Feature Release!
-* Added the mobile template.
-* Fix support for version 2 templates.
-* Only set templatedependentspath if it has not been set.
+Update .tpl cache so template files are in sync with latest wdntemplates.
+
+New templates!
+
+ * Fixed_html5
+ * Unlaffiliate
+
+Template updates:
+
+ * Meta lang fixes
+ * Remove IDM region from the secure template
+ * Mobile template now supports navigation and move to HTML5
 
 ';
 $pfm->setNotes($notes);

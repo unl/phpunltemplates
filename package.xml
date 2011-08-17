@@ -16,10 +16,10 @@
   <email>nhummel2@math.unl.edu</email>
   <active>yes</active>
  </lead>
- <date>2010-09-09</date>
- <time>14:57:25</time>
+ <date>2011-08-17</date>
+ <time>09:42:21</time>
  <version>
-  <release>1.1.0</release>
+  <release>1.2.0</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -28,10 +28,18 @@
  </stability>
  <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
  <notes>
-Feature Release!
-* Added the mobile template.
-* Fix support for version 2 templates.
-* Only set templatedependentspath if it has not been set.
+Update .tpl cache so template files are in sync with latest wdntemplates.
+
+New templates!
+
+ * Fixed_html5
+ * Unlaffiliate
+
+Template updates:
+
+ * Meta lang fixes
+ * Remove IDM region from the secure template
+ * Mobile template now supports navigation and move to HTML5
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -88,6 +96,10 @@ Feature Release!
        <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
+      <file name="Fixed_html5.tpl" role="data">
+       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+      </file>
       <file name="Liquid.tpl" role="data">
        <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
@@ -109,6 +121,10 @@ Feature Release!
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
       <file name="Shared_column_right.tpl" role="data">
+       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+      </file>
+      <file name="Unlaffiliate.tpl" role="data">
        <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
@@ -218,6 +234,10 @@ Feature Release!
        <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
+      <file name="Fixed_html5.php" role="php">
+       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+      </file>
       <file name="Liquid.php" role="php">
        <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
@@ -239,6 +259,10 @@ Feature Release!
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
       <file name="Shared_column_right.php" role="php">
+       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+      </file>
+      <file name="Unlaffiliate.php" role="php">
        <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
        <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
       </file>
@@ -269,6 +293,14 @@ Feature Release!
      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
     </file>
    </dir> <!-- /UNL -->
+   <file name="UNL_Templates-1.1.0.tar" role="data">
+    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+    <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+   </file>
+   <file name="UNL_Templates-1.1.0.zip" role="data">
+    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
+    <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
+   </file>
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -825,6 +857,32 @@ Feature Release!
 * Added the mobile template.
 * Fix support for version 2 templates.
 * Only set templatedependentspath if it has not been set.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.2.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2011-08-17</date>
+   <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
+   <notes>
+Update .tpl cache so template files are in sync with latest wdntemplates.
+
+New templates!
+
+ * Fixed_html5
+ * Unlaffiliate
+
+Template updates:
+
+ * Meta lang fixes
+ * Remove IDM region from the secure template
+ * Mobile template now supports navigation and move to HTML5
    </notes>
   </release>
  </changelog>
