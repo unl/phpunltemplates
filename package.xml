@@ -17,7 +17,7 @@
   <active>yes</active>
  </lead>
  <date>2011-08-17</date>
- <time>10:17:01</time>
+ <time>10:19:21</time>
  <version>
   <release>1.2.0</release>
   <api>1.0.0</api>
@@ -294,14 +294,6 @@ Template updates:
      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
     </file>
    </dir> <!-- /UNL -->
-   <file name="UNL_Templates-1.1.0.tar" role="data">
-    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-    <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-   </file>
-   <file name="UNL_Templates-1.1.0.zip" role="data">
-    <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-    <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-   </file>
   </dir> <!-- / -->
  </contents>
  <dependencies>
