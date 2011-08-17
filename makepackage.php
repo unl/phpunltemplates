@@ -45,6 +45,7 @@ $pfm->setReleaseStability('stable');
 $pfm->setAPIStability('stable');
 $notes = '
 Update .tpl cache so template files are in sync with latest wdntemplates.
+Allow underscores within Version3 template include files.
 
 New templates!
 

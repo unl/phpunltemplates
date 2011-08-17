@@ -17,7 +17,7 @@
   <active>yes</active>
  </lead>
  <date>2011-08-17</date>
- <time>09:42:21</time>
+ <time>10:17:01</time>
  <version>
   <release>1.2.0</release>
   <api>1.0.0</api>
@@ -29,6 +29,7 @@
  <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
  <notes>
 Update .tpl cache so template files are in sync with latest wdntemplates.
+Allow underscores within Version3 template include files.
 
 New templates!
 
@@ -872,6 +873,7 @@ Feature Release!
    <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
    <notes>
 Update .tpl cache so template files are in sync with latest wdntemplates.
+Allow underscores within Version3 template include files.
 
 New templates!
 
