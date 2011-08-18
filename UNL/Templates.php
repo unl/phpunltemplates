@@ -350,17 +350,27 @@ class UNL_Templates extends UNL_DWT
 
     static public function getDataDir()
     {
-        if ('@DATA_DIR@' != '@DATA_DIR'.'@') {
-            // pear/pyrus installation
-            return '@DATA_DIR@/UNL_Templates/data/';
+
+        if (file_exists(dirname(__FILE__).'/../../data/UNL_Templates/data')) {
+            // relative package installation layout
+            return dirname(__FILE__).'/../../data/UNL_Templates/data';
         }
-        
+
         if (file_exists(dirname(__FILE__).'/../data/tpl_cache')) {
             // svn checkout
             return realpath(dirname(__FILE__).'/../data');
         }
 
-        // new pear2 package & pyrus installation layout
-        return dirname(__FILE__).'/../../data/UNL_Templates/pear.unl.edu/data';
+        if (file_exists(dirname(__FILE__).'/../../data/pear.unl.edu/UNL_Templates/data')) {
+            // new pear2 package & pyrus installation layout
+            return dirname(__FILE__).'/../../data/pear.unl.edu/UNL_Templates/data';
+        }
+
+        if ('@DATA_DIR@' != '@DATA_DIR'.'@') {
+            // pear/pyrus installation
+            return '@DATA_DIR@/UNL_Templates/data/';
+        }
+
+        throw new Exception('Cannot determine data directory!');
     }
 }
