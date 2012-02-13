@@ -356,9 +356,9 @@ class UNL_Templates extends UNL_DWT
             return dirname(__FILE__).'/../../data/UNL_Templates/data';
         }
 
-        if (file_exists(dirname(__FILE__).'/../data/tpl_cache')) {
+        if (file_exists(dirname(__FILE__).'/../../data/tpl_cache')) {
             // svn checkout
-            return realpath(dirname(__FILE__).'/../data');
+            return realpath(dirname(__FILE__).'/../../data');
         }
 
         if (file_exists(dirname(__FILE__).'/../../data/pear.unl.edu/UNL_Templates/data')) {
