@@ -61,7 +61,8 @@ class UNL_Templates extends UNL_DWT
         'sharedcodepath'         => 'sharedcode',
         'templatedependentspath' => '',
         'cache'                  => array(),
-        'version'                => self::VERSION3
+        'version'                => self::VERSION3,
+        'timeout'                => 5
     );
     
     /**
