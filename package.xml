@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+<package version="2.1" xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd">
  <name>UNL_Templates</name>
  <channel>pear.unl.edu</channel>
- <summary>The UNL HTML Templates as a PEAR Package.</summary>
- <description>This package allows you to render UNL Template styled pages using PHP Objects.</description>
+ <summary>The UNL HTML Templates as a PEAR Package.
+</summary>
+ <description>
+This package allows you to render UNL Template styled pages using PHP Objects.
+</description>
  <lead>
   <name>Brett Bieber</name>
   <user>saltybeagle</user>
@@ -16,285 +19,122 @@
   <email>nhummel2@math.unl.edu</email>
   <active>yes</active>
  </lead>
- <date>2011-08-17</date>
- <time>10:19:21</time>
+ <date>2012-03-05</date>
+ <time>09:42:51</time>
  <version>
-  <release>1.2.0</release>
+  <release>1.3.0RC1</release>
   <api>1.0.0</api>
  </version>
  <stability>
-  <release>stable</release>
+  <release>beta</release>
   <api>stable</api>
  </stability>
  <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
- <notes>
-Update .tpl cache so template files are in sync with latest wdntemplates.
-Allow underscores within Version3 template include files.
+ <notes>New features:
 
-New templates!
-
- * Fixed_html5
- * Unlaffiliate
-
-Template updates:
-
- * Meta lang fixes
- * Remove IDM region from the secure template
- * Mobile template now supports navigation and move to HTML5
- </notes>
+ - Add support for version 3.1 of the UNL Templates</notes>
  <contents>
-  <dir baseinstalldir="/" name="/">
-   <dir name="data">
+  <dir name="/">
+   <dir name="data" baseinstalldir="/">
     <dir name="tpl_cache">
      <dir name="Version2">
-      <file name="Document.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Fixed.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Liquid.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Popup.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Secure.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Unlaffiliate.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Unlframework.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Unlstandardtemplate.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-     </dir> <!-- /data/tpl_cache/Version2 -->
+      <file role="data" name="Document.tpl"/>
+      <file role="data" name="Fixed.tpl"/>
+      <file role="data" name="Liquid.tpl"/>
+      <file role="data" name="Popup.tpl"/>
+      <file role="data" name="Secure.tpl"/>
+      <file role="data" name="Unlaffiliate.tpl"/>
+      <file role="data" name="Unlframework.tpl"/>
+      <file role="data" name="Unlstandardtemplate.tpl"/>
+     </dir>
      <dir name="Version3">
-      <file name="Absolute.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Debug.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Document.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Fixed.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Fixed_html5.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Liquid.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Mobile.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Popup.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Secure.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Shared_column_left.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Shared_column_right.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Unlaffiliate.tpl" role="data">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-     </dir> <!-- /data/tpl_cache/Version3 -->
-    </dir> <!-- /data/tpl_cache -->
-   </dir> <!-- /data -->
-   <dir name="docs">
+      <file role="data" name="Absolute.tpl"/>
+      <file role="data" name="Debug.tpl"/>
+      <file role="data" name="Document.tpl"/>
+      <file role="data" name="Fixed.tpl"/>
+      <file role="data" name="Fixed_html5.tpl"/>
+      <file role="data" name="Liquid.tpl"/>
+      <file role="data" name="Mobile.tpl"/>
+      <file role="data" name="Popup.tpl"/>
+      <file role="data" name="Secure.tpl"/>
+      <file role="data" name="Shared_column_left.tpl"/>
+      <file role="data" name="Shared_column_right.tpl"/>
+      <file role="data" name="Unlaffiliate.tpl"/>
+     </dir>
+     <dir name="Version3x1">
+      <file role="data" name="Debug.tpl"/>
+      <file role="data" name="Fixed.tpl"/>
+      <file role="data" name="Unlaffiliate.tpl"/>
+      <file role="data" name="Unlaffiliate_debug.tpl"/>
+     </dir>
+    </dir>
+    <file role="data" name="cssUNLTemplates.ini"/>
+   </dir>
+   <dir name="docs" baseinstalldir="/">
     <dir name="examples">
      <dir name="customization">
-      <file name="CustomClass.php" role="doc">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="customization_example.html" role="doc">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="customization_example.php" role="doc">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-     </dir> <!-- /docs/examples/customization -->
-     <file name="convert.php" role="doc">
-      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-     </file>
-     <file name="example1.php" role="doc">
-      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-     </file>
-     <file name="scanner.php" role="doc">
-      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-     </file>
-    </dir> <!-- /docs/examples -->
-   </dir> <!-- /docs -->
-   <dir name="tests">
-    <file name="UNL_TemplatesTest.php" role="test">
-     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-    </file>
-   </dir> <!-- /tests -->
-   <dir name="UNL">
-    <dir name="Templates">
-     <dir name="CachingService">
-      <file name="CacheLite.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Null.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="UNLCacheLite.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-     </dir> <!-- /UNL/Templates/CachingService -->
-     <dir name="Version2">
-      <file name="Document.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Fixed.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Liquid.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Popup.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Secure.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Unlaffiliate.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Unlframework.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Unlstandardtemplate.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-     </dir> <!-- /UNL/Templates/Version2 -->
-     <dir name="Version3">
-      <file name="Absolute.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Debug.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Document.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Fixed.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Fixed_html5.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Liquid.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Mobile.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Popup.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Secure.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Shared_column_left.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Shared_column_right.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-      <file name="Unlaffiliate.php" role="php">
-       <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-       <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-      </file>
-     </dir> <!-- /UNL/Templates/Version3 -->
-     <file name="CachingService.php" role="php">
-      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-     </file>
-     <file name="Scanner.php" role="php">
-      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-     </file>
-     <file name="Version.php" role="php">
-      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-     </file>
-     <file name="Version2.php" role="php">
-      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-     </file>
-     <file name="Version3.php" role="php">
-      <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-      <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-     </file>
-    </dir> <!-- /UNL/Templates -->
-    <file name="Templates.php" role="php">
-     <tasks:replace from="@DATA_DIR@" to="data_dir" type="pear-config" />
-     <tasks:replace from="@PHP_DIR@" to="php_dir" type="pear-config" />
-    </file>
-   </dir> <!-- /UNL -->
-  </dir> <!-- / -->
+      <file role="doc" name="CustomClass.php"/>
+      <file role="doc" name="customization_example.html"/>
+      <file role="doc" name="customization_example.php"/>
+     </dir>
+     <file role="doc" name=".cvsignore"/>
+     <file role="doc" name="convert.php"/>
+     <file role="doc" name="example1.php"/>
+     <file role="doc" name="scanner.php"/>
+    </dir>
+   </dir>
+   <dir name="src" baseinstalldir="/">
+    <dir name="UNL">
+     <dir name="Templates">
+      <dir name="CachingService">
+       <file role="php" name="CacheLite.php"/>
+       <file role="php" name="Null.php"/>
+       <file role="php" name="UNLCacheLite.php"/>
+      </dir>
+      <dir name="Version2">
+       <file role="php" name="Document.php"/>
+       <file role="php" name="Fixed.php"/>
+       <file role="php" name="Liquid.php"/>
+       <file role="php" name="Popup.php"/>
+       <file role="php" name="Secure.php"/>
+       <file role="php" name="Unlaffiliate.php"/>
+       <file role="php" name="Unlframework.php"/>
+       <file role="php" name="Unlstandardtemplate.php"/>
+      </dir>
+      <dir name="Version3">
+       <file role="php" name="Absolute.php"/>
+       <file role="php" name="Debug.php"/>
+       <file role="php" name="Document.php"/>
+       <file role="php" name="Fixed.php"/>
+       <file role="php" name="Fixed_html5.php"/>
+       <file role="php" name="Liquid.php"/>
+       <file role="php" name="Mobile.php"/>
+       <file role="php" name="Popup.php"/>
+       <file role="php" name="Secure.php"/>
+       <file role="php" name="Shared_column_left.php"/>
+       <file role="php" name="Shared_column_right.php"/>
+       <file role="php" name="Unlaffiliate.php"/>
+      </dir>
+      <dir name="Version3x1">
+       <file role="php" name="Debug.php"/>
+       <file role="php" name="Fixed.php"/>
+       <file role="php" name="Unlaffiliate.php"/>
+       <file role="php" name="Unlaffiliate_debug.php"/>
+      </dir>
+      <file role="php" name="CachingService.php"/>
+      <file role="php" name="Scanner.php"/>
+      <file role="php" name="Version.php"/>
+      <file role="php" name="Version2.php"/>
+      <file role="php" name="Version3.php"/>
+      <file role="php" name="Version3x1.php"/>
+     </dir>
+     <file role="php" name="Templates.php"/>
+    </dir>
+   </dir>
+   <dir name="tests" baseinstalldir="/">
+    <file role="test" name="UNL_TemplatesTest.php"/>
+   </dir>
+  </dir>
  </contents>
  <dependencies>
   <required>
@@ -302,7 +142,7 @@ Template updates:
     <min>5.0.0</min>
    </php>
    <pearinstaller>
-    <min>1.4.3</min>
+    <min>2.0.0a1</min>
    </pearinstaller>
    <package>
     <name>UNL_DWT</name>
@@ -323,7 +163,7 @@ Template updates:
    </package>
   </optional>
  </dependencies>
- <phprelease />
+ <phprelease/>
  <changelog>
   <release>
    <version>
@@ -402,11 +242,11 @@ No other changes.
    <notes>
 Feature Release!
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $type = &apos;text/css&apos;, $media = null)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $type = 'text/css', $media = null)
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
@@ -435,11 +275,11 @@ Thanks to Ned Hummel for picking up this baby.
    <notes>
 Feature Release!
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $media = 'all')
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
@@ -472,11 +312,11 @@ Thanks to Ned Hummel for picking up this baby.
    <notes>
 Feature Release!
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $media = 'all')
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
@@ -512,11 +352,11 @@ Thanks to Ned Hummel for picking up this baby.
    <notes>
 Feature Release!
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $media = 'all')
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
@@ -553,18 +393,18 @@ Thanks to Ned Hummel for picking up this baby.
    <notes>
 Feature Release!
 Added support for specifying the template version, 2 or 3.
-* UNL_Templates::$options[&apos;version&apos;] = 3; to use the new templates.
+* UNL_Templates::$options['version'] = 3; to use the new templates.
 
 Additional work to prevent broken pages.
 * If local files are not present for the &lt;!--#include statements, it will grab them remotely.
 * If wdn/templates_3.0 does not exist locally it will use a template with absolute references to prevent broken pages.
 
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $media = 'all')
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
@@ -599,18 +439,18 @@ Add example of a custom class with auto-breadcrumb generation and body content l
    <notes>
 Feature Release!
 Added support for specifying the template version, 2 or 3.
-* UNL_Templates::$options[&apos;version&apos;] = 3; to use the new templates.
+* UNL_Templates::$options['version'] = 3; to use the new templates.
 
 Additional work to prevent broken pages.
 * If local files are not present for the &lt;!--#include statements, it will grab them remotely.
 * If wdn/templates_3.0 does not exist locally it will use a template with absolute references to prevent broken pages.
 
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $media = 'all')
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
@@ -646,7 +486,7 @@ Add example of a custom class with auto-breadcrumb generation and body content l
    <notes>
 Feature Release!
 Added support for specifying the template version, 2 or 3.
-* UNL_Templates::$options[&apos;version&apos;] = 3; to use the new templates.
+* UNL_Templates::$options['version'] = 3; to use the new templates.
 * Added the secure template.
 * Updated Version 3 templates to reflect footer changes.
 
@@ -655,11 +495,11 @@ Additional work to prevent broken pages.
 * If wdn/templates_3.0 does not exist locally it will use a template with absolute references to prevent broken pages.
 
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $media = 'all')
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
@@ -695,7 +535,7 @@ Add example of a custom class with auto-breadcrumb generation and body content l
    <notes>
 Feature Release!
 Added support for specifying the template version, 2 or 3.
-* UNL_Templates::$options[&apos;version&apos;] = 3; to use the new templates.
+* UNL_Templates::$options['version'] = 3; to use the new templates.
 * Added the secure template.
 * Updated Version 3 templates to reflect footer changes.
 
@@ -704,11 +544,11 @@ Additional work to prevent broken pages.
 * If wdn/templates_3.0 does not exist locally it will use a template with absolute references to prevent broken pages.
 
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $media = 'all')
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
@@ -745,7 +585,7 @@ Add example of a custom class with auto-breadcrumb generation and body content l
    <notes>
 Feature Release!
 Added support for specifying the template version, 2 or 3.
-* UNL_Templates::$options[&apos;version&apos;] = 3; to use the new templates.
+* UNL_Templates::$options['version'] = 3; to use the new templates.
 * Added the secure template.
 * Add debug template.
 * Updated Version 3 templates to reflect footer changes.
@@ -755,11 +595,11 @@ Additional work to prevent broken pages.
 * If wdn/templates_3.0 does not exist locally it will use a template with absolute references to prevent broken pages.
 
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $media = 'all')
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
@@ -796,7 +636,7 @@ Add example of a custom class with auto-breadcrumb generation and body content l
    <notes>
 Feature Release!
 Added support for specifying the template version, 2 or 3.
-* UNL_Templates::$options[&apos;version&apos;] = 3; to use the new templates.
+* UNL_Templates::$options['version'] = 3; to use the new templates.
 * Added the secure template.
 * Add debug template.
 * Updated Version 3 templates to reflect footer changes.
@@ -807,11 +647,11 @@ Additional work to prevent broken pages.
 * If wdn/templates_3.0 does not exist locally it will use a template with absolute references to prevent broken pages.
 
 New methods:
-* addHeadLink($href, $relation, $relType = &apos;rel&apos;, array $attributes = array())
-* addScript($url, $type = &apos;text/javascript&apos;)
-* addScriptDeclaration($content, $type = &apos;text/javascript&apos;)
-* addStyleDeclaration($content, $type = &apos;text/css&apos;)
-* addStyleSheet($url, $media = &apos;all&apos;)
+* addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
+* addScript($url, $type = 'text/javascript')
+* addScriptDeclaration($content, $type = 'text/javascript')
+* addStyleDeclaration($content, $type = 'text/css')
+* addStyleSheet($url, $media = 'all')
 * __toString()  Now you can just use echo $page;
 
 Auto loading of files - now supporting:
