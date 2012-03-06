@@ -48,6 +48,7 @@ class UNL_Templates extends UNL_DWT
 {
     const VERSION2 = 2;
     const VERSION3 = 3;
+    const VERSION3x1 = '3.1';
     
     /**
      * Cache object for output caching
@@ -90,6 +91,7 @@ class UNL_Templates extends UNL_DWT
      */
     public static function loadDefaultConfig()
     {
+        self::$options['version'] = str_replace('.', 'x', self::$options['version']);
         include_once 'UNL/Templates/Version'.self::$options['version'].'.php';
         $class = 'UNL_Templates_Version'.self::$options['version'];
         self::$template_version = new $class();
