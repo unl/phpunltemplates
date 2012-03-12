@@ -7,7 +7,7 @@ if (file_exists(dirname(__FILE__).'/data/tpl_cache')) {
 }
 
 
-$version = 2;
+$version = 3;
 $default_template = 'Fixed.tpl';
 
 if (isset($_GET['version'])) {
