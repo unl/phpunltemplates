@@ -11,7 +11,10 @@ $version = 3;
 $default_template = 'Fixed.tpl';
 
 if (isset($_GET['version'])) {
-    $version = intval($_GET['version']);
+    $version = $_GET['version'];
+    if (!is_numeric($version)) {
+        throw new Exception('Invalid version number passed.');
+    }
 }
 
 if (isset($_GET['template'])
@@ -29,7 +32,8 @@ if (isset($_GET['template'])
         $p->doctitle        = '<title></title>';
         echo $p->toHtml();
     } else {
-        
+        // Replace 3.1 with 3x1
+        $version = str_replace('.', 'x', $version);
         $dwt = $tpl_dir.'/Version'.$version.'/'.$_GET['template'];
         if (file_exists($dwt)) {
             echo file_get_contents($dwt);
