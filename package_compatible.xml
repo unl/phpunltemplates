@@ -19,10 +19,10 @@ This package allows you to render UNL Template styled pages using PHP Objects.
   <email>nhummel2@math.unl.edu</email>
   <active>yes</active>
  </lead>
- <date>2012-03-05</date>
- <time>09:42:51</time>
+ <date>2012-03-26</date>
+ <time>14:08:37</time>
  <version>
-  <release>1.3.0RC1</release>
+  <release>1.3.0RC2</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -36,8 +36,10 @@ This package allows you to render UNL Template styled pages using PHP Objects.
  <contents>
   <dir name="/">
    <file role="test" name="test/pear.unl.edu/UNL_Templates/UNL_TemplatesTest.php"/>
+   <file role="php" name="php/UNL/Templates/Version3x1/Unlaffiliate_local.php"/>
    <file role="php" name="php/UNL/Templates/Version3x1/Unlaffiliate_debug.php"/>
    <file role="php" name="php/UNL/Templates/Version3x1/Unlaffiliate.php"/>
+   <file role="php" name="php/UNL/Templates/Version3x1/Local.php"/>
    <file role="php" name="php/UNL/Templates/Version3x1/Fixed.php"/>
    <file role="php" name="php/UNL/Templates/Version3x1/Debug.php"/>
    <file role="php" name="php/UNL/Templates/Version3x1.php"/>
@@ -73,12 +75,13 @@ This package allows you to render UNL Template styled pages using PHP Objects.
    <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/examples/scanner.php"/>
    <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/examples/example1.php"/>
    <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/examples/convert.php"/>
-   <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/examples/.cvsignore"/>
    <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/customization/examples/customization/customization_example.php"/>
    <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/customization/examples/customization/customization_example.html"/>
    <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/customization/examples/customization/CustomClass.php"/>
+   <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Unlaffiliate_local.tpl"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Unlaffiliate_debug.tpl"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Unlaffiliate.tpl"/>
+   <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Local.tpl"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Fixed.tpl"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Debug.tpl"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3/tpl_cache/Version3/Unlaffiliate.tpl"/>
@@ -139,12 +142,13 @@ This package allows you to render UNL Template styled pages using PHP Objects.
    <install name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3/tpl_cache/Version3/Unlaffiliate.tpl" as="UNL_Templates/tpl_cache/Version3/tpl_cache/Version3/Unlaffiliate.tpl"/>
    <install name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Debug.tpl" as="UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Debug.tpl"/>
    <install name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Fixed.tpl" as="UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Fixed.tpl"/>
+   <install name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Local.tpl" as="UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Local.tpl"/>
    <install name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Unlaffiliate.tpl" as="UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Unlaffiliate.tpl"/>
    <install name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Unlaffiliate_debug.tpl" as="UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Unlaffiliate_debug.tpl"/>
+   <install name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Unlaffiliate_local.tpl" as="UNL_Templates/tpl_cache/Version3x1/tpl_cache/Version3x1/Unlaffiliate_local.tpl"/>
    <install name="doc/pear.unl.edu/UNL_Templates/examples/customization/examples/customization/CustomClass.php" as="UNL_Templates/examples/customization/examples/customization/CustomClass.php"/>
    <install name="doc/pear.unl.edu/UNL_Templates/examples/customization/examples/customization/customization_example.html" as="UNL_Templates/examples/customization/examples/customization/customization_example.html"/>
    <install name="doc/pear.unl.edu/UNL_Templates/examples/customization/examples/customization/customization_example.php" as="UNL_Templates/examples/customization/examples/customization/customization_example.php"/>
-   <install name="doc/pear.unl.edu/UNL_Templates/examples/examples/.cvsignore" as="UNL_Templates/examples/examples/.cvsignore"/>
    <install name="doc/pear.unl.edu/UNL_Templates/examples/examples/convert.php" as="UNL_Templates/examples/examples/convert.php"/>
    <install name="doc/pear.unl.edu/UNL_Templates/examples/examples/example1.php" as="UNL_Templates/examples/examples/example1.php"/>
    <install name="doc/pear.unl.edu/UNL_Templates/examples/examples/scanner.php" as="UNL_Templates/examples/examples/scanner.php"/>
@@ -180,8 +184,10 @@ This package allows you to render UNL Template styled pages using PHP Objects.
    <install name="php/UNL/Templates/Version3x1.php" as="UNL/Templates/Version3x1.php"/>
    <install name="php/UNL/Templates/Version3x1/Debug.php" as="UNL/Templates/Version3x1/Debug.php"/>
    <install name="php/UNL/Templates/Version3x1/Fixed.php" as="UNL/Templates/Version3x1/Fixed.php"/>
+   <install name="php/UNL/Templates/Version3x1/Local.php" as="UNL/Templates/Version3x1/Local.php"/>
    <install name="php/UNL/Templates/Version3x1/Unlaffiliate.php" as="UNL/Templates/Version3x1/Unlaffiliate.php"/>
    <install name="php/UNL/Templates/Version3x1/Unlaffiliate_debug.php" as="UNL/Templates/Version3x1/Unlaffiliate_debug.php"/>
+   <install name="php/UNL/Templates/Version3x1/Unlaffiliate_local.php" as="UNL/Templates/Version3x1/Unlaffiliate_local.php"/>
    <install name="test/pear.unl.edu/UNL_Templates/UNL_TemplatesTest.php" as="UNL_Templates/UNL_TemplatesTest.php"/>
   </filelist>
  </phprelease>
