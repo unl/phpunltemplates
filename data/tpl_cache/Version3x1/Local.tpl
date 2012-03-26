@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="ie iem7"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
-<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/fixed.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
+<!--[if IEMobile 7 ]><html class="ie iem7"><!-- InstanceBegin template="/Templates/local.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><!-- InstanceBegin template="/Templates/local.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><!-- InstanceBegin template="/Templates/local.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><!-- InstanceBegin template="/Templates/local.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7) ]><html class="ie" lang="en"><!-- InstanceBegin template="/Templates/local.dwt" codeOutsideHTMLIsLocked="false" --><![endif]-->
+<!--[if !(IEMobile) | !(IE)]><!--><html lang="en"><!-- InstanceBegin template="/Templates/local.dwt" codeOutsideHTMLIsLocked="false" --><!--<![endif]-->
 <head>
 <!--#include virtual="/wdn/templates_3.1/includes/metanfavico.html" -->
 <!--
@@ -19,9 +19,9 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: fixed.dwt | ea2608181e2b6604db76106fd982b39218ddcb8b | Fri Mar 9 12:20:43 2012 -0600 | Kevin Abel  $
+    $Id: local.dwt | d3b0e517ecafe3e1f81c45ddafa7a316adcc45dd | Fri Mar 9 11:41:56 2012 -0600 | Kevin Abel  $
 -->
-<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles.html" -->
+<!--#include virtual="/wdn/templates_3.1/includes/scriptsandstyles_local.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
