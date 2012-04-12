@@ -91,9 +91,9 @@ class UNL_Templates extends UNL_DWT
      */
     public static function loadDefaultConfig()
     {
-        self::$options['version'] = str_replace('.', 'x', self::$options['version']);
-        include_once 'UNL/Templates/Version'.self::$options['version'].'.php';
-        $class = 'UNL_Templates_Version'.self::$options['version'];
+        $version = str_replace('.', 'x', self::$options['version']);
+        include_once 'UNL/Templates/Version'.$version.'.php';
+        $class = 'UNL_Templates_Version'.$version;
         self::$template_version = new $class();
         UNL_DWT::$options = array_merge(UNL_DWT::$options, self::$template_version->getConfig());
     }
