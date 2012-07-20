@@ -1,11 +1,16 @@
 <?php
 
-if (file_exists(dirname(__FILE__).'/data/tpl_cache')) {
-    $tpl_dir = dirname(__FILE__).'/data/tpl_cache';
-} else {
-    $tpl_dir = '/usr/share/pear/data/UNL_Templates/data/tpl_cache';
-}
+$version = '1.3.0RC2';
 
+// Find the directory where the tpl cache is
+switch (true) {
+    case file_exists(__DIR__ . '/UNL_Templates-' . $version . '.tgz'):
+        $tpl_dir = 'phar://' . __DIR__ . '/UNL_Templates-' . $version . '.tgz'
+                 . '/UNL_Templates-'. $version . '/data/pear.unl.edu/UNL_Templates/tpl_cache';
+    break;
+    default:
+        $tpl_dir = dirname(__FILE__).'/data/tpl_cache';
+}
 
 $version = 3;
 $default_template = 'Fixed.tpl';
