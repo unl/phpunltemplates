@@ -5,8 +5,10 @@ $version = '1.3.0RC2';
 // Find the directory where the tpl cache is
 switch (true) {
     case file_exists(__DIR__ . '/UNL_Templates-' . $version . '.tgz'):
-        $tpl_dir = 'phar://' . __DIR__ . '/UNL_Templates-' . $version . '.tgz'
-                 . '/UNL_Templates-'. $version . '/data/pear.unl.edu/UNL_Templates/tpl_cache';
+        $phar = 'phar://' . __DIR__ . '/UNL_Templates-' . $version . '.tgz'
+                 . '/UNL_Templates-'. $version ;
+        $tpl_dir = $phar . '/data/pear.unl.edu/UNL_Templates/tpl_cache';
+        set_include_path($phar . '/php');
     break;
     default:
         $tpl_dir = dirname(__FILE__).'/data/tpl_cache';
