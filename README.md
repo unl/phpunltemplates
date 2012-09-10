@@ -40,7 +40,7 @@ UNL_Templates::$options['version'] = UNL_Templates::VERSION3x1;
 $page = UNL_Templates::factory('fixed');
 
 $page->doctitle = '<title>My Sample UNL Site | University of Nebraska&ndash;Lincoln</title>';
-$page->head = '<link rel="stylesheet" href="http://ucommxsrv1.unl.edu/hr/serviceawards/service.css" type="text/css" />';
+$page->head = '<script>WDN.log("Success!");</script>';
 $page->navlinks = '<ul>
                    <li><a href="./">Home</a>
                        <ul>
