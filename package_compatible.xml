@@ -2,11 +2,6 @@
 <package version="2.1" xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd">
  <name>UNL_Templates</name>
  <channel>pear.unl.edu</channel>
- <summary>The UNL HTML Templates as a PEAR Package.
-</summary>
- <description>
-This package allows you to render UNL Template styled pages using PHP Objects.
-</description>
  <lead>
   <name>Brett Bieber</name>
   <user>saltybeagle</user>
@@ -19,20 +14,28 @@ This package allows you to render UNL Template styled pages using PHP Objects.
   <email>nhummel2@math.unl.edu</email>
   <active>yes</active>
  </lead>
- <date>2012-03-26</date>
- <time>14:35:17</time>
+ <date>2012-09-11</date>
+ <time>13:45:42</time>
  <version>
-  <release>1.3.0RC2</release>
+  <release>1.3.0</release>
   <api>1.0.0</api>
  </version>
  <stability>
-  <release>beta</release>
+  <release>stable</release>
   <api>stable</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
- <notes>New features:
+ <notes>Stable Release!
 
- - Add support for version 3.1 of the UNL Templates</notes>
+New features:
+
+* Add support for version 3.1 of the UNL Templates
+
+Changes since RC2:
+
+* Update template cache files with validation fixes
+* Reflect UNL_DWT API changes
+</notes>
  <contents>
   <dir name="/">
    <file role="test" name="test/pear.unl.edu/UNL_Templates/UNL_TemplatesTest.php"/>

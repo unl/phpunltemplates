@@ -1,0 +1,10 @@
+Stable Release!
+
+New features:
+
+* Add support for version 3.1 of the UNL Templates
+
+Changes since RC2:
+
+* Update template cache files with validation fixes
+* Reflect UNL_DWT API changes
