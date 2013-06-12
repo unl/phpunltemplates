@@ -19,27 +19,18 @@ This package allows you to render UNL Template styled pages using PHP Objects.
   <email>nhummel2@math.unl.edu</email>
   <active>yes</active>
  </lead>
- <date>2012-09-11</date>
- <time>13:45:42</time>
+ <date>2013-06-11</date>
+ <time>13:07:02</time>
  <version>
-  <release>1.3.0</release>
+  <release>1.4.0RC1</release>
   <api>1.0.0</api>
  </version>
  <stability>
-  <release>stable</release>
+  <release>beta</release>
   <api>stable</api>
  </stability>
  <license uri="http://www1.unl.edu/wdn/wiki/Software_License">BSD License</license>
- <notes>Stable Release!
-
-New features:
-
-* Add support for version 3.1 of the UNL Templates
-
-Changes since RC2:
-
-* Update template cache files with validation fixes
-* Reflect UNL_DWT API changes
+ <notes>Add experimental support for version 1.4.0 of the templates
 </notes>
  <contents>
   <dir name="/">
@@ -132,12 +123,16 @@ Changes since RC2:
        <file role="php" name="Unlaffiliate_debug.php"/>
        <file role="php" name="Unlaffiliate_local.php"/>
       </dir>
+      <dir name="Version4">
+       <file role="php" name="Fixed.php"/>
+      </dir>
       <file role="php" name="CachingService.php"/>
       <file role="php" name="Scanner.php"/>
       <file role="php" name="Version.php"/>
       <file role="php" name="Version2.php"/>
       <file role="php" name="Version3.php"/>
       <file role="php" name="Version3x1.php"/>
+      <file role="php" name="Version4.php"/>
      </dir>
      <file role="php" name="Templates.php"/>
     </dir>
