@@ -1,0 +1,8 @@
+Finalize support for version 4.0 of the templates
+
+Templates Supported:
+* Fixed
+* Debug
+* Unlaffiliate
+* Unlaffiliate_debug
+* Unlaffiliate_local
