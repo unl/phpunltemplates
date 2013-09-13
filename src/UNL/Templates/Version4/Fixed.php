@@ -9,7 +9,7 @@ class UNL_Templates_Version4_Fixed extends UNL_Templates
     ###START_AUTOCODE
     /* the code below is auto generated do not remove the above tag */
 
-    public $__template = 'debug.shtml';                       // template name
+    public $__template = 'fixed.dwt';                       // template name
     public $doctitle = "<title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>";                       // string()  
     public $head = "<!-- Place optional header elements here -->";                           // string()  
     public $titlegraphic = "The Title of My Site";                   // string()  

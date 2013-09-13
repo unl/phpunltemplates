@@ -40,11 +40,11 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
 
         // Always try and retrieve the latest
         if (!(UNL_Templates::getCachingService() instanceof UNL_Templates_CachingService_Null)
-            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/4.0/'.$template, false, $http_context)) {
+            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.$template, false, $http_context)) {
             return $tpl;
         }
 
-        if ($tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/4.0/'.$template)) {
+        if ($tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.$template)) {
             return $tpl;
         }
         
@@ -66,7 +66,7 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
             if (!file_exists($file)) {
                 UNL_Templates::debug('File does not exist:'.$file,
                              'makeIncludeReplacements', 3);
-                $file = 'https://raw.github.com/unl/wdntemplates/4.0'.$include;
+                $file = 'https://raw.github.com/unl/wdntemplates/master'.$include;
             }
             $html = str_replace('<!--#include virtual="'.$include.'" -->',
                                  file_get_contents($file), $html);
