@@ -41,6 +41,11 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
         // Always try and retrieve the latest
         if (!(UNL_Templates::getCachingService() instanceof UNL_Templates_CachingService_Null)
             && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.$template, false, $http_context)) {
+
+            // Grab the HTML version number for this file
+            $version = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/VERSION_HTML');
+            $tpl = str_replace('$HTML_VERSION$', $version, $tpl);
+
             return $tpl;
         }
 
@@ -60,16 +65,30 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
         preg_match_all('<!--#include virtual="(/wdn/templates_4.0/[A-Za-z0-9\.\/_]+)" -->',
                         $html, $includes);
         UNL_Templates::debug(print_r($includes, true), 'makeIncludeReplacements', 3);
+
+        // Normally the templates will not need to have the dependency version replaced
+        static $dep_version = '';
+
         foreach ($includes[1] as $include) {
             UNL_Templates::debug('Replacing '.$include, 'makeIncludeReplacements', 3);
             $file = UNL_Templates::$options['templatedependentspath'].$include;
             if (!file_exists($file)) {
-                UNL_Templates::debug('File does not exist:'.$file,
-                             'makeIncludeReplacements', 3);
-                $file = 'http://www.unl.edu'.$include;
+
+                UNL_Templates::debug('File does not exist:'.$file, 'makeIncludeReplacements', 3);
+                // We'll grab the latest copy of the file from Github
+
+                if ($dep_version == '') {
+                    // Grab the dependency version from github
+                    $dep_version = file_get_contents('https://raw.github.com/unl/wdntemplates/master/VERSION_DEP');
+                }
+
+                $file = 'https://raw.github.com/unl/wdntemplates/master'.$include;
             }
-            $html = str_replace('<!--#include virtual="'.$include.'" -->',
-                                 file_get_contents($file), $html);
+            $html = str_replace(
+                        array('<!--#include virtual="'.$include.'" -->', '$DEP_VERSION$'),
+                        array(file_get_contents($file),                  $dep_version),
+                        $html
+                    );
         }
         return $html;
     }
