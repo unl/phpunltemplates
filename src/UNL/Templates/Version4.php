@@ -44,8 +44,8 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
             return $tpl;
         }
 
-        if ($tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.$template)) {
-            return $tpl;
+        if (file_exists(UNL_Templates::getDataDir().'/tpl_cache/Version4/'.$template)) {
+            return file_get_contents(UNL_Templates::getDataDir().'/tpl_cache/Version4/'.$template);
         }
 
 
@@ -66,7 +66,7 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
             if (!file_exists($file)) {
                 UNL_Templates::debug('File does not exist:'.$file,
                              'makeIncludeReplacements', 3);
-                $file = 'https://raw.github.com/unl/wdntemplates/master'.$include;
+                $file = 'http://www.unl.edu'.$include;
             }
             $html = str_replace('<!--#include virtual="'.$include.'" -->',
                                  file_get_contents($file), $html);
