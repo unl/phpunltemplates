@@ -18,7 +18,7 @@
 define('UNL_DWT_NO_OVERLOAD',1);
 ini_set('display_errors',true);
 
-set_include_path(dirname(__DIR__).'/../../src');
+//set_include_path(dirname(__DIR__).'/../..');
 require_once 'UNL/DWT/Generator.php';
 
 if (!ini_get('register_argc_argv')) {
