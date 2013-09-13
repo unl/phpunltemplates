@@ -20,9 +20,9 @@ This package allows you to render UNL Template styled pages using PHP Objects.
   <active>yes</active>
  </lead>
  <date>2013-09-13</date>
- <time>09:48:29</time>
+ <time>12:05:13</time>
  <version>
-  <release>1.4.0RC2</release>
+  <release>1.4.0RC3</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -38,6 +38,10 @@ Templates Supported:
 * Unlaffiliate
 * Unlaffiliate_debug
 * Unlaffiliate_local
+
+Fixed in this RC:
+* Use local .tpl files instead of always pulling remotely
+* Make HTML and DEP replacements when local files do not exist
 </notes>
  <contents>
   <dir name="/">
@@ -68,6 +72,14 @@ Templates Supported:
       <file role="data" name="Unlaffiliate.tpl"/>
      </dir>
      <dir name="Version3x1">
+      <file role="data" name="Debug.tpl"/>
+      <file role="data" name="Fixed.tpl"/>
+      <file role="data" name="Local.tpl"/>
+      <file role="data" name="Unlaffiliate.tpl"/>
+      <file role="data" name="Unlaffiliate_debug.tpl"/>
+      <file role="data" name="Unlaffiliate_local.tpl"/>
+     </dir>
+     <dir name="Version4">
       <file role="data" name="Debug.tpl"/>
       <file role="data" name="Fixed.tpl"/>
       <file role="data" name="Local.tpl"/>
@@ -133,6 +145,7 @@ Templates Supported:
       <dir name="Version4">
        <file role="php" name="Debug.php"/>
        <file role="php" name="Fixed.php"/>
+       <file role="php" name="Local.php"/>
        <file role="php" name="Unlaffiliate.php"/>
        <file role="php" name="Unlaffiliate_debug.php"/>
        <file role="php" name="Unlaffiliate_local.php"/>
