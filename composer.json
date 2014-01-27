@@ -1,0 +1,6 @@
+{
+    "name": "UNL/PHPUNLTemplates",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    }
+}
