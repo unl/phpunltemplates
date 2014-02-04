@@ -34,16 +34,18 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
 
     function getTemplate($template)
     {
+        //Convert .tpl to .dwt
+        $template = str_replace('.tpl', '.dwt', $template);
 
         // Set a timeout for the HTTP download of the template file
         $http_context = stream_context_create(array('http' => array('timeout' => UNL_Templates::$options['timeout'])));
 
         // Always try and retrieve the latest
         if (!(UNL_Templates::getCachingService() instanceof UNL_Templates_CachingService_Null)
-            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.$template, false, $http_context)) {
-
+            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.strtolower($template), false, $http_context)) {
+    
             // Grab the HTML version number for this file
-            $version = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/VERSION_HTML');
+            $version = file_get_contents('https://raw.github.com/unl/wdntemplates/master/VERSION_HTML');
             $tpl = str_replace('$HTML_VERSION$', $version, $tpl);
 
             return $tpl;
