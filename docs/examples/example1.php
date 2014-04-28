@@ -7,7 +7,7 @@
  */
 ini_set('display_errors', true);
 error_reporting(E_ALL);
-set_include_path(dirname(dirname(__DIR__)).'/src'.PATH_SEPARATOR.dirname(dirname(__DIR__)).'/../UNL_DWT/src');
+set_include_path(dirname(dirname(__DIR__)).'/src'.PATH_SEPARATOR.dirname(dirname(__DIR__)).'/vendor/php');
 require_once 'UNL/Templates.php';
 
 // Optionally set the version you'd like to use
