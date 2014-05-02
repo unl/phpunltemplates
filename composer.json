@@ -2,5 +2,6 @@
     "name": "UNL/PHPUNLTemplates",
     "autoload": {
         "psr-0": { "UNL_Templates": "src/" }
-    }
+    },
+    "include-path": ["src"]
 }
