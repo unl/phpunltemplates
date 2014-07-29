@@ -64,7 +64,7 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
         UNL_Templates::debug('Now making template include replacements.',
                      'makeIncludeReplacements', 3);
         $includes = array();
-        preg_match_all('<!--#include virtual="(/wdn/templates_4.0/[A-Za-z0-9\.\/_]+)" -->',
+        preg_match_all('<!--#include virtual="(/wdn/templates_4.0/[^"]+)" -->',
                         $html, $includes);
         UNL_Templates::debug(print_r($includes, true), 'makeIncludeReplacements', 3);
 
