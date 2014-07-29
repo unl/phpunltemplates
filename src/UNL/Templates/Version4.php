@@ -42,10 +42,10 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
 
         // Always try and retrieve the latest
         if (!(UNL_Templates::getCachingService() instanceof UNL_Templates_CachingService_Null)
-            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.strtolower($github_template), false, $http_context)) {
+            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/4.0.0/Templates/'.strtolower($github_template), false, $http_context)) {
     
             // Grab the HTML version number for this file
-            $version = file_get_contents('https://raw.github.com/unl/wdntemplates/master/VERSION_HTML');
+            $version = file_get_contents('https://raw.github.com/unl/wdntemplates/4.0.0/VERSION_HTML');
             $tpl = str_replace('$HTML_VERSION$', $version, $tpl);
 
             return $tpl;
