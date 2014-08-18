@@ -42,10 +42,10 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
 
         // Always try and retrieve the latest
         if (!(UNL_Templates::getCachingService() instanceof UNL_Templates_CachingService_Null)
-            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.strtolower($github_template), false, $http_context)) {
+            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/4.0.0/Templates/'.strtolower($github_template), false, $http_context)) {
     
             // Grab the HTML version number for this file
-            $version = file_get_contents('https://raw.github.com/unl/wdntemplates/master/VERSION_HTML');
+            $version = file_get_contents('https://raw.github.com/unl/wdntemplates/4.0.0/VERSION_HTML');
             $tpl = str_replace('$HTML_VERSION$', $version, $tpl);
 
             return $tpl;
@@ -64,7 +64,7 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
         UNL_Templates::debug('Now making template include replacements.',
                      'makeIncludeReplacements', 3);
         $includes = array();
-        preg_match_all('<!--#include virtual="(/wdn/templates_4.0/[A-Za-z0-9\.\/_]+)" -->',
+        preg_match_all('<!--#include virtual="(/wdn/templates_4.0/[^"]+)" -->',
                         $html, $includes);
         UNL_Templates::debug(print_r($includes, true), 'makeIncludeReplacements', 3);
 
