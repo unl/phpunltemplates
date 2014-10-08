@@ -1,5 +1,5 @@
 {
-    "name": "UNL/PHPUNLTemplates",
+    "name": "unl/php-unl-templates",
     "autoload": {
         "psr-0": { "UNL_Templates": "src/" }
     },
