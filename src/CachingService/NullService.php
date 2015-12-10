@@ -17,17 +17,17 @@ namespace UNL\Templates\CachingService;
 class NullService implements CachingServiceInterface
 {
 
-    function clean($object = null)
+    public function clean($object = null)
     {
         return true;
     }
 
-    function save($data, $key)
+    public function save($data, $key)
     {
         return true;
     }
 
-    function get($key)
+    public function get($key)
     {
         return false;
     }

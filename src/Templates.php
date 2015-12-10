@@ -43,7 +43,7 @@ abstract class Templates extends AbstractDwt
     protected static function getCachingService()
     {
         if (!isset(static::$cache)) {
-            $class = 'CachingService\\Null';
+            $class = 'CachingService\\NullService';
 
             if (class_exists('UNL_Cache_Lite')) {
                 $class = 'CachingService\\UNLCacheLite';
@@ -111,36 +111,41 @@ abstract class Templates extends AbstractDwt
             $localPath = self::$options['templatedependentspath'];
         }
 
-        return preg_replace_callback('/<!--#include virtual="(' . preg_quote(static::INCLUDE_ROOT, '/') . '[^"]+)" -->/', function($matches) {
-            $include = $matches[1];
-            $depPath = rtrim($localPath, '\\/');
-            $isDepPathAUrl = preg_match('/^https?:\/\//', $depPath);
+        return preg_replace_callback(
+            '/<!--#include virtual="(' . preg_quote(static::INCLUDE_ROOT, '/') . '[^"]+)" -->/',
+            function ($matches) use ($localPath) {
+                $include = $matches[1];
+                $depPath = rtrim($localPath, '\\/');
+                $isDepPathAUrl = preg_match('/^https?:\/\//', $depPath);
 
-            if ($isDepPathAUrl) {
+                if ($isDepPathAUrl) {
+                    $includeFile = $depPath . $include;
+                    $content = file_get_contents($includeFile);
+
+                    if ($content === false) {
+                        return self::INCLUDE_ERROR;
+                    }
+
+                    return static::replaceTokens($content);
+                }
+
+                // If the dependents path isn't set, use the local cache (should work even with bad config options)
+                if (empty($depPath) || !file_exists($depPath)) {
+                    $depPath = static::getDataDir() . DIRECTORY_SEPARATOR . self::DEPENDENTS_CACHE_DIR .
+                        DIRECTORY_SEPARATOR . static::LOCAL_NAME;
+                }
+
                 $includeFile = $depPath . $include;
-                $content = file_get_contents($includeFile);
 
-                if ($content === false) {
+                if (!file_exists($includeFile)) {
                     return self::INCLUDE_ERROR;
                 }
 
-                return static::replaceTokens($content);
-            }
-
-            // If the dependents path isn't set, use the local cache (should work even with bad config options)
-            if (empty($depPath) || !file_exists($depPath)) {
-                $depPath = static::getDataDir() . DIRECTORY_SEPARATOR . self::DEPENDENTS_CACHE_DIR . DIRECTORY_SEPARATOR . static::LOCAL_NAME;
-            }
-
-            $includeFile = $depPath . $include;
-
-            if (!file_exists($includeFile)) {
-                return self::INCLUDE_ERROR;
-            }
-
-            $content = file_get_contents($includeFile);
-            return $content === false ? self::INCLUDE_ERROR : static::replaceTokens($content);
-        }, $html);
+                $content = file_get_contents($includeFile);
+                return $content === false ? self::INCLUDE_ERROR : static::replaceTokens($content);
+            },
+            $html
+        );
     }
 
     protected static function getDataDir()
@@ -160,8 +165,8 @@ abstract class Templates extends AbstractDwt
         return static::getCachingService()->clean($object);
     }
 
-	public static function factory($type, $version = '')
-	{
+    public static function factory($type, $version = '')
+    {
         if (!$version) {
             $version = static::$options['version'];
 
@@ -180,8 +185,8 @@ abstract class Templates extends AbstractDwt
             throw new InvalidArgumentException("Template version must be an instance of Templates class");
         }
 
-		return $instance;
-	}
+        return $instance;
+    }
 
     public function getLocalIncludePath()
     {
@@ -194,7 +199,7 @@ abstract class Templates extends AbstractDwt
         return $this;
     }
 
-	public function getTemplateFile()
+    public function getTemplateFile()
     {
         return $this->getCache();
     }
@@ -225,7 +230,8 @@ abstract class Templates extends AbstractDwt
         $templateFile = $this->getTemplatePath();
 
         if (!file_exists($templateFile)) {
-            throw new BadMethodCallException('Requested template does not exist on the filesystem at "' . $templateFile . '".');
+            throw new BadMethodCallException('Requested template does not exist on the filesystem at "' .
+                $templateFile . '".');
         }
 
         if ($data = file_get_contents($templateFile)) {
@@ -240,16 +246,17 @@ abstract class Templates extends AbstractDwt
 
     protected function getTemplatePath()
     {
-        return static::getDataDir() . DIRECTORY_SEPARATOR . self::TEMPLATE_CACHE_DIR . DIRECTORY_SEPARATOR . static::LOCAL_NAME . DIRECTORY_SEPARATOR . $this->template;
+        return static::getDataDir() . DIRECTORY_SEPARATOR . self::TEMPLATE_CACHE_DIR . DIRECTORY_SEPARATOR .
+            static::LOCAL_NAME . DIRECTORY_SEPARATOR . $this->template;
     }
 
     protected function appendToHead($value)
     {
-    	$head = $this->getRegion('head');
+        $head = $this->getRegion('head');
 
-    	if (!$head) {
-    		return $this;
-    	}
+        if (!$head) {
+            return $this;
+        }
 
         $head->setValue($head->getValue()  . $value);
         return $this;
@@ -266,8 +273,8 @@ abstract class Templates extends AbstractDwt
      */
     public function addHeadLink($href, $relation, $relType = 'rel', array $attributes = array())
     {
-    	$attributes[$relType] = $relation;
-    	$attributes['href'] = $href;
+        $attributes[$relType] = $relation;
+        $attributes['href'] = $href;
         $element = static::generateElement('link', $attributes, false) . PHP_EOL;
         return $this->appendToHead($element);
     }
@@ -281,16 +288,16 @@ abstract class Templates extends AbstractDwt
      */
     public function addScript($url, $type = '')
     {
-    	$attributes = [
-    		'src' => $url
-    	];
+        $attributes = [
+            'src' => $url
+        ];
 
-    	if ($type && $type !== 'text/javascript') {
-    		$attributes['type'] = $type;
-    	}
+        if ($type && $type !== 'text/javascript') {
+            $attributes['type'] = $type;
+        }
 
-    	$element = static::generateElement('script', $attributes) . PHP_EOL;
-    	return $this->appendToHead($element);
+        $element = static::generateElement('script', $attributes) . PHP_EOL;
+        return $this->appendToHead($element);
     }
 
     /**
@@ -302,14 +309,14 @@ abstract class Templates extends AbstractDwt
      */
     public function addScriptDeclaration($content, $type = '')
     {
-    	$attributes = [];
+        $attributes = [];
 
-    	if ($type && $type !== 'text/javascript') {
-    		$attributes['type'] = $type;
-    	}
+        if ($type && $type !== 'text/javascript') {
+            $attributes['type'] = $type;
+        }
 
-    	$element = static::generateElement('script', $attributes, $content) . PHP_EOL;
-    	return $this->appendToHead($element);
+        $element = static::generateElement('script', $attributes, $content) . PHP_EOL;
+        return $this->appendToHead($element);
     }
 
     /**
@@ -324,14 +331,14 @@ abstract class Templates extends AbstractDwt
      */
     public function addStyleDeclaration($content, $type = '')
     {
-    	$attributes = [];
+        $attributes = [];
 
-    	if ($type && $type !== 'text/css') {
-    		$attributes['type'] = $type;
-    	}
+        if ($type && $type !== 'text/css') {
+            $attributes['type'] = $type;
+        }
 
-    	$element = static::generateElement('style', $attributes, $content) . PHP_EOL;
-    	return $this->appendToHead($element);
+        $element = static::generateElement('style', $attributes, $content) . PHP_EOL;
+        return $this->appendToHead($element);
     }
 
     /**
@@ -343,11 +350,11 @@ abstract class Templates extends AbstractDwt
      */
     public function addStyleSheet($url, $media = '')
     {
-    	$attributes = [];
+        $attributes = [];
 
-    	if ($media && $media !== 'all') {
-    		$attributes['media'] = $media;
-    	}
+        if ($media && $media !== 'all') {
+            $attributes['media'] = $media;
+        }
 
         return $this->addHeadLink($url, 'stylesheet');
     }
