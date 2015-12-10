@@ -1,14 +1,13 @@
 <?php
 
-set_include_path(dirname(dirname(__DIR__)).'/src'.PATH_SEPARATOR.dirname(dirname(__DIR__)).'/vendor/php');
+require_once __DIR__ . '/../../tests/bootstrap.php';
 
 highlight_file(__FILE__);
-require_once 'UNL/Templates/Scanner.php';
 
-$html = file_get_contents('http://www.unl.edu/ucomm/unltoday/');
+$html = file_get_contents('http://www.unl.edu/');
 
 // Scan this rendered UNL template-based page for editable regions
-$scanner = new UNL_Templates_Scanner($html);
+$scanner = new UNL\Templates\Scanner($html);
 
 // All editable regions are now member variables of the scanner object.
 echo $scanner->maincontentarea;
