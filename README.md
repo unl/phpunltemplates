@@ -1,46 +1,51 @@
-The UNL HTML Templates as a PEAR Package.
+# PHP UNL Templates
+
+The UNL HTML Templates as a PHP library
 
 This package allows you to render UNL Template styled pages using PHP Objects.
 
-##Example
+## Requirements
 
-* Download (http://wdn.unl.edu/) the UNL template CSS and JS or checkout the project (http://github.com/unl/wdntemplates)
-so that the 'wdn' directory is at the web root.
+* PHP >= 5.5
 
-* Download pyrus (http://pear2.php.net/) into your home directory.
+## Example
 
-* Navigate to your web root.
+*  Navigate to your web root
+* Create a `composer.json` file with:
+
+```
+{
+  "repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/unl/phpunltemplates.git"
+    }
+  ],
+  "require": {
+    "unl/php-unl-templates": "4.1.*"
+  }
+}
+```
 
 * Run the following commands
 
-````bash
-$ mkdir mysampleunlsite
-$ cd mysampleunlsite
-$ mkdir vendor
-$ php ~/pyrus.phar mypear ./vendor
-$ php ~/pyrus.phar channel-discover pear.unl.edu unl
+```sh
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install
+```
 
-# Leave off '-beta' for the stable release
-$ php ~/pyrus.phar install unl/UNL_DWT-beta
-$ php ~/pyrus.phar install unl/UNL_Templates-beta
+* Create an `index.php` file with
 
-$ nano index.php
-````
-
-* Paste the following into the editor
-
-````php
+```php
 <?php
 
-set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__DIR__) . '/mysampleunlsite/vendor/php');
+require_once  'vendor/autoload.php';
 
-require_once 'UNL/Templates.php';
+use UNL\Templates\Templates;
 
-UNL_Templates::$options['version'] = UNL_Templates::VERSION3x1;
-$page = UNL_Templates::factory('fixed');
+$page = Templates::factory('Fixed', Templates::VERSION_4_1);
 
 $page->doctitle = '<title>My Sample UNL Site | University of Nebraska&ndash;Lincoln</title>';
-$page->head = '<script>WDN.log("Success!");</script>';
 $page->navlinks = '<ul>
                    <li><a href="./">Home</a>
                        <ul>
@@ -49,11 +54,6 @@ $page->navlinks = '<ul>
                        </ul>
                    </li>
                    </ul>';
-$page->footercontent = '&copy; 2012 University of Nebraska–Lincoln | Lincoln, NE 68588 | 402-472-7211 |
-                        <a href="http://www.unl.edu/ucomm/aboutunl/" title="Click here to know more about UNL">About UNL</a> |
-                        <a href="http://www1.unl.edu/comments/" title="Click here to direct your comments and questions">comments?</a>
-                        <br />UNL is an equal opportunity employer with a comprehensive plan for diversity.
-                        Find out more: <a href="https://employment.unl.edu/" title="Employment at UNL">employment.unl.edu</a>';
 $page->breadcrumbs = '<ul>
                       <li><a href="http://www.unl.edu/">UNL</a></li>
                       <li><a href="./">My Sample UNL Site</a></li>
@@ -64,18 +64,15 @@ $page->leftcollinks = '<h3>Related Links</h3>
                        <ul>
                        <li><a href="http://ucomm.unl.edu/">University Communications</a></li>
                        </ul>';
-$page->contactinfo = '<h3>Contact Us</h3>
-                      <p><strong>University of Nebraska-Lincoln</strong><br />
+$page->contactinfo = '<p><strong>University of Nebraska-Lincoln</strong><br />
                       1400 R Street<br />
                       Lincoln, NE 68588<br />
                       402-472-7211</p>';
 $page->maincontentarea = '<p>Content</p>';
 
 echo $page;
-````
-
-* Ctrl+x to save and exit.
+```
 
 * Load index.php in a web browser.
-
 * Attend WDN meetings the second Tuesday of every month in the Nebraska Union at 2:00 pm.
+* Learn about keeping your web server syncronized at http://wdn.unl.edu/synchronizing-unledu-web-framework

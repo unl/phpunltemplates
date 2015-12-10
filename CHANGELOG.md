@@ -1,9 +1,10 @@
 ## PHP UNL Templates Changelog
 
-### 2.0.0
+### 4.1.0
 * Complete API refactor
 * Removal of unsupported and end-of-life template versions
 * Removed API for loading sharedcode files. These should be loaded manually
+* Sync version numbers with the related `unl/wdntemplates` project
 
 ### 1.4.0
 

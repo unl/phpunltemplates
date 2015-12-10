@@ -30,6 +30,7 @@
         }
     ],
     "require": {
+        "php": ">=5.5",
         "unl/php-dwt-parser": "1.0.*"
     }
 }
