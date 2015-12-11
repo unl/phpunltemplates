@@ -1,5 +1,5 @@
 {
-    "name": "unl/php-unl-templates",
+    "name": "unl/php-wdn-templates",
     "description": "A PHP library for rendering the UNL templates",
     "homepage": "http://wdn.unl.edu/",
     "license": "BSD-3-Clause",
