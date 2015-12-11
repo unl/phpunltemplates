@@ -43,7 +43,7 @@ class CacheLite implements CachingServiceInterface
         if ($object) {
             $key = (string) $object;
 
-            if ($this->cache->get($key) !== false) {
+            if ($this->cache->get($key, static::CACHE_NAMESPACE) !== false) {
                 // Remove the cache for this individual object.
                 return $this->cache->remove($key, static::CACHE_NAMESPACE);
             }
