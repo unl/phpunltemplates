@@ -3,15 +3,13 @@
 namespace UNL\Templates;
 
 use UNL\DWT\AbstractDwt;
-use UNL\DWL\Exception\BadMethodCallException;
-use UNL\DWL\Exception\InvalidArgumentException;
 
 /**
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
 abstract class Templates extends AbstractDwt
 {
-    const VERSION_4 = 4;
+    const VERSION_4 = '4';
     const VERSION_4_1 = '4.1';
 
     const VERSION_DEFAULT = self::VERSION_4_1;
@@ -20,6 +18,12 @@ abstract class Templates extends AbstractDwt
     const DEPENDENTS_CACHE_DIR = 'dep_cache';
     const INCLUDE_ERROR = '[an error occurred while processing this directive]';
     const TOKEN_DEP_VERSION = '$DEP_VERSION$';
+
+    // these constants should be replaced in version subclasses
+    const VERSION = 'test';
+    const LOCAL_NAME = 'VersionTest';
+    const SOURCE_ROOT = './';
+    const INCLUDE_ROOT = '/includes/';
 
     /**
      * Cache object for output caching
@@ -40,7 +44,7 @@ abstract class Templates extends AbstractDwt
 
     protected $localIncludePath;
 
-    protected static function getCachingService()
+    public static function getCachingService()
     {
         if (!isset(static::$cache)) {
             $class = 'CachingService\\NullService';
@@ -56,6 +60,11 @@ abstract class Templates extends AbstractDwt
         }
 
         return static::$cache;
+    }
+
+    public static function setCachingService(CachingService\CachingServiceInterface $cache = null)
+    {
+        static::$cache = $cache;
     }
 
     protected static function generateElement($tagName, array $attributes = array(), $content = '')
@@ -81,10 +90,6 @@ abstract class Templates extends AbstractDwt
 
     protected static function getPatchVersion()
     {
-        if (!defined('static::SOURCE_ROOT')) {
-            throw new BadMethodCallException('Template class is missing required SOURCE_ROOT constant.');
-        }
-
         if (!static::$patchVersion) {
             static::$patchVersion = trim(file_get_contents(static::SOURCE_ROOT . 'VERSION_DEP'));
         }
@@ -101,16 +106,8 @@ abstract class Templates extends AbstractDwt
         return $content;
     }
 
-    protected static function makeIncludeReplacements($html, $localPath = '')
+    protected static function makeIncludeReplacements($html, $localPath)
     {
-        if (!defined('static::INCLUDE_ROOT')) {
-            throw new BadMethodCallException('Template class is missing required INCLUDE_ROOT constant.');
-        }
-
-        if (!$localPath) {
-            $localPath = self::$options['templatedependentspath'];
-        }
-
         return preg_replace_callback(
             '/<!--#include virtual="(' . preg_quote(static::INCLUDE_ROOT, '/') . '[^"]+)" -->/',
             function ($matches) use ($localPath) {
@@ -119,14 +116,7 @@ abstract class Templates extends AbstractDwt
                 $isDepPathAUrl = preg_match('/^https?:\/\//', $depPath);
 
                 if ($isDepPathAUrl) {
-                    $includeFile = $depPath . $include;
-                    $content = file_get_contents($includeFile);
-
-                    if ($content === false) {
-                        return self::INCLUDE_ERROR;
-                    }
-
-                    return static::replaceTokens($content);
+                    return static::fetchFileAndReplaceTokens($depPath . $include);
                 }
 
                 // If the dependents path isn't set, use the local cache (should work even with bad config options)
@@ -135,17 +125,25 @@ abstract class Templates extends AbstractDwt
                         DIRECTORY_SEPARATOR . static::LOCAL_NAME;
                 }
 
-                $includeFile = $depPath . $include;
-
-                if (!file_exists($includeFile)) {
+                if (!file_exists($depPath . $include)) {
                     return self::INCLUDE_ERROR;
                 }
 
-                $content = file_get_contents($includeFile);
-                return $content === false ? self::INCLUDE_ERROR : static::replaceTokens($content);
+                return static::fetchFileAndReplaceTokens($depPath . $include);
             },
             $html
         );
+    }
+
+    protected static function fetchFileAndReplaceTokens($includeFile)
+    {
+        $content = @file_get_contents($includeFile);
+
+        if (false === $content) {
+            return self::INCLUDE_ERROR;
+        }
+
+        return static::replaceTokens($content);
     }
 
     protected static function getDataDir()
@@ -167,22 +165,25 @@ abstract class Templates extends AbstractDwt
 
     public static function factory($type, $version = '')
     {
-        if (!$version) {
+        if (!$version && !empty(static::$options['version'])) {
             $version = static::$options['version'];
-
-            if (!$version) {
-                $version = self::VERSION_DEFAULT;
-            }
+        } elseif (!$version) {
+            $version = self::VERSION_DEFAULT;
         }
 
         $version = str_replace('.', 'x', $version);
 
 
         $class = __NAMESPACE__ . '\\Version' . $version . '\\' . $type;
+
+        if (!class_exists($class)) {
+            throw new Exception\UnexpectedValueException('Requested template does not exist');
+        }
+
         $instance = new $class;
 
         if (!$instance instanceof self) {
-            throw new InvalidArgumentException("Template version must be an instance of Templates class");
+            throw new Exception\UnexpectedValueException('Template version must be an instance of Templates class');
         }
 
         return $instance;
@@ -210,38 +211,34 @@ abstract class Templates extends AbstractDwt
      *
      * @return string
      */
-    public function getCache()
+    protected function getCache()
     {
         $localIncludePath = $this->getLocalIncludePath();
 
-        if (!empty(static::$options['templatedependentspath'])) {
+        if (!$localIncludePath && !empty(static::$options['templatedependentspath'])) {
             $localIncludePath = static::$options['templatedependentspath'];
         }
 
         $cache = static::getCachingService();
-        $cacheKey = static::$options['version'] . $localIncludePath . $this->template;
+        $cacheKey = static::VERSION . $localIncludePath . $this->template;
 
         // Test if there is a valid cache for this template
         if ($data = $cache->get($cacheKey)) {
             return $data;
         }
 
-
         $templateFile = $this->getTemplatePath();
 
         if (!file_exists($templateFile)) {
-            throw new BadMethodCallException('Requested template does not exist on the filesystem at "' .
-                $templateFile . '".');
+            return '';
         }
 
         if ($data = file_get_contents($templateFile)) {
             $data = static::makeIncludeReplacements($data, $localIncludePath);
             $cache->save($data, $cacheKey);
-
-            return $data;
         }
 
-        return $cache->get($this->template);
+        return $data;
     }
 
     protected function getTemplatePath()
@@ -258,7 +255,7 @@ abstract class Templates extends AbstractDwt
             return $this;
         }
 
-        $head->setValue($head->getValue()  . $value);
+        $head->setValue($head->getValue() . $value);
         return $this;
     }
 
@@ -356,6 +353,6 @@ abstract class Templates extends AbstractDwt
             $attributes['media'] = $media;
         }
 
-        return $this->addHeadLink($url, 'stylesheet');
+        return $this->addHeadLink($url, 'stylesheet', 'rel', $attributes);
     }
 }
