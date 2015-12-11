@@ -1,4 +1,7 @@
-# PHP UNL Templates
+# PHP WDN Templates
+
+[![Build Status](https://travis-ci.org/unl/phpunltemplates.svg)](https://travis-ci.org/unl/phpunltemplates)
+[![Coverage Status](https://coveralls.io/repos/unl/phpunltemplates/badge.svg?branch=master&service=github)](https://coveralls.io/github/unl/phpunltemplates?branch=master)
 
 The UNL HTML Templates as a PHP library
 
