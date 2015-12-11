@@ -32,5 +32,15 @@
     "require": {
         "php": ">=5.5",
         "unl/php-dwt-parser": "1.0.*"
+    },
+    "minimum-stability": "RC",
+    "prefer-stable": true,
+    "require-dev": {
+        "phpunit/PHPUnit": "^5.1"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UNLTest\\Templates\\": "tests/"
+        }
     }
 }
