@@ -11,8 +11,9 @@
 
 namespace UNL\Templates;
 
-class Version4x1 extends Templates
+abstract class Version4x1 extends Templates
 {
+    const VERSION = '4.1';
     const LOCAL_NAME = 'Version4x1';
     const SOURCE_ROOT = 'https://raw.githubusercontent.com/unl/wdntemplates/4.1/';
     const INCLUDE_ROOT = '/wdn/templates_4.1/includes/';
