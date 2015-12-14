@@ -1,7 +1,46 @@
 {
-    "name": "unl/php-unl-templates",
+    "name": "unl/php-wdn-templates",
+    "description": "A PHP library for rendering the UNL templates",
+    "homepage": "http://wdn.unl.edu/",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Kevin Abel (kabel)",
+            "email": "kabel2@unl.edu",
+            "role": "Developer"
+        },
+        {
+            "name": "Brett Bieber (saltybeagle)",
+            "email": "brett.bieber@gmail.com",
+            "role": "Retired Developer"
+        },
+        {
+            "name": "Ned Hummel (nhummel2)",
+            "email": "nhummel2@math.unl.edu",
+            "role": "Retired Developer"
+        }
+    ],
     "autoload": {
-        "psr-0": { "UNL_Templates": "src/" }
+        "psr-4": { "UNL\\Templates\\": "src/" }
     },
-    "include-path": ["src"]
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/unl/phpdwtparser.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "unl/php-dwt-parser": "1.0.*"
+    },
+    "minimum-stability": "RC",
+    "prefer-stable": true,
+    "require-dev": {
+        "phpunit/PHPUnit": "~4.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UNLTest\\Templates\\": "tests/"
+        }
+    }
 }

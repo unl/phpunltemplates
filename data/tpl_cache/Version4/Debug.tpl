@@ -19,17 +19,17 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: debug.dwt | 252c2891a48c70db689be6d897d4f34768b8258a | Thu Aug 1 15:08:19 2013 -0500 | Kevin Abel  $
+    $Id: debug.dwt | 252c2891a48c70db689be6d897d4f34768b8258a | Thu Aug 1 15:08:19 2013 -0500 | Kevin Abel $
 -->
 <!--#include virtual="/wdn/templates_4.0/includes/scriptsandstyles_debug.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>Use a descriptive page title | Optional Site Title (use for context) | University of Nebraska&ndash;Lincoln</title>
 <!-- InstanceEndEditable -->
-
 <!-- InstanceBeginEditable name="head" -->
 <!-- Place optional header elements here -->
 
 <!-- InstanceEndEditable -->
+
 <!-- InstanceParam name="class" type="text" value="debug" -->
 </head>
 <body class="@@(_document['class'])@@" data-version="4.0">
@@ -50,11 +50,7 @@
             <!--#include virtual="/wdn/templates_4.0/includes/apps.html" -->
             <div class="wdn-inner-wrapper">
                 <div id="wdn_site_title">
-                    <span>
-<!-- InstanceBeginEditable name="titlegraphic" -->
-The Title of My Site
-<!-- InstanceEndEditable -->
-</span>
+                    <span><!-- InstanceBeginEditable name="titlegraphic" -->The Title of My Site<!-- InstanceEndEditable --></span>
                 </div>
             </div>
         </header>
@@ -62,24 +58,20 @@ The Title of My Site
             <nav id="breadcrumbs" class="wdn-inner-wrapper">
                 <!-- WDN: see glossary item 'breadcrumbs' -->
                 <h3 class="wdn_list_descriptor wdn-text-hidden">Breadcrumbs</h3>
-                
-<!-- InstanceBeginEditable name="breadcrumbs" -->
+                <!-- InstanceBeginEditable name="breadcrumbs" -->
                 <ul>
                     <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
                     <li><a href="#" title="Site Title">Site Title</a></li>
                     <li>Home</li>
                 </ul>
-                
-<!-- InstanceEndEditable -->
+                <!-- InstanceEndEditable -->
             </nav>
             <div id="wdn_navigation_wrapper">
                 <nav id="navigation" role="navigation" class="wdn-band">
                     <h3 class="wdn_list_descriptor wdn-text-hidden">Navigation</h3>
-                    
-<!-- InstanceBeginEditable name="navlinks" -->
+                    <!-- InstanceBeginEditable name="navlinks" -->
                     <!--#include virtual="../sharedcode/navigation.html" -->
-                    
-<!-- InstanceEndEditable -->
+                    <!-- InstanceEndEditable -->
                     <label for="wdn_menu_toggle" class="wdn-icon-menu">Menu</label>
                 </nav>
             </div>
@@ -93,44 +85,36 @@ The Title of My Site
             <div class="wdn-band">
                 <div class="wdn-inner-wrapper">
                     <div id="pagetitle">
-                        
-<!-- InstanceBeginEditable name="pagetitle" -->
+                        <!-- InstanceBeginEditable name="pagetitle" -->
                         <h1>Please Title Your Page Here</h1>
-                        
-<!-- InstanceEndEditable -->
+                        <!-- InstanceEndEditable -->
                     </div>
                 </div>
             </div>
             <div id="maincontent" class="wdn-main">
                 <!--THIS IS THE MAIN CONTENT AREA; WDN: see glossary item 'main content area' -->
-                
-<!-- InstanceBeginEditable name="maincontentarea" -->
+                <!-- InstanceBeginEditable name="maincontentarea" -->
                 <div class="wdn-band">
                     <div class="wdn-inner-wrapper">
                         <p>Impress your audience with awesome content!</p>
                     </div>
                 </div>
-                
-<!-- InstanceEndEditable -->
+                <!-- InstanceEndEditable -->
                 <!--THIS IS THE END OF THE MAIN CONTENT AREA.-->
             </div>
         </div>
         <div class="wdn-band wdn-content-slide" id="wdn_optional_footer">
             <div class="wdn-inner-wrapper">
-                
-<!-- InstanceBeginEditable name="optionalfooter" -->
-                
-<!-- InstanceEndEditable -->
+                <!-- InstanceBeginEditable name="optionalfooter" -->
+                <!-- InstanceEndEditable -->
             </div>
         </div>
         <footer id="footer" role="contentinfo" class="wdn-content-slide">
             <div class="wdn-band" id="wdn_footer_related">
                 <div class="wdn-inner-wrapper">
-                    
-<!-- InstanceBeginEditable name="leftcollinks" -->
+                    <!-- InstanceBeginEditable name="leftcollinks" -->
                     <!--#include virtual="../sharedcode/relatedLinks.html" -->
-                    
-<!-- InstanceEndEditable -->
+                    <!-- InstanceEndEditable -->
                 </div>
             </div>
             <div class="wdn-band">
@@ -138,20 +122,16 @@ The Title of My Site
                     <div class="footer_col" id="wdn_footer_contact">
                         <h3>Contact Us</h3>
                         <div class="wdn-contact-wrapper">
-                            
-<!-- InstanceBeginEditable name="contactinfo" -->
+                            <!-- InstanceBeginEditable name="contactinfo" -->
                             <!--#include virtual="../sharedcode/footerContactInfo.html" -->
-                            
-<!-- InstanceEndEditable -->
+                            <!-- InstanceEndEditable -->
                         </div>
                     </div>
                     <div id="wdn_copyright">
                         <div class="wdn-footer-text">
-                            
-<!-- InstanceBeginEditable name="footercontent" -->
+                            <!-- InstanceBeginEditable name="footercontent" -->
                             <!--#include virtual="../sharedcode/footer.html" -->
-                            
-<!-- InstanceEndEditable -->
+                            <!-- InstanceEndEditable -->
                             <!--#include virtual="/wdn/templates_4.0/includes/wdn.html" -->
                         </div>
                     <!--#include virtual="/wdn/templates_4.0/includes/logos.html" -->
