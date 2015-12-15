@@ -19,7 +19,7 @@
     create a derivative work.
     This message may not be removed from any pages based on the UNL site template.
     
-    $Id: unlaffiliate_debug.dwt | 252c2891a48c70db689be6d897d4f34768b8258a | Thu Aug 1 15:08:19 2013 -0500 | Kevin Abel $
+    $Id: unlaffiliate_debug.dwt | 252c2891a48c70db689be6d897d4f34768b8258a | Thu Aug 1 15:08:19 2013 -0500 | Kevin Abel  $
 -->
 <!--#include virtual="/wdn/templates_4.0/includes/scriptsandstyles_debug.html" -->
 <!-- InstanceBeginEditable name="doctitle" -->
@@ -30,7 +30,6 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../sharedcode/affiliate.css" />
 <link href="../sharedcode/affiliate_imgs/favicon.ico" rel="shortcut icon" />
 <!-- InstanceEndEditable -->
-
 <!-- InstanceParam name="class" type="text" value="debug" -->
 </head>
 <body class="@@(_document['class'])@@" data-version="4.0">
@@ -146,4 +145,4 @@
         <!--#include virtual="/wdn/templates_4.0/includes/noscript.html" -->
     </div>
 </body>
-</html>
+<!-- InstanceEnd --></html>

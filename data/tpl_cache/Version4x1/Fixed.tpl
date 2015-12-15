@@ -15,7 +15,6 @@
 <!-- InstanceEndEditable -->
 <!-- InstanceBeginEditable name="head" -->
 <!-- InstanceEndEditable -->
-
 <!-- InstanceParam name="class" type="text" value="" -->
 </head>
 <body class="@@(_document['class'])@@" data-version="4.1">
@@ -105,4 +104,4 @@
     </div>
     <!--#include virtual="/wdn/templates_4.1/includes/body_scripts.html" -->
 </body>
-</html>
+<!-- InstanceEnd --></html>
