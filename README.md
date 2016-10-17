@@ -18,14 +18,8 @@ This package allows you to render UNL Template styled pages using PHP Objects.
 
 ```
 {
-  "repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/unl/phpunltemplates.git"
-    }
-  ],
   "require": {
-    "unl/php-unl-templates": "4.1.*"
+    "unl/php-wdn-templates": "4.1.*"
   }
 }
 ```
