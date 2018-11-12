@@ -1,5 +1,8 @@
 ## PHP UNL Templates Changelog
 
+### 5.0.0
+* App Theme
+
 ### 4.1.0
 * Complete API refactor
 * Removal of unsupported and end-of-life template versions

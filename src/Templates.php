@@ -11,8 +11,9 @@ abstract class Templates extends AbstractDwt
 {
     const VERSION_4 = '4';
     const VERSION_4_1 = '4.1';
+    const VERSION_5 = '5';
 
-    const VERSION_DEFAULT = self::VERSION_4_1;
+    const VERSION_DEFAULT = self::VERSION_5;
 
     const TEMPLATE_CACHE_DIR = 'tpl_cache';
     const DEPENDENTS_CACHE_DIR = 'dep_cache';
