@@ -18,7 +18,7 @@
   <!-- InstanceEndEditable -->
   <!-- InstanceParam name="class" type="text" value="debug" -->
 </head>
-<body class="@@(_document['class'])@@ affiliate" data-version="$HTML_VERSION$">
+<body class="@@(_document['class'])@@ affiliate" data-version="5.0">
 <!--#include virtual="/wdn/templates_5.0/includes/global/skip-nav.html" -->
 <header class="dcf-header" id="dcf-header" role="banner">
   <!--#include virtual="/wdn/templates_5.0/includes/global/header-global-1.html" -->
