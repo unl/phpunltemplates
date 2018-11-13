@@ -72,11 +72,11 @@ class DebugTest extends \PHPUnit_Framework_TestCase
 
         $output = (string) $this->template;
         $this->assertContains($needle, $output);
-        $this->assertContains('data-version="5"', $output);
+        $this->assertContains('data-version="5.0"', $output);
 
         $this->template->setLocalIncludePath(__DIR__ . '/../_files/');
         $output = (string) $this->template;
         $this->assertContains($needle, $output);
-        $this->assertContains('data-version="5"', $output);
+        $this->assertContains('data-version="5.0"', $output);
     }
 }
