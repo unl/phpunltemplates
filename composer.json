@@ -20,6 +20,9 @@
             "role": "Retired Developer"
         }
     ],
+    "platform": {
+	"php": "5.5"
+    },
     "autoload": {
         "psr-4": { "UNL\\Templates\\": "src/" }
     },
