@@ -4,7 +4,7 @@
  */
 
 
-namespace UNL\Templates\Version4x1;
+namespace UNL\Templates\Version5;
 
 /**
  * Template Definition for local.dwt
@@ -13,30 +13,6 @@ namespace UNL\Templates\Version4x1;
  */
 class Local extends \UNL\Templates\Version5
 {
-
-    const VERSION = '4.1';
-
-    const LOCAL_NAME = 'Version4x1';
-
-    const SOURCE_ROOT = 'https://raw.githubusercontent.com/unl/wdntemplates/4.1/';
-
-    const INCLUDE_ROOT = '/wdn/templates_4.1/includes/';
-
-    const VERSION_4 = '4';
-
-    const VERSION_4_1 = '4.1';
-
-    const VERSION_5 = '5';
-
-    const VERSION_DEFAULT = '5';
-
-    const TEMPLATE_CACHE_DIR = 'tpl_cache';
-
-    const DEPENDENTS_CACHE_DIR = 'dep_cache';
-
-    const INCLUDE_ERROR = '[an error occurred while processing this directive]';
-
-    const TOKEN_DEP_VERSION = '$DEP_VERSION$';
 
     protected $template = 'Local.tpl';
 
