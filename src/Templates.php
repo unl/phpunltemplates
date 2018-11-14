@@ -260,6 +260,18 @@ abstract class Templates extends AbstractDwt
         return $this;
     }
 
+    protected function appendToJSBody($value)
+    {
+        $jsbody = $this->getRegion('jsbody');
+
+        if (!$jsbody) {
+            return $this;
+        }
+
+        $jsbody->setValue($jsbody->getValue() . $value);
+        return $this;
+    }
+
     /**
      * Add a link within the head of the page.
      *
@@ -284,7 +296,7 @@ abstract class Templates extends AbstractDwt
      * @param string $type Type of script text/javascript
      * @return self
      */
-    public function addScript($url, $type = '')
+    public function addScript($url, $type = '', $appendToHead = FALSE)
     {
         $attributes = [
             'src' => $url
@@ -295,7 +307,12 @@ abstract class Templates extends AbstractDwt
         }
 
         $element = static::generateElement('script', $attributes) . PHP_EOL;
-        return $this->appendToHead($element);
+
+        if ($appendToHead === TRUE || static::VERSION == 4 || static::VERSION == 4.1) {
+            return $this->appendToHead($element);
+        }
+
+        return $this->appendToJSBody($element);
     }
 
     /**
