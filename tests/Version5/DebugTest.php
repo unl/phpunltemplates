@@ -57,12 +57,21 @@ class DebugTest extends \PHPUnit_Framework_TestCase
     public function testAddScriptDeclaration()
     {
         $this->assertEquals($this->template, $this->template->addScriptDeclaration('var foo;'));
+        $this->assertEquals('<script>var foo;</script>' . PHP_EOL, $this->template->jsbody);
+
+        $this->template->jsbody = '';
+
+        $this->template->addScriptDeclaration('foo', 'text/js-template');
+        $this->assertEquals('<script type="text/js-template">foo</script>' . PHP_EOL, $this->template->jsbody);
+
+        // Test Force to append to head vs jsbody
+        $this->assertEquals($this->template, $this->template->addScriptDeclaration('var foo;', '', TRUE));
         $this->assertEquals('<script>var foo;</script>' . PHP_EOL, $this->template->head);
 
         $this->template->head = '';
 
-        $this->template->addScriptDeclaration('foo', 'text/js-template');
-        $this->assertEquals('<script type="text/js-template">foo</script>' . PHP_EOL, $this->template->head);
+        $this->template->addScriptDeclaration('foo', 'text/js-template', TRUE);
+        $this->assertEquals('<script type="text/js-template">foo</script>' . PHP_EOL, $this->template->jsbody);
     }
 
     public function testOutput()
