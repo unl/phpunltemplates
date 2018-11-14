@@ -322,7 +322,7 @@ abstract class Templates extends AbstractDwt
      * @param string $type    Type of script tag.
      * @return self
      */
-    public function addScriptDeclaration($content, $type = '')
+    public function addScriptDeclaration($content, $type = '', $appendToHead = FALSE)
     {
         $attributes = [];
 
@@ -331,7 +331,12 @@ abstract class Templates extends AbstractDwt
         }
 
         $element = static::generateElement('script', $attributes, $content) . PHP_EOL;
-        return $this->appendToHead($element);
+
+        if ($appendToHead === TRUE || static::VERSION == 4 || static::VERSION == 4.1) {
+            return $this->appendToHead($element);
+        }
+
+        return $this->appendToJSBody($element);
     }
 
     /**
