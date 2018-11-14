@@ -14,6 +14,7 @@ class DebugTest extends \PHPUnit_Framework_TestCase
         Templates::setCachingService(new NullService());
         $this->template = Templates::factory('Debug', Templates::VERSION_5);
         $this->template->head = '';
+        $this->template->jsbody = '';
     }
 
     public function testGetLocalIncludePath()
@@ -56,8 +57,6 @@ class DebugTest extends \PHPUnit_Framework_TestCase
 
     public function testAddScriptDeclaration()
     {
-        $this->template->jsbody = '';
-
         $this->assertEquals($this->template, $this->template->addScriptDeclaration('var foo;'));
         $this->assertEquals('<script>var foo;</script>' . PHP_EOL, $this->template->jsbody);
 
@@ -69,7 +68,7 @@ class DebugTest extends \PHPUnit_Framework_TestCase
         $this->template->head = '';
 
         // Test Force to append to head vs jsbody
-        $this->assertEquals($this->template, $this->template->addScriptDeclaration('var foo;', '', TRUE));
+        $this->template->addScriptDeclaration('var foo;', '', TRUE);
         $this->assertEquals('<script>var foo;</script>' . PHP_EOL, $this->template->head);
 
         $this->template->head = '';
