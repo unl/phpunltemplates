@@ -308,7 +308,7 @@ abstract class Templates extends AbstractDwt
 
         $element = static::generateElement('script', $attributes) . PHP_EOL;
 
-        if ($appendToHead === TRUE || static::VERSION == 4 || static::VERSION == 4.1) {
+        if ($appendToHead === TRUE || static::VERSION < 5) {
             return $this->appendToHead($element);
         }
 
@@ -332,7 +332,7 @@ abstract class Templates extends AbstractDwt
 
         $element = static::generateElement('script', $attributes, $content) . PHP_EOL;
 
-        if ($appendToHead === TRUE || static::VERSION == 4 || static::VERSION == 4.1) {
+        if ($appendToHead === TRUE || static::VERSION < 5) {
             return $this->appendToHead($element);
         }
 

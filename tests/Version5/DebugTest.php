@@ -26,22 +26,29 @@ class DebugTest extends \PHPUnit_Framework_TestCase
     public function testAddScript()
     {
         $this->assertEquals($this->template, $this->template->addScript('foo.js'));
+        $this->assertEquals('', $this->template->head);
         $this->assertEquals('<script src="foo.js"></script>' . PHP_EOL, $this->template->jsbody);
 
+        $this->template->head = '';
         $this->template->jsbody = '';
 
         $this->template->addScript('foo.js', 'text/js-template');
+        $this->assertEquals('', $this->template->head);
         $this->assertEquals('<script src="foo.js" type="text/js-template"></script>' . PHP_EOL, $this->template->jsbody);
 
         $this->template->head = '';
+        $this->template->jsbody = '';
 
         $this->template->addScript('foo.js', '', TRUE);
         $this->assertEquals('<script src="foo.js"></script>' . PHP_EOL, $this->template->head);
+        $this->assertEquals('', $this->template->jsbody);
 
         $this->template->head = '';
+        $this->template->jsbody = '';
 
         $this->template->addScript('foo.js', 'text/js-template', TRUE);
-        $this->assertEquals('<script src="foo.js" type="text/js-template"></script>' . PHP_EOL, $this->template->head);
+        $this->assertEquals('<script src="foo.js" type="text/js-template"></script>' . PHP_EOL, $this->template->head)
+        $this->assertEquals('', $this->template->jsbody);;
     }
 
     public function testAddSStylesheet()
@@ -68,23 +75,30 @@ class DebugTest extends \PHPUnit_Framework_TestCase
     public function testAddScriptDeclaration()
     {
         $this->assertEquals($this->template, $this->template->addScriptDeclaration('var foo;'));
+        $this->assertEquals('', $this->template->head);
         $this->assertEquals('<script>var foo;</script>' . PHP_EOL, $this->template->jsbody);
 
+        $this->template->head = '';
         $this->template->jsbody = '';
 
         $this->template->addScriptDeclaration('foo', 'text/js-template');
+        $this->assertEquals('', $this->template->head);
         $this->assertEquals('<script type="text/js-template">foo</script>' . PHP_EOL, $this->template->jsbody);
 
         $this->template->head = '';
+        $this->template->jsbody = '';
 
         // Test Force to append to head vs jsbody
         $this->template->addScriptDeclaration('var foo;', '', TRUE);
         $this->assertEquals('<script>var foo;</script>' . PHP_EOL, $this->template->head);
+        $this->assertEquals('', $this->template->jsbody);
 
         $this->template->head = '';
+        $this->template->jsbody = '';
 
         $this->template->addScriptDeclaration('foo', 'text/js-template', TRUE);
-        $this->assertEquals('<script type="text/js-template">foo</script>' . PHP_EOL, $this->template->jsbody);
+        $this->assertEquals('<script type="text/js-template">foo</script>' . PHP_EOL, $this->template->head);
+        $this->assertEquals('', $this->template->jsbody);
     }
 
     public function testOutput()
