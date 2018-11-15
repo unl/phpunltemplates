@@ -16,7 +16,7 @@ require_once __DIR__ . '/../../tests/bootstrap.php';
 use UNL\Templates\Templates;
 
 $scannedPage = new UNL\Templates\Scanner(file_get_contents($_SERVER['argv'][1]));
-$new = Templates::factory('Fixed', Templates::VERSION_4);
+$new = Templates::factory('Fixed', Templates::VERSION_5);
 
 foreach ($scannedPage->getRegions() as $region) {
     if (count($region)) {

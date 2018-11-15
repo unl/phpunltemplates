@@ -19,7 +19,7 @@ This package allows you to render UNL Template styled pages using PHP Objects.
 ```
 {
   "require": {
-    "unl/php-wdn-templates": "4.1.*"
+    "unl/php-wdn-templates": "5.0.*"
   }
 }
 ```
@@ -40,9 +40,12 @@ require_once  'vendor/autoload.php';
 
 use UNL\Templates\Templates;
 
-$page = Templates::factory('Fixed', Templates::VERSION_4_1);
+$page = Templates::factory('Fixed', Templates::VERSION_5);
 
 $page->doctitle = '<title>My Sample UNL Site | University of Nebraska&ndash;Lincoln</title>';
+$page->head = '<!-- Place optional header elements here -->';
+$page->affiliation = '<a href="#">My site affiliation</a>';
+$page->titlegraphic = '<a class="unl-site-title-medium" href="#">Title of my site</a>';
 $page->navlinks = '<ul>
                    <li><a href="./">Home</a>
                        <ul>
@@ -51,21 +54,20 @@ $page->navlinks = '<ul>
                        </ul>
                    </li>
                    </ul>';
+$page->hero = '<div class="dcf-hero dcf-hero-default"></div>';
 $page->breadcrumbs = '<ul>
                       <li><a href="http://www.unl.edu/">UNL</a></li>
                       <li><a href="./">My Sample UNL Site</a></li>
                       </ul>';
-$page->titlegraphic = 'My Sample UNL Site';
 $page->pagetitle = '<h1>Welcome</h1>';
-$page->leftcollinks = '<h3>Related Links</h3>
-                       <ul>
-                       <li><a href="http://ucomm.unl.edu/">University Communications</a></li>
-                       </ul>';
+$page->herogroup1 = '';
+$page->herogroup2 = '<div class="dcf-hero-group-2"></div>';
+$page->maincontentarea = '<p>Content</p>';
 $page->contactinfo = '<p><strong>University of Nebraska-Lincoln</strong><br />
                       1400 R Street<br />
                       Lincoln, NE 68588<br />
-                      402-472-7211</p>';
-$page->maincontentarea = '<p>Content</p>';
+                     402-472-7211</p>';
+$page->jsbody = '<!-- put your custom javascript here -->';
 
 echo $page;
 ```

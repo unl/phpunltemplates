@@ -11,8 +11,9 @@ abstract class Templates extends AbstractDwt
 {
     const VERSION_4 = '4';
     const VERSION_4_1 = '4.1';
+    const VERSION_5 = '5';
 
-    const VERSION_DEFAULT = self::VERSION_4_1;
+    const VERSION_DEFAULT = self::VERSION_5;
 
     const TEMPLATE_CACHE_DIR = 'tpl_cache';
     const DEPENDENTS_CACHE_DIR = 'dep_cache';
@@ -259,6 +260,18 @@ abstract class Templates extends AbstractDwt
         return $this;
     }
 
+    protected function appendToJSBody($value)
+    {
+        $jsbody = $this->getRegion('jsbody');
+
+        if (!$jsbody) {
+            return $this;
+        }
+
+        $jsbody->setValue($jsbody->getValue() . $value);
+        return $this;
+    }
+
     /**
      * Add a link within the head of the page.
      *
@@ -283,7 +296,7 @@ abstract class Templates extends AbstractDwt
      * @param string $type Type of script text/javascript
      * @return self
      */
-    public function addScript($url, $type = '')
+    public function addScript($url, $type = '', $appendToHead = FALSE)
     {
         $attributes = [
             'src' => $url
@@ -294,7 +307,12 @@ abstract class Templates extends AbstractDwt
         }
 
         $element = static::generateElement('script', $attributes) . PHP_EOL;
-        return $this->appendToHead($element);
+
+        if ($appendToHead === TRUE || static::VERSION < 5) {
+            return $this->appendToHead($element);
+        }
+
+        return $this->appendToJSBody($element);
     }
 
     /**
@@ -304,7 +322,7 @@ abstract class Templates extends AbstractDwt
      * @param string $type    Type of script tag.
      * @return self
      */
-    public function addScriptDeclaration($content, $type = '')
+    public function addScriptDeclaration($content, $type = '', $appendToHead = FALSE)
     {
         $attributes = [];
 
@@ -313,7 +331,12 @@ abstract class Templates extends AbstractDwt
         }
 
         $element = static::generateElement('script', $attributes, $content) . PHP_EOL;
-        return $this->appendToHead($element);
+
+        if ($appendToHead === TRUE || static::VERSION < 5) {
+            return $this->appendToHead($element);
+        }
+
+        return $this->appendToJSBody($element);
     }
 
     /**
