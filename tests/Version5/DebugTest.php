@@ -47,7 +47,7 @@ class DebugTest extends \PHPUnit_Framework_TestCase
         $this->template->jsbody = '';
 
         $this->template->addScript('foo.js', 'text/js-template', TRUE);
-        $this->assertEquals('<script src="foo.js" type="text/js-template"></script>' . PHP_EOL, $this->template->head)
+        $this->assertEquals('<script src="foo.js" type="text/js-template"></script>' . PHP_EOL, $this->template->head);
         $this->assertEquals('', $this->template->jsbody);;
     }
 
