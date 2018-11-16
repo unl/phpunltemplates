@@ -66,6 +66,9 @@ class AppDebug extends \UNL\Templates\Version5
         'contactinfo' => '
     <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
     ',
+        'jsbody' => '
+  <!-- put your custom javascript here -->
+  ',
     );
 
     protected $params = array(
