@@ -55,10 +55,10 @@ $page->navlinks = '<ul>
                    </li>
                    </ul>';
 $page->hero = '<div class="dcf-hero dcf-hero-default"></div>';
-$page->breadcrumbs = '<ul>
+$page->breadcrumbs = '<ol>
                       <li><a href="http://www.unl.edu/">UNL</a></li>
                       <li><a href="./">My Sample UNL Site</a></li>
-                      </ul>';
+                      </ol>';
 $page->pagetitle = '<h1>Welcome</h1>';
 $page->herogroup1 = '';
 $page->herogroup2 = '<div class="dcf-hero-group-2"></div>';

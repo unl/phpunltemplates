@@ -62,12 +62,12 @@ class CustomClass
         $generatedDocTitle    .= ucwords($fileName);
 
         if ($isIndexPage) {
-            $generatedBreadcrumbs .= '<li>'. ucwords(end($keys)) .'</li></ul>';
+            $generatedBreadcrumbs .= '<li>'. ucwords(end($keys)) .'</li></ol>';
             $generatedDocTitle    .= ucwords(end($keys));
         }
 
         $doctitle    = '<title>' . $organization['name'] . $delimiter . $generatedDocTitle . '</title>';
-        $breadcrumbs = '<ul><li class="first"><a href="'.$organization['url'].'">' .
+        $breadcrumbs = '<ol><li class="first"><a href="'.$organization['url'].'">' .
             $organization['name'].'</a></li> ' . $generatedBreadcrumbs;
 
         $this->template->doctitle = $doctitle;
