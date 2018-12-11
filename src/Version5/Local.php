@@ -47,6 +47,15 @@ class Local extends \UNL\Templates\Version5
         'head' => '
   <!-- Place optional header elements here -->
   ',
+        'visitlocal' => '
+      <!--#include virtual="/wdn/templates_5.0/includes/local/visit-local.html" -->
+      ',
+        'applylocal' => '
+      <!--#include virtual="/wdn/templates_5.0/includes/local/apply-local.html" -->
+      ',
+        'givelocal' => '
+      <!--#include virtual="/wdn/templates_5.0/includes/local/give-local.html" -->
+      ',
         'affiliation' => '
   <a href="#">My site affiliation</a>
   ',
@@ -60,12 +69,12 @@ class Local extends \UNL\Templates\Version5
   <div class="dcf-hero dcf-hero-default">
     ',
         'breadcrumbs' => '
-        <ol>
-          <li><a href="http://www.unl.edu/" title="University of Nebraska&ndash;Lincoln" class="wdn-icon-home">UNL</a></li>
-          <li><a href="#" title="Site Title">Site Title</a></li>
-          <li>Home</li>
-        </ol>
-        ',
+          <ol>
+            <li><a href="https://www.unl.edu/">Nebraska</a></li>
+            <li><a href="/">Site Title</a></li>
+            <li><span aria-current="page">Home</span></li>
+          </ol>
+          ',
         'pagetitle' => '
         <h1>Please Title Your Page Here</h1>
         ',
@@ -78,6 +87,8 @@ class Local extends \UNL\Templates\Version5
         'maincontentarea' => '
     <p>Impress your audience with awesome content!</p>
     ',
+        'optionalfooter' => '
+  ',
         'contactinfo' => '
   <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
   ',
