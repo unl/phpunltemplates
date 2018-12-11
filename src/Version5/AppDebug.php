@@ -47,6 +47,15 @@ class AppDebug extends \UNL\Templates\Version5
         'head' => '
   <!-- Place optional header elements here -->
 ',
+        'visitlocal' => '
+        <!--#include virtual="/wdn/templates_5.0/includes/local/visit-local.html" -->
+        ',
+        'applylocal' => '
+        <!--#include virtual="/wdn/templates_5.0/includes/local/apply-local.html" -->
+        ',
+        'givelocal' => '
+        <!--#include virtual="/wdn/templates_5.0/includes/local/give-local.html" -->
+        ',
         'affiliation' => '
           ',
         'titlegraphic' => '
@@ -63,9 +72,14 @@ class AppDebug extends \UNL\Templates\Version5
         'maincontentarea' => '
     <p>Impress your audience with awesome content!</p>
     ',
+        'optionalfooter' => '
+    ',
         'contactinfo' => '
     <!--#include virtual="/wdn/templates_5.0/includes/local/footer-local.html" -->
     ',
+        'jsbody' => '
+  <!-- put your custom javascript here -->
+  ',
     );
 
     protected $params = array(
