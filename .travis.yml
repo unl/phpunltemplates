@@ -13,7 +13,7 @@ matrix:
       env:
         - EXECUTE_TEST_COVERALLS=true
     - php: 7
-        env:
+      env:
         - EXECUTE_TEST_COVERALLS=false
     - php: hhvm
   allow_failures:
