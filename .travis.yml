@@ -10,11 +10,11 @@ php:
   - 7
 
 before_install:
- composer self-update
+  - composer self-update
 
 install:
   - travis_retry composer install --no-interaction --ignore-platform-reqs
 
 script:
   - ./vendor/bin/phpunit
-  
+
