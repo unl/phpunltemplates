@@ -34,7 +34,7 @@
         "unl/php-dwt-parser": "1.0.*"
     },
     "require-dev": {
-        "phpunit/PHPUnit": "~4.0"
+        "phpunit/phpunit": "~4.0"
     },
     "autoload-dev": {
         "psr-4": {
