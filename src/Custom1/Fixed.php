@@ -2,7 +2,8 @@
 
 namespace UNL\Templates\Custom1;
 
-class Custom extends \UNL\Templates\Custom1
+
+class Fixed extends \UNL\Templates\Custom1
 {
 
     const VERSION = '1';
@@ -26,17 +27,13 @@ class Custom extends \UNL\Templates\Custom1
     protected $template = 'Custom.tpl';
 
     protected $regions = array(
-        'pagetitle' => '',
-        'doctitle' => '<title>App Sub-Theme</title>',
+        'doctitle' => '<title>Use a descriptive page title</title>',
         'head' => '<!-- Place optional header elements here -->',
-        'affiliation' => '',
-        'titlegraphic' => '
-          <a class="unl-site-title-short" href="https://www.unl.edu/">
-            Web Application
-          </a>
-          ',
-        'appcontrols' => '',
-        'appsearch' => '',
+        'affiliation' => '<a href="#">My site affiliation</a>',
+        'titlegraphic' => '<a href="#">Title of my site</a',
+        'navlinks' => '',
+        'breadcrumbs' => '',
+        'pagetitle' => '<h1>Please Title Your Page Here</h1>',
         'maincontentarea' => '<p>Impress your audience with awesome content!</p>',
         'optionalfooter' => '',
         'contactinfo' => '',
@@ -51,5 +48,5 @@ class Custom extends \UNL\Templates\Custom1
         ),
     );
 
-
 }
+
