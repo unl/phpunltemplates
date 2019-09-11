@@ -16,6 +16,16 @@ abstract class Custom1 extends Templates
     const VERSION = '1';
     const LOCAL_NAME = 'Custom1';
     const SOURCE_ROOT = '';
-    const INCLUDE_ROOT = NULL;
+    const INCLUDE_ROOT = '';
     const TOKEN_DEP_VERSION = false;
+
+    private $templatePath = '';
+
+    protected function getTemplatePath() {
+        return $this->templatePath;
+    }
+
+    public function setTemplatePath($templatePath) {
+        $this->templatePath = $templatePath;
+    }
 }
