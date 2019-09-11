@@ -23,18 +23,13 @@ class App extends \UNL\Templates\Custom1
 
     const TOKEN_DEP_VERSION = false;
 
-    protected $template = 'Custom.tpl';
+    protected $template = 'App.tpl';
 
     protected $regions = array(
         'pagetitle' => '',
         'doctitle' => '<title>App Sub-Theme</title>',
         'head' => '<!-- Place optional header elements here -->',
-        'affiliation' => '',
-        'titlegraphic' => '
-          <a class="unl-site-title-short" href="https://www.unl.edu/">
-            Web Application
-          </a>
-          ',
+        'titlegraphic' => '',
         'appcontrols' => '',
         'appsearch' => '',
         'maincontentarea' => '<p>Impress your audience with awesome content!</p>',
@@ -50,6 +45,5 @@ class App extends \UNL\Templates\Custom1
             'type' => 'text',
         ),
     );
-
 
 }
