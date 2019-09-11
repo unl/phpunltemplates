@@ -24,13 +24,12 @@ class Fixed extends \UNL\Templates\Custom1
 
     const TOKEN_DEP_VERSION = false;
 
-    protected $template = 'Custom.tpl';
+    protected $template = 'Fixed.tpl';
 
     protected $regions = array(
         'doctitle' => '<title>Use a descriptive page title</title>',
         'head' => '<!-- Place optional header elements here -->',
-        'affiliation' => '<a href="#">My site affiliation</a>',
-        'titlegraphic' => '<a href="#">Title of my site</a',
+        'titlegraphic' => '<a href="#">Title of my site</a>',
         'navlinks' => '',
         'breadcrumbs' => '',
         'pagetitle' => '<h1>Please Title Your Page Here</h1>',
