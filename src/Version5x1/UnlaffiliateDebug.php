@@ -14,6 +14,32 @@ namespace UNL\Templates\Version5x1;
 class UnlaffiliateDebug extends \UNL\Templates\Version5x1
 {
 
+    const VERSION = '5.1';
+
+    const LOCAL_NAME = 'Version5x1';
+
+    const SOURCE_ROOT = 'https://raw.githubusercontent.com/unl/wdntemplates/5.1/';
+
+    const INCLUDE_ROOT = '/wdn/templates_5.1/includes/';
+
+    const VERSION_4 = '4';
+
+    const VERSION_4_1 = '4.1';
+
+    const VERSION_5 = '5';
+
+    const VERSION_DEFAULT = '5';
+
+    const TEMPLATE_CACHE_DIR = 'tpl_cache';
+
+    const DEPENDENTS_CACHE_DIR = 'dep_cache';
+
+    const INCLUDE_ERROR = '[an error occurred while processing this directive]';
+
+    const TOKEN_DEP_VERSION = '$DEP_VERSION$';
+
+    const VERSION_5_1 = '5.1';
+
     protected $template = 'Unlaffiliate_debug.tpl';
 
     protected $regions = array(

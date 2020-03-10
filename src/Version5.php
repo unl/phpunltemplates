@@ -1,11 +1,11 @@
 <?php
 /**
- * Base class for Version 5.0 (2018) template files.
+ * Base class for Version 5.0 (2019) template files.
  *
  * @category  Templates
  * @package   UNL_Templates
  * @author    Jeff Sturek <jsturek8@unl.edu>
- * @copyright 2015 Regents of the University of Nebraska
+ * @copyright 2019 Regents of the University of Nebraska
  * @license   http://wdn.unl.edu/software-license BSD License
  */
 
