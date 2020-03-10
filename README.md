@@ -19,7 +19,7 @@ This package allows you to render UNL Template styled pages using PHP Objects.
 ```
 {
   "require": {
-    "unl/php-wdn-templates": "5.0.*"
+    "unl/php-wdn-templates": "5.1.*"
   }
 }
 ```
