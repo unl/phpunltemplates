@@ -40,7 +40,7 @@ require_once  'vendor/autoload.php';
 
 use UNL\Templates\Templates;
 
-$page = Templates::factory('Fixed', Templates::VERSION_5);
+$page = Templates::factory('Fixed', Templates::VERSION_5_1);
 
 $page->doctitle = '<title>My Sample UNL Site | University of Nebraska&ndash;Lincoln</title>';
 $page->head = '<!-- Place optional header elements here -->';
