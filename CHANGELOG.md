@@ -1,5 +1,8 @@
 ## PHP UNL Templates Changelog
 
+### 5.1.0
+* App Theme
+
 ### 5.0.0
 * App Theme
 

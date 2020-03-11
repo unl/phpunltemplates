@@ -12,8 +12,9 @@ abstract class Templates extends AbstractDwt
     const VERSION_4 = '4';
     const VERSION_4_1 = '4.1';
     const VERSION_5 = '5';
+    const VERSION_5_1 = '5.1';
 
-    const VERSION_DEFAULT = self::VERSION_5;
+    const VERSION_DEFAULT = self::VERSION_5_1;
 
     const TEMPLATE_CACHE_DIR = 'tpl_cache';
     const DEPENDENTS_CACHE_DIR = 'dep_cache';
@@ -308,7 +309,7 @@ abstract class Templates extends AbstractDwt
 
         $element = static::generateElement('script', $attributes) . PHP_EOL;
 
-        if ($appendToHead === TRUE || static::VERSION < 5) {
+        if ($appendToHead === TRUE || floatval(static::VERSION) < 5) {
             return $this->appendToHead($element);
         }
 
@@ -332,7 +333,7 @@ abstract class Templates extends AbstractDwt
 
         $element = static::generateElement('script', $attributes, $content) . PHP_EOL;
 
-        if ($appendToHead === TRUE || static::VERSION < 5) {
+        if ($appendToHead === TRUE || floatval(static::VERSION) < 5) {
             return $this->appendToHead($element);
         }
 
