@@ -22,6 +22,7 @@ abstract class Templates extends AbstractDwt
     const TOKEN_DEP_VERSION = '$DEP_VERSION$';
 
     // these constants should be replaced in version subclasses
+    const IS_CUSTOM = false;
     const VERSION = 'test';
     const LOCAL_NAME = 'VersionTest';
     const SOURCE_ROOT = './';
@@ -309,7 +310,7 @@ abstract class Templates extends AbstractDwt
 
         $element = static::generateElement('script', $attributes) . PHP_EOL;
 
-        if ($appendToHead === TRUE || floatval(static::VERSION) < 5) {
+        if ($appendToHead === TRUE || (!static::IS_CUSTOM && floatval(static::VERSION) < 5)) {
             return $this->appendToHead($element);
         }
 
@@ -333,7 +334,7 @@ abstract class Templates extends AbstractDwt
 
         $element = static::generateElement('script', $attributes, $content) . PHP_EOL;
 
-        if ($appendToHead === TRUE || floatval(static::VERSION) < 5) {
+        if ($appendToHead === TRUE || (!static::IS_CUSTOM && floatval(static::VERSION) < 5)) {
             return $this->appendToHead($element);
         }
 

@@ -13,6 +13,7 @@ namespace UNL\Templates;
 
 abstract class Version5 extends Templates
 {
+    const IS_CUSTOM = false;
     const VERSION = '5';
     const LOCAL_NAME = 'Version5';
     const SOURCE_ROOT = 'https://raw.githubusercontent.com/unl/wdntemplates/5.0/';

@@ -13,6 +13,7 @@ namespace UNL\Templates;
 
 abstract class Custom1 extends Templates
 {
+    const IS_CUSTOM = true;
     const VERSION = '1';
     const LOCAL_NAME = 'Custom1';
     const SOURCE_ROOT = '';
