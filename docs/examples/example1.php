@@ -7,7 +7,7 @@ require_once __DIR__ . '/../../tests/bootstrap.php';
 
 use UNL\Templates\Templates;
 
-$page = Templates::factory('Fixed', Templates::VERSION_5);
+$page = Templates::factory('Fixed', Templates::VERSION_5_1);
 
 // if we want to be certain we have the latest includes, uncomment the next line
 // $page->setLocalIncludePath('https://unlcms.unl.edu');
