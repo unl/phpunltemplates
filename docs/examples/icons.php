@@ -51,11 +51,14 @@ if ($_POST) {
     $code .= ');';
 
     $iconContent = '
-<div class="dcf-mt-6 dcf-mb-6 dcf-overflow-x-scroll">
-    <div class="dcf-mb-3"><span class="dcf-bold">Icon:</span><br>' . $icon . '</div>
-    <div class="dcf-mb-3"><span class="dcf-bold">SVG:</span><br>' . htmlentities($icon) . '</div>
-    <div><span class="dcf-bold">PHP:</span><br>' . htmlentities($code) . '</div>
-</div>';
+<dl class="dcf-mt-6 dcf-mb-6 dcf-overflow-x-scroll">
+    <dt class="dcf-mb-3 dcf-bold">Icon:</dt>
+    <dd>' . $icon . '</dd>
+    <dt class="dcf-mb-3 dcf-bold">SVG:</dt>
+    <dd>' . htmlentities($icon) . '</dd>
+    <dt class="dcf-mb-3 dcf-bold">PHP:</dt>
+    <dd>' . htmlentities($code) . '</dd>
+</dl>';
 }
 
 $content = '
@@ -99,8 +102,8 @@ echo $page->toHTML();
 function renderIconOptions($options, $selected) {
     $output = '';
     foreach ($options as $value => $label) {
-        $selected = $value === $selected ? ' selected ' : '';
-        $output .= '<option value="'. $value . '"'. $selected .'>' . $label . '</option>' . "\n";
+        $selectedAttr = $value === $selected ? ' selected ' : '';
+        $output .= '<option value="'. $value . '"'. $selectedAttr .'>' . $label . '</option>' . "\n";
     }
     return $output;
 }
