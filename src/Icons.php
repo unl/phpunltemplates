@@ -7,16 +7,11 @@ class Icons
     const ICON_ATTR_NAME = 'icon-name';
     const ICON_ATTR_PATH = 'icon-path';
 
-    const DEFAULT_HEIGHT = 20;
-    const DEFAULT_WIDTH = 20;
-    const DEFAULT_VIEW_BOX = '0 0 24 24';
+    const DEFAULT_SIZE = 5;
 
     const ICON_INFO_PIN = 'icon-info-pin';
     const ICON_PERSON = 'icon-person';
     const ICON_PERSON_CIRCLE = 'icon-person-circle';
-
-    const STYLE_FILL_BLACK = 'fill: rgb(0, 0, 0);';
-    const STYLE_FILL_LIGHTBLUE = 'fill: rgb(36, 154, 181);';
 
     static public function get($iconKey, $configJSON = NULL) {
         $icon = static::getIcon($iconKey);
@@ -24,34 +19,25 @@ class Icons
         $path = $icon[static::ICON_ATTR_PATH];
 
         // icon defaults
-        $viewBox = static::DEFAULT_VIEW_BOX;
-        $width = static::DEFAULT_WIDTH;
-        $height = static::DEFAULT_HEIGHT;
-        $style = static::STYLE_FILL_BLACK;
+        $size = static::DEFAULT_SIZE;
         $title = $titleID = $ariaLabelledBy = uniqid($iconKey . '-');
 
         if (!empty($configJSON)) {
             $config = json_decode($configJSON);
             if ($config instanceof \stdClass) {
-                if (property_exists($config, 'width')) {
-                    $width = $config->width;
-                }
-                if (property_exists($config, 'height')) {
-                    $height = $config->height;
+                if (property_exists($config, 'size')) {
+                    $size = static::isValidSize($config->size) ? $config->size : static::DEFAULT_SIZE;
                 }
                 if (property_exists($config, 'title')) {
                     $title = $config->title;
                 }
-                if (property_exists($config, 'viewBox')) {
-                    $viewBox = $config->viewBox;
-                }
-                if (property_exists($config, 'style')) {
-                    $style = $config->style;
-                }
             }
         }
+        return "<svg class=\"dcf-h-{$size} dcf-w-{$size} dcf-fill-current\" focusable=\"false\" height=\"16\" width=\"16\" viewBox=\"0 0 24 24\" aria-labelledby=\"{$ariaLabelledBy}\"><title id=\"{$titleID}\">{$title}</title>{$path}</svg>";
+    }
 
-        return "<svg width=\"{$width}\" viewBox=\"{$viewBox}\" aria-labelledby=\"{$ariaLabelledBy}\" style=\"{$style}\" height=\"{$height}\"><title id=\"{$titleID}\">{$title}</title>{$path}</svg>";
+    static public function getSizes() {
+        return array(1,2,3,4,5,6,7,8,9,10,'100%');
     }
 
     static public function getIconOptions() {
@@ -91,5 +77,9 @@ class Icons
     static private function getIcon($iconKey) {
         $icons = static::getIcons();
         return array_key_exists($iconKey, $icons) ? $icons[$iconKey] : NULL;
+    }
+
+    static private function isValidSize($size) {
+        return in_array($size, static::getSizes());
     }
 }

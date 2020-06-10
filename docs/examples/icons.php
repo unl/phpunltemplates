@@ -18,15 +18,17 @@ $page->navlinks         = '';
 $page->breadcrumbs      = '';
 $page->contactinfo      = '';
 
-$options = Icons::getIconOptions();
+$iconOptions = Icons::getIconOptions();
+$sizeOptions = array();
+foreach (Icons::getSizes() as $sizeOption) {
+    $sizeOptions[$sizeOption] = $sizeOption;
+}
 $iconContent = '';
 $iconKey = NULL;
 
 $title = '';
-$width = '';
-$height = '';
+$size = '';
 $viewBox = '';
-$style = '';
 
 if ($_POST) {
     $iconKey = $_POST['iconKey'];
@@ -34,19 +36,10 @@ if ($_POST) {
     $title = $_POST['title'];
     $configTitle = !empty(trim($title)) ? '"title": "' . trim($title) . '", ': '';
 
-    $width = $_POST['width'];
-    $configWidth = !empty(trim($width)) ? '"width": "' . trim($width) . '", ': '';
+    $size = $_POST['size'];
+    $configSize = !empty(trim($size)) ? '"size": "' . trim($size) . '", ': '';
 
-    $height = $_POST['height'];
-    $configHeight = !empty(trim($height)) ? '"height": "' . trim($height) . '", ': '';
-
-    $viewBox = $_POST['viewBox'];
-    $configViewBox = !empty(trim($viewBox)) ? '"viewBox": "' . trim($viewBox) . '", ': '';
-
-    $style = $_POST['style'];
-    $configStyle = !empty(trim($style)) ? '"style": "' . trim($style) . '", ': '';
-
-    $configString = rtrim($configTitle . $configWidth . $configHeight . $configViewBox . $configStyle, ', ');
+    $configString = rtrim($configTitle . $configSize, ', ');
     $config = !empty($configString) ? '{' . $configString . '}' : NULL;
     $icon = Icons::get($iconKey, $config);
 
@@ -74,28 +67,18 @@ $content = '
         <p class="dcf-italic dcf-txt-xs">Note: Leave values blank to use SVG defaults.</p>
         
         <div class="dcf-form-group">
-        <label for="icon">Icon</label>
-            <select id="iconKey" name="iconKey">' . renderIconOptions($options, $iconKey) . '</select>
+            <label for="icon">Icon</label>
+            <select id="iconKey" name="iconKey">' . renderSelectOptions($iconOptions, $iconKey) . '</select>
         </div>
         <div class="dcf-form-group">
             <label for="title">Title</label>
-            <input id="title" name="title" type="text" value="'. $title .'">
+            <input class="dcf-w-100%" id="title" name="title" type="text" maxlength="200" value="'. $title .'">
         </div>
         <div class="dcf-form-group">
-            <label for="height">Height</label>
-            <input id="height" name="height" type="text" value="'. $height .'">
-        </div>
-        <div class="dcf-form-group">
-            <label for="width">Width</label>
-            <input id="width" name="width" type="text" value="'. $width .'">
-        </div>
-        <div class="dcf-form-group">
-            <label for="viewBox">View Box</label>
-            <input id="viewBox" name="viewBox" type="text" value="'. $viewBox .'">
-        </div>
-        <div class="dcf-form-group">
-            <label for="style">Style</label>
-            <input id="style" name="style" type="text" value="'. $style .'">
+            <label for="height">Size</label>
+            <select id="size" name="size">
+                <option value="">Default</option>
+            ' . renderSelectOptions($sizeOptions, $size) . '</select>
         </div>
     </fieldset>
     <input class="dcf-mt-6 dcf-btn dcf-btn-primary" name="submit" type="submit" value="Generate Icon">
@@ -105,10 +88,10 @@ $content = '
 $page->maincontentarea  = $content . $iconContent;
 echo $page->toHTML();
 
-function renderIconOptions($options, $selected) {
+function renderSelectOptions($options, $selected) {
     $output = '';
     foreach ($options as $value => $label) {
-        $selectedAttr = $value === $selected ? ' selected ' : '';
+        $selectedAttr = $value == $selected ? ' selected ' : '';
         $output .= '<option value="'. $value . '"'. $selectedAttr .'>' . $label . '</option>' . "\n";
     }
     return $output;
