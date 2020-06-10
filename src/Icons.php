@@ -24,7 +24,6 @@ class Icons
         $path = $icon[static::ICON_ATTR_PATH];
 
         // icon defaults
-        $xmlns = 'http://www.w3.org/2000/svg';
         $viewBox = static::DEFAULT_VIEW_BOX;
         $width = static::DEFAULT_WIDTH;
         $height = static::DEFAULT_HEIGHT;
@@ -52,7 +51,7 @@ class Icons
             }
         }
 
-        return "<svg xmlns=\"{$xmlns}\" width=\"{$width}\" viewBox=\"{$viewBox}\" aria-labelledby=\"{$ariaLabelledBy}\" style=\"{$style}\" height=\"{$height}\"><title id=\"{$titleID}\">{$title}</title>{$path}</svg>";
+        return "<svg width=\"{$width}\" viewBox=\"{$viewBox}\" aria-labelledby=\"{$ariaLabelledBy}\" style=\"{$style}\" height=\"{$height}\"><title id=\"{$titleID}\">{$title}</title>{$path}</svg>";
     }
 
     static public function getIconOptions() {

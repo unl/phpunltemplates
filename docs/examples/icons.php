@@ -22,6 +22,12 @@ $options = Icons::getIconOptions();
 $iconContent = '';
 $iconKey = NULL;
 
+$title = '';
+$width = '';
+$height = '';
+$viewBox = '';
+$style = '';
+
 if ($_POST) {
     $iconKey = $_POST['iconKey'];
 
