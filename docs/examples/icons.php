@@ -28,7 +28,6 @@ $iconKey = NULL;
 
 $title = '';
 $size = '';
-$viewBox = '';
 
 if ($_POST) {
     $iconKey = $_POST['iconKey'];
