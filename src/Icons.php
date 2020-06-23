@@ -31,7 +31,8 @@ class Icons
 
         // icon defaults
         $size = static::DEFAULT_SIZE;
-        $title = $titleID = $ariaLabelledBy = uniqid($iconKey . '-');
+        $title = str_replace('-', ' ', $iconKey);
+        $titleID = $ariaLabelledBy = uniqid($iconKey . '-');
 
         if (!empty($configJSON)) {
             $config = json_decode($configJSON);
