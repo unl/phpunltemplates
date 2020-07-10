@@ -19,8 +19,7 @@ class Theme {
     private $templateSavvy;
     private $page;
     private $isCustom = TRUE;
-
-    public static $WDNIncludePath;
+    private $WDNIncludePath;
 
     public function __construct($savvy, $themePath, $type = NULL, $version = NULL, $template = NULL) {
         $this->templateSavvy = clone $savvy;
