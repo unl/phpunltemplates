@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dcf-no-js dcf-no-webp" lang="en">
+<html class="dcf-no-js dcf-no-webp" lang="en"><!-- InstanceBegin template="/Templates/app.dwt" codeOutsideHTMLIsLocked="false" -->
   <head>
   <!--#include virtual="/wdn/templates_5.2/includes/global/head-1.html" -->
   <!--
@@ -9,14 +9,14 @@
 
     $Id$
   -->
-  <!-- TemplateBeginEditable name="doctitle" -->
+  <!-- InstanceBeginEditable name="doctitle" -->
     <title>App Sub-Theme</title>
-  <!-- TemplateEndEditable -->
+  <!-- InstanceEndEditable -->
   <!--#include virtual="/wdn/templates_5.2/includes/global/head-2.html" -->
-  <!-- TemplateBeginEditable name="head" -->
+  <!-- InstanceBeginEditable name="head" -->
     <!-- Place optional header elements here -->
-  <!-- TemplateEndEditable -->
-  <!-- TemplateParam name="class" type="text" value="" -->
+  <!-- InstanceEndEditable -->
+  <!-- InstanceParam name="class" type="text" value="" -->
   </head>
   <body class="@@(_document['class'])@@ unl app" data-version="$HTML_VERSION$">
     <!--#include virtual="/wdn/templates_5.2/includes/global/skip-nav.html" -->
@@ -89,23 +89,23 @@
     <main class="dcf-wrapper" id="dcf-main" role="main" tabindex="-1">
       <!-- InstanceBeginEditable name="highlighted" -->
       <!-- InstanceEndEditable -->
-      <!-- TemplateBeginEditable name="maincontentarea" -->
+      <!-- InstanceBeginEditable name="maincontentarea" -->
       <p>Impress your audience with awesome content!</p>
-      <!-- TemplateEndEditable -->
+      <!-- InstanceEndEditable -->
     </main>
     <footer class="dcf-footer" id="dcf-footer" role="contentinfo">
-      <!-- TemplateBeginEditable name="optionalfooter" -->
-      <!-- TemplateEndEditable -->
+      <!-- InstanceBeginEditable name="optionalfooter" -->
+      <!-- InstanceEndEditable -->
       <!--#include virtual="/wdn/templates_5.2/includes/global/footer-global-1.html" -->
-      <!-- TemplateBeginEditable name="contactinfo" -->
+      <!-- InstanceBeginEditable name="contactinfo" -->
       <!--#include virtual="/wdn/templates_5.2/includes/local/footer-local.html" -->
-      <!-- TemplateEndEditable -->
+      <!-- InstanceEndEditable -->
       <!--#include virtual="/wdn/templates_5.2/includes/global/footer-global-2.html" -->
     </footer>
     <!--#include virtual="/wdn/templates_5.2/includes/global/noscript.html" -->
     <!--#include virtual="/wdn/templates_5.2/includes/global/js-body.html" -->
-    <!-- TemplateBeginEditable name="jsbody" -->
+    <!-- InstanceBeginEditable name="jsbody" -->
     <!-- Put your custom JavaScript here -->
-    <!-- TemplateEndEditable -->
+    <!-- InstanceEndEditable -->
   </body>
-</html>
+<!-- InstanceEnd --></html>
