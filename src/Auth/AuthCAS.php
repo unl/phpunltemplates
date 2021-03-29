@@ -5,7 +5,7 @@ class AuthCAS implements AuthInterface
 {
   public function __construct($version, $hostname, $port, $uri, $cert = NULL, $sessionName = NULL) {
     if (!\phpCAS::isInitialized()) {
-      if (!empty(sessionName)) {
+      if (!empty($sessionName)) {
         session_name($sessionName);
       }
       \phpCAS::client($version, $hostname, $port, $uri);
@@ -30,10 +30,6 @@ class AuthCAS implements AuthInterface
     \phpCAS::logout();
   }
 
-  public function logoutWithRedirect($redirectURL) {
-    \phpCAS::logoutWithRedirectService($redirectURL);
-  }
-
   public function checkAuthentication() {
     return \phpCAS::checkAuthentication();
   }
@@ -52,7 +48,7 @@ class AuthCAS implements AuthInterface
 
   public function getUserDisplayName() {
     $user = $this->getUser();
-    return $this->isAuthenticated() ? $user['displayName'] : NULL;
+    return is_array($user) && array_key_exists('displayName', $user) ? $user['displayName'] : $this->getUserID();
   }
 
 }
