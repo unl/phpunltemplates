@@ -383,7 +383,7 @@ abstract class Templates extends AbstractDwt
         return $this->addHeadLink($url, 'stylesheet', 'rel', $attributes);
     }
 
-    public function displayNoticeMessage($title, $message, $type="dcf-notice-info", $dcfNoticePath = 'dcf-notice', $containerID = 'dcf-main') {
+    public function displayDCFNoticeMessage($title, $message, $type="dcf-notice-info", $dcfNoticePath = 'dcf-notice', $containerID = 'dcf-main') {
         $this->addScriptDeclaration("
             require(['" . $dcfNoticePath . "'], function(DCFNoticeModule) {
                 var notice = new DCFNoticeModule.DCFNotice();
