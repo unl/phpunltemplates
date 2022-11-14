@@ -1,5 +1,8 @@
 ## PHP UNL Templates Changelog
 
+### 5.3.5
+* Added support for new phpCAS v1.6.0
+
 ### 5.1.0
 * App Theme
 
