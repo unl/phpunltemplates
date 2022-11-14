@@ -3,12 +3,12 @@ namespace UNL\Templates\Auth;
 
 class AuthCAS implements AuthInterface
 {
-  public function __construct($version, $hostname, $port, $uri, $cert = NULL, $sessionName = NULL) {
+  public function __construct($version, $hostname, $port, $uri, $siteURL, $cert = NULL, $sessionName = NULL) {
     if (!\phpCAS::isInitialized()) {
       if (!empty($sessionName)) {
         session_name($sessionName);
       }
-      \phpCAS::client($version, $hostname, $port, $uri);
+      \phpCAS::client($version, $hostname, $port, $uri, $siteURL);
       if (!empty($cert)) {
         \phpCAS::setCasServerCACert($cert);
       } else {
