@@ -35,11 +35,11 @@
         }
     ],
     "require": {
-        "php": ">=5.5",
-        "unl/php-dwt-parser": "1.0.*"
+        "php": ">=8.1",
+        "unl/php-dwt-parser": "1.0.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "~5.0"
+        "phpunit/phpunit": "^10.5.27"
     },
     "autoload-dev": {
         "psr-4": {
