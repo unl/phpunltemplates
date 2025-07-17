@@ -7,11 +7,11 @@
 namespace UNL\Templates\Version6x0;
 
 /**
- * Template Definition for app_debug.dwt
+ * Template Definition for app_local.dwt
  *
  * This class is an auto-generated class. Do not manually edit.
  */
-class AppDebug extends \UNL\Templates\Version6x0
+class AppLocal extends \UNL\Templates\Version6x0
 {
 
     protected $template = 'App_local.tpl';
@@ -61,7 +61,7 @@ class AppDebug extends \UNL\Templates\Version6x0
     protected $params = array(
         'class' => array(
             'name' => 'class',
-            'value' => 'debug',
+            'value' => '',
             'type' => 'text',
         ),
     );
