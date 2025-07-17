@@ -5,9 +5,14 @@
     "license": "BSD-3-Clause",
     "authors": [
         {
+            "name": "Thomas Neumann (tneumann9)",
+            "email": "tneumann9@unl.edu",
+            "role": "Developer"
+        },
+        {
             "name": "Jeff Sturek (jsturek)",
             "email": "jsturek8@unl.edu",
-            "role": "Developer"
+            "role": "Retired Developer"
         },
         {
             "name": "Kevin Abel (kabel)",
