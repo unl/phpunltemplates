@@ -385,11 +385,22 @@ abstract class Templates extends AbstractDwt
     }
 
     public function displayDCFNoticeMessage($title, $message, $type="dcf-notice-info", $dcfNoticePath = 'dcf-notice', $containerID = 'dcf-main') {
-        $this->addScriptDeclaration("
-            require(['" . $dcfNoticePath . "'], function(DCFNoticeModule) {
-                var notice = new DCFNoticeModule.DCFNotice();
-                var errorContainer = document.getElementById('" . $containerID . "');
-                notice.prependNotice(errorContainer, '" . $title ."', '" . $message ."', '" .  $type ."');
-        });");
+        if (static::VERSION !== self::VERSION_6_0) {
+            $this->addScriptDeclaration("
+                require(['" . $dcfNoticePath . "'], function(DCFNoticeModule) {
+                    var notice = new DCFNoticeModule.DCFNotice();
+                    var errorContainer = document.getElementById('" . $containerID . "');
+                    notice.prependNotice(errorContainer, '" . $title ."', '" . $message ."', '" .  $type ."');
+            });");
+        } else {
+            $this->addScriptDeclaration("
+                const errorContainer = document.getElementById('" . $containerID . "');
+                const new_notice = document.createElement('div');
+                new_notice.classList.add('dcf-notice', '" . $type . "');
+                new_notice.setAttribute('hidden', 'hidden');
+                new_notice.innerHTML = '<h2>". $title ."</h2><div>" . $message . "</div>';
+                errorContainer.prepend(new_notice);
+            ");
+        }
     }
 }
