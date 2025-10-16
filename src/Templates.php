@@ -295,6 +295,22 @@ abstract class Templates extends AbstractDwt
     }
 
     /**
+     * Add a meta tag within the head of the page.
+     *
+     * @param string $property   Property attribute value
+     * @param string $content    Content attribute value
+     * @param array  $attributes Any additional attribute=>value combinations
+     * @return self
+     */
+    public function addHeadMeta($property, $content, array $attributes = array())
+    {
+        $attributes['property'] = $property;
+        $attributes['content'] = $content;
+        $element = static::generateElement('meta', $attributes, false) . PHP_EOL;
+        return $this->appendToHead($element);
+    }
+
+    /**
      * Add a (java)script to the page.
      *
      * @param string $url  URL to the script
