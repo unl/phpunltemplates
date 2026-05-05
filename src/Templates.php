@@ -68,7 +68,7 @@ abstract class Templates extends AbstractDwt
         return static::$cache;
     }
 
-    public static function setCachingService(CachingService\CachingServiceInterface $cache = null)
+    public static function setCachingService(?CachingService\CachingServiceInterface $cache = null)
     {
         static::$cache = $cache;
     }
