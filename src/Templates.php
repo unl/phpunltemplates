@@ -402,7 +402,7 @@ abstract class Templates extends AbstractDwt
     }
 
     public function displayDCFNoticeMessage($title, $message, $type="dcf-notice-info", $dcfNoticePath = 'dcf-notice', $containerID = 'dcf-main') {
-        if (static::VERSION !== self::VERSION_6_0) {
+        if (static::VERSION !== self::VERSION_6_0 && static::VERSION !== self::VERSION_6_1) {
             $this->addScriptDeclaration("
                 require(['" . $dcfNoticePath . "'], function(DCFNoticeModule) {
                     var notice = new DCFNoticeModule.DCFNotice();

@@ -115,4 +115,28 @@ class DebugTest extends \PHPUnit\Framework\TestCase
         $this->assertStringContainsString($needle, $output);
         $this->assertStringContainsString('data-version="5.3"', $output);
     }
+
+    public function testDisplayDCFNoticeMessage()
+    {
+        $this->template->displayDCFNoticeMessage('My Title', 'My message');
+
+        $this->assertStringContainsString('<script>', $this->template->jsbody);
+
+        // Uses the legacy require() module, not the plain DOM approach
+        $this->assertStringContainsString("require(['dcf-notice']", $this->template->jsbody);
+        $this->assertStringContainsString("document.getElementById('dcf-main')", $this->template->jsbody);
+        $this->assertStringContainsString("notice.prependNotice(errorContainer, 'My Title', 'My message', 'dcf-notice-info')", $this->template->jsbody);
+        $this->assertStringNotContainsString('classList.add', $this->template->jsbody);
+        $this->assertEquals('', $this->template->head);
+    }
+
+    public function testDisplayDCFNoticeMessageCustomArguments()
+    {
+        $this->template->displayDCFNoticeMessage('Oops', 'Something broke', 'dcf-notice-danger', 'my-notice-module', 'my-container');
+
+        $this->assertStringContainsString("require(['my-notice-module']", $this->template->jsbody);
+        $this->assertStringContainsString("document.getElementById('my-container')", $this->template->jsbody);
+        $this->assertStringContainsString("notice.prependNotice(errorContainer, 'Oops', 'Something broke', 'dcf-notice-danger')", $this->template->jsbody);
+        $this->assertStringNotContainsString('classList.add', $this->template->jsbody);
+    }
 }
