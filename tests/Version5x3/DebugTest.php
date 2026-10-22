@@ -5,11 +5,11 @@ namespace UNLTest\Templates\Version5x3;
 use UNL\Templates\Templates;
 use UNL\Templates\CachingService\NullService;
 
-class DebugTest extends \PHPUnit_Framework_TestCase
+class DebugTest extends \PHPUnit\Framework\TestCase
 {
     protected $template;
 
-    public function setUp()
+    public function setUp():void
     {
         Templates::setCachingService(new NullService());
         $this->template = Templates::factory('Debug', Templates::VERSION_5_3);
@@ -107,12 +107,12 @@ class DebugTest extends \PHPUnit_Framework_TestCase
         $this->template->maincontentarea = $needle;
 
         $output = (string) $this->template;
-        $this->assertContains($needle, $output);
-        $this->assertContains('data-version="5.3"', $output);
+        $this->assertStringContainsString($needle, $output);
+        $this->assertStringContainsString('data-version="5.3"', $output);
 
         $this->template->setLocalIncludePath(__DIR__ . '/../_files/');
         $output = (string) $this->template;
-        $this->assertContains($needle, $output);
-        $this->assertContains('data-version="5.3"', $output);
+        $this->assertStringContainsString($needle, $output);
+        $this->assertStringContainsString('data-version="5.3"', $output);
     }
 }

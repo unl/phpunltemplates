@@ -5,11 +5,11 @@ namespace UNLTest\Templates\Version4;
 use UNL\Templates\Templates;
 use UNL\Templates\CachingService\UNLCacheLite;
 
-class DebugTest extends \PHPUnit_Framework_TestCase
+class DebugTest extends \PHPUnit\Framework\TestCase
 {
 	protected $template;
 
-	public function setUp()
+	public function setUp():void
 	{
 		// stub the UNL_Cache_Lite class, if needed
 		if (!class_exists('UNL_Cache_Lite', false)) {
@@ -30,13 +30,13 @@ class DebugTest extends \PHPUnit_Framework_TestCase
 
 		Templates::$options['templatedependentspath'] = 'https://raw.githubusercontent.com/unl/wdntemplates/4.0';
 		$output = (string) $this->template;
-		$this->assertContains($needle, $output);
-		$this->assertContains('data-version="4.0"', $output);
+		$this->assertStringContainsString($needle, $output);
+		$this->assertStringContainsString('data-version="4.0"', $output);
 		Templates::$options['templatedependentspath'] = '';
 
 		$this->template->setLocalIncludePath('http://nowhere.unl.edu');
 		$output = (string) $this->template;
-		$this->assertContains($needle, $output);
-		$this->assertContains(Templates::INCLUDE_ERROR, $output);
+		$this->assertStringContainsString($needle, $output);
+		$this->assertStringContainsString(Templates::INCLUDE_ERROR, $output);
 	}
 }

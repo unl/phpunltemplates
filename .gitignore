@@ -4,3 +4,5 @@
 *.DS_Store
 /vendor
 composer.lock
+.phpunit*
+phpunit.xml.dist.*

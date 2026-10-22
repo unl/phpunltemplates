@@ -2,16 +2,18 @@
 
 namespace UNLTest\Templates;
 
+use UnexpectedValueException;
 use UNL\Templates\Templates;
 use UNL\Templates\CachingService\NullService;
 use UNL\Templates\CachingService\UNLCacheLite;
 use UNL\DWT\Region;
 
-class TemplatesTest extends \PHPUnit_Framework_TestCase
+
+class TemplatesTest extends \PHPUnit\Framework\TestCase
 {
 	protected $template;
 
-	public function setUp()
+	public function setUp(): void
 	{
 		$this->template = $this->getMockForAbstractClass(Templates::class);
 	}
@@ -27,19 +29,17 @@ class TemplatesTest extends \PHPUnit_Framework_TestCase
 		$this->assertInstanceOf(Templates::class, Templates::factory('Debug'));
 	}
 
-	/**
-	 * @expectedException \UNL\Templates\Exception\UnexpectedValueException
-	 */
 	public function testFactoryClassDoesNotExist()
 	{
+		$this->expectException(UnexpectedValueException::class);
+
 		Templates::factory('Foo', Templates::VERSION_4);
 	}
 
-	/**
-	 * @expectedException \UNL\Templates\Exception\UnexpectedValueException
-	 */
 	public function testFactoryClassDoesNotExtend()
 	{
+		$this->expectException(UnexpectedValueException::class);
+
 		// create a fake class that doesn't follow the correct inheritance
 		$mock = $this->getMockBuilder('BadTemplate')->getMock();
 		class_alias(get_class($mock), 'UNL\\Templates\\Version4\\Bad');
@@ -60,7 +60,7 @@ class TemplatesTest extends \PHPUnit_Framework_TestCase
 		}
 
 		Templates::setCachingService();
-		Templates::cleanCache();
+		$this->assertTrue(Templates::cleanCache());
 		Templates::setCachingService();
 	}
 
@@ -71,8 +71,8 @@ class TemplatesTest extends \PHPUnit_Framework_TestCase
 		}
 
 		Templates::setCachingService();
-		Templates::cleanCache('foo');
-		Templates::cleanCache('bar');
+		$this->assertFalse(Templates::cleanCache('foo'));
+		$this->assertTrue(Templates::cleanCache('bar'));
 		Templates::setCachingService();
 	}
 
@@ -80,5 +80,29 @@ class TemplatesTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->template->addHeadLink('foo', 'home');
 		$this->assertEquals('', $this->template->toHtml());
+	}
+
+	public function testFactoryVersion6x1Debug()
+	{
+		$template = Templates::factory('Debug', Templates::VERSION_6_1);
+
+		$this->assertInstanceOf(Templates::class, $template);
+		$this->assertInstanceOf(\UNL\Templates\Version6x1\Debug::class, $template);
+	}
+
+	public function testFactoryVersion6x1AppLocal()
+	{
+		$template = Templates::factory('AppLocal', Templates::VERSION_6_1);
+
+		$this->assertInstanceOf(Templates::class, $template);
+		$this->assertInstanceOf(\UNL\Templates\Version6x1\AppLocal::class, $template);
+	}
+
+	public function testFactoryVersion6x1Fixed()
+	{
+		$template = Templates::factory('Fixed', Templates::VERSION_6_1);
+
+		$this->assertInstanceOf(Templates::class, $template);
+		$this->assertInstanceOf(\UNL\Templates\Version6x1\Fixed::class, $template);
 	}
 }

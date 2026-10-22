@@ -11,6 +11,17 @@ This package allows you to render UNL Template styled pages using PHP Objects.
 
 * PHP >= 5.5
 
+## Updating this project with a new template version
+
+1. Create new `tpl_cache` and `dep_cache` folders for the template version (example `data/tpl_cache/Version6x1`)
+  `tpl_cache` will contain the dwt template files but renamed to match other `tpl_cache` files
+  `dep_cache` will contain the includes for that version of the templates
+2. Copy the latest version class and update it's value (example `src/Version6x1.php`)
+3. Add a new constant in `src/Templates.php` for that version and update default version
+4. Create a folder for the version class files (example `src/Version6x1`)
+5. Run `php scripts/generate_template_classes.php data/tpl_cache/{your tpl_cache folder here} src/{your version folder here}` to generate the class files for each dwt file
+6. Create a new test file for that template version and run `vendor/bin/phpunit tests` to check for anything broken
+
 ## Example
 
 *  Navigate to your web root
